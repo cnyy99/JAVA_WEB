@@ -1,10 +1,9 @@
 package com.chennan.mysite.cnyy.mybatis.service;
 
-import com.chennan.mysite.cnyy.mybatis.mapper.UserMapper;
 import com.chennan.mysite.cnyy.mybatis.entity.User;
+import com.chennan.mysite.cnyy.mybatis.mapper.UserMapper;
 import com.github.pagehelper.Page;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 

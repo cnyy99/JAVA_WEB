@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 public class UserController {
 
@@ -21,7 +19,7 @@ public class UserController {
     @GetMapping("/users")
     public PageInfo<User> lists(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize) {
         PageHelper.startPage(pageNo,pageSize);
-        PageInfo<User> pageInfo = new PageInfo<>(userService.getUsers());
+        PageInfo<User> pageInfo = new PageInfo<User>(userService.getUsers());
         return pageInfo;
     }
     @GetMapping("/user/{id}")
