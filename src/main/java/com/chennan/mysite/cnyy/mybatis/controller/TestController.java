@@ -11,7 +11,7 @@ public class TestController {
     @GetMapping("/fastjson")
     public FastjsonTest getFastJson() {
         FastjsonTest fastjsonTest = new FastjsonTest();
-        fastjsonTest.setId(1);
+        fastjsonTest.setId(100);
         fastjsonTest.setString("fastjson test");
         fastjsonTest.setIgnore("ignore field");
         fastjsonTest.setDate(new Date());
