@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.HttpMessageConverter;
 import tk.mybatis.spring.annotation.MapperScan;
 
-//@EnableCaching
+@EnableCaching
 @SpringBootApplication
 @MapperScan("com.chennan.mysite.cnyy.mybatis.mapper")
 public class CnyyApplication {
