@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <!-- 导入配置文件 -->
+    <properties resource="application.properties"/>
+
+    <context id="MySql">
+        <jdbcConnection
+                driverClass="${spring.datasource.driver-class-name}"
+                connectionURL="${spring.datasource.url}"
+                userId="${spring.datasource.username}"
+                password="${spring.datasource.password}"/>
+        <javaModelGenerator targetPackage="com.chennan.mysite.cnyy.mybatis.entity" targetProject="src/main/java"></javaModelGenerator>
+        <table tableName="tbl_user"></table>
+    </context>
+</generatorConfiguration>
