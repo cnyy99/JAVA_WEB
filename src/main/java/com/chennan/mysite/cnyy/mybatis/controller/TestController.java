@@ -8,6 +8,12 @@ import java.util.Date;
 @RestController
 public class TestController {
 
+    @GetMapping("/tryintercept")
+    public String tryintercept()
+    {
+        return "tryintercept";
+    }
+
     @GetMapping("/fastjson")
     public FastjsonTest getFastJson() {
         FastjsonTest fastjsonTest = new FastjsonTest();
