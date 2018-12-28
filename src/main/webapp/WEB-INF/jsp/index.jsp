@@ -7,8 +7,8 @@
 </head>
 <body>
 <h3>登录用户： ${username}</h3>
-<h3>用户： ${user.getUserName()}</h3>
-<h3>密码： ${user.getUserPassword()}</h3>
+<%--<h3>用户： ${user.getUserName()}</h3>--%>
+<%--<h3>密码： ${user.getUserPassword()}</h3>--%>
 
 <a href="/logout">注销</a>
 <br />
