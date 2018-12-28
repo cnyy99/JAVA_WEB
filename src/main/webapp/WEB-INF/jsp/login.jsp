@@ -10,7 +10,7 @@
         <input type="password" id="password" name="password" class="inputstyle" />
     </div>
     <input type="submit" name="登录"/>
-    <a href="register.html" class="zcxy" target="_blank">注册</a>
+    <a href="/register" class="zcxy" target="_blank">注册</a>
 </form>
 </body>
 </html>
