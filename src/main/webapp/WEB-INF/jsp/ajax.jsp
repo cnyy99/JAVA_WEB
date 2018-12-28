@@ -4,6 +4,8 @@
 <html>
 <head>
     <title>Person列表</title>
+    <script src="https://cdn.staticfile.org/vue/2.4.2/vue.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue-resource/1.5.1/vue-resource.min.js"></script>
     <!-- 引入Jquery -->
     <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <!-- 編寫腳本 -->
@@ -25,6 +27,46 @@
                 }
             });
         });
+
+    </script>
+    <div id="box">
+        <input type="button" @click="get()" value="点我异步获取数据(Get)">
+    </div>
+    <div id="box2">
+        {{msg}}
+    </div>
+    <script type = "text/javascript">
+        var vm2 = new Vue({
+            el:'#box2',
+            data:{
+                msg:'Hello World!'
+            }
+        });
+        window.onload = function(){
+
+            var vm = new Vue({
+                el:'#box',
+                data:{
+                    msg:'Hello World!',
+                },
+                methods:{
+                    get:function(){
+                        //发送get请求
+                        this.$http.get('http://localhost:8080/users').then(function(res){
+                            var str="";
+                            for(var property in res) {
+                                str+=property + "=" + res[property]+"</br>";
+                            }
+                            vm2.msg=str;
+                            // document.write(res.body.list);
+                        },function(){
+                            console.log('请求失败处理');
+                        });
+                    }
+                }
+            });
+
+        }
     </script>
 </head>
 
