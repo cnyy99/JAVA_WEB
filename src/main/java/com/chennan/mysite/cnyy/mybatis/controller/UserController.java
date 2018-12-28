@@ -20,7 +20,7 @@ public class UserController {
     public PageInfo<User> lists(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize) {
         PageHelper.startPage(pageNo,pageSize);
         PageInfo<User> pageInfo = new PageInfo<>(userService.getAllUsers());
-        System.out.println("/users");
+//        System.out.println("/users");
         return pageInfo;
     }
 

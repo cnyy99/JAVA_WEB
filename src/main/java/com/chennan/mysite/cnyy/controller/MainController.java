@@ -53,9 +53,10 @@ public class MainController {
     public String toregister() {
         return "register";
     }
+
     @PostMapping("/register")
-    public ModelAndView register(HttpSession session,Model model, HttpServletResponse httpResponse,
-                           @RequestParam String username, @RequestParam String password, @RequestParam String password2) {
+    public ModelAndView register(HttpSession session, Model model, HttpServletResponse httpResponse,
+                                 @RequestParam String username, @RequestParam String password, @RequestParam String password2) {
 
         String msg = userService.register(username, password);
         model.addAttribute("msg", msg);
@@ -69,14 +70,15 @@ public class MainController {
             return view;
         }
     }
+
     @GetMapping("/login")
     public String tologin() {
         return "login";
     }
 
     @PostMapping("/addlogin")
-    public ModelAndView login(HttpSession session,Model model, HttpServletResponse httpResponse,
-                        @RequestParam String username, @RequestParam String password) {
+    public ModelAndView login(HttpSession session, Model model, HttpServletResponse httpResponse,
+                              @RequestParam String username, @RequestParam String password) {
         String msg = userService.login(username, password);
         System.out.println(msg);
         model.addAttribute("msg", msg);
