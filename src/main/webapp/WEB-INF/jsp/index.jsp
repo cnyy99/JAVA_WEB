@@ -3,11 +3,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>玩转spring boot——简单登录认证</title>
+    <title>玩转</title>
 </head>
 <body>
-<h1>玩转spring boot——简单登录认证</h1>
 <h3>登录用户： ${username}</h3>
+<h3>用户： ${user.getUserName()}</h3>
+<h3>密码： ${user.getUserPassword()}</h3>
 
 <a href="/logout">注销</a>
 <br />
