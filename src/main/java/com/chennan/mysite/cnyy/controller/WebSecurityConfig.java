@@ -1,5 +1,6 @@
 package com.chennan.mysite.cnyy.controller;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -38,7 +39,19 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
         @Override
         public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
             HttpSession session = request.getSession();
-            if (session.getAttribute(SESSION_KEY) != null) return true;
+            Cookie []cookies=request.getCookies();
+            if (session.getAttribute(SESSION_KEY) != null)
+            {
+                return true;
+            }
+            for(Cookie cookie :cookies)
+            {
+                if (cookie.getName().equalsIgnoreCase(SESSION_KEY))
+                {
+                    session.setAttribute(WebSecurityConfig.SESSION_KEY, cookie.getValue());
+                    return true;
+                }
+            }
             String url = "/login";
             response.sendRedirect(url);
             return false;

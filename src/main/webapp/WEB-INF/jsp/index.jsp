@@ -1,3 +1,4 @@
+<%@ page import="com.chennan.mysite.cnyy.controller.WebSecurityConfig" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
@@ -6,7 +7,7 @@
     <title>玩转</title>
 </head>
 <body>
-<h3>登录用户： ${username}</h3>
+<h3>登录用户： <%= session.getAttribute(WebSecurityConfig.SESSION_KEY)%></h3>
 <%--<h3>用户： ${user.getUserName()}</h3>--%>
 <%--<h3>密码： ${user.getUserPassword()}</h3>--%>
 
