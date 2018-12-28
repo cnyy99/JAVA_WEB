@@ -25,8 +25,8 @@ public class AjaxController {
 //    @GetMapping("/ajaxlist")
     @PostMapping("/ajaxlist")
     @ResponseBody
-    public List<User> getAjaxlist()
+    public PageInfo<User> getAjaxlist()
     {
-        return userService.getAllUsers();
+        return new PageInfo<>(userService.getAllUsers());
     }
 }

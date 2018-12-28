@@ -14,9 +14,10 @@
                 type: 'post',
                 contentType: "application/json; charset=utf-8",
                 dataType: 'json',
-                success: function(data) {//這裏的data代表的就是返回person集合list
+                success: function(rawdata) {//這裏的data代表的就是返回person集合list
                     var html = "";
                     html += "<tr><th>姓名</th><th>密码</th></tr>";
+                    var data=rawdata.list;
                     for(var i=0; i<data.length; i++){
                         html += "<tr><td>"+data[i].userName+"</td><td>"+data[i].userPassword+"</td></tr>";
                     }
