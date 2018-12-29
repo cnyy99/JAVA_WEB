@@ -43,7 +43,7 @@
         <%
         } else {
         %>
-        <a class="navbar-brand" href="#"> ${username}</a>
+        <a class="navbar-brand" href="#"> <%=username%></a>
         <%
             }
         %>
