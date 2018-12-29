@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-<form action="/addlogin" name="loginfrom" accept-charset="utf-8" method="post">
+<form action="/toindex" name="loginfrom" accept-charset="utf-8" method="post">
     <label class="label-tips" for="u">账号:</label>
     <input type="text" id="u" name="username" class="inputstyle"/>
     <div>
@@ -12,5 +12,6 @@
     <input type="submit" name="登录"/>
     <a href="/register" class="zcxy" target="_blank">注册</a>
 </form>
+<a href="/index">首页</a>
 </body>
 </html>

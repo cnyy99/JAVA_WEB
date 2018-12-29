@@ -17,7 +17,6 @@ public class IndexController {
     @GetMapping("/index")
     public ModelAndView index() {
         ModelAndView view = new ModelAndView("index");
-        view.addObject("username", "鸭鸭");
         return view;
     }
     @GetMapping("/login2")
@@ -25,7 +24,7 @@ public class IndexController {
         return "login2";
     }
 
-    @PostMapping("/toindex")
+    @PostMapping("/toindex2")
 //    @PostMapping(value = "/login1")
     public String toindex(@RequestParam String name, @RequestParam String pass,Model model) {
         User user = new User();

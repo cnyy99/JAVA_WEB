@@ -80,7 +80,7 @@ public class MainController {
         return "login";
     }
 
-    @PostMapping("/addlogin")
+    @PostMapping("/toindex")
     public ModelAndView login(HttpServletRequest request,HttpSession session, Model model, HttpServletResponse response,
                               @RequestParam String username, @RequestParam String password) {
         String msg = userService.login(username, password);
@@ -101,7 +101,7 @@ public class MainController {
             response.addCookie( url );
             session.setAttribute(SESSION_KEY, username);
             ModelAndView view = new ModelAndView("index");
-            view.addObject("username", username);
+//            view.addObject("username", username);
             return view;
         } else {
             ModelAndView view = new ModelAndView("login");
