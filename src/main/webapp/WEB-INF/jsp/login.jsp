@@ -1,85 +1,102 @@
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
-<%@ page import="java.util.Date" %>
-<%@ page import="com.chennan.mysite.cnyy.controller.WebSecurityConfig" %>
-<%@ page import="java.util.Enumeration" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <%
-        // 获取session创建时间
-        Date createTime = new Date(session.getCreationTime());
-        // 获取最后访问页面的时间
-        Date lastAccessTime = new Date(session.getLastAccessedTime());
 
-        String title = "再次访问菜鸟教程实例";
-        Integer visitCount = new Integer(0);
-        String visitCountKey = new String("visitCount");
-        String userIDKey = new String("userID");
-        String userID = new String("ABCD");
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
 
-        // 检测网页是否由新的访问用户
-        if (session.isNew()){
-            title = "访问菜鸟教程实例";
-//            session.setAttribute(userIDKey, userID);
-//            session.setAttribute(visitCountKey,  visitCount);
-        } else {
-//            visitCount = (Integer)session.getAttribute(visitCountKey);
-//            visitCount += 1;
-//            userID = (String)session.getAttribute(userIDKey);
-//            session.setAttribute(visitCountKey,  visitCount);
-        }
-        String username2=(String) session.getAttribute(WebSecurityConfig.SESSION_KEY);
-    %>
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="static/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/assets/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/assets/css/form-elements.css">
+    <link rel="stylesheet" href="static/assets/css/style.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="static/assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="static/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="static/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="static/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="static/assets/ico/apple-touch-icon-57-precomposed.png">
+
 </head>
-<body>
-<%
-    Enumeration enums=session.getAttributeNames();
-    while(enums.hasMoreElements() ) {
-       out.println(enums.nextElement()+"</br>");
-    }
-%>
-<form action="/toindex" name="loginfrom" accept-charset="utf-8" method="post">
-    <label class="label-tips" for="u">账号:</label>
-    <input type="text" id="u" name="username" class="inputstyle"/>
-    <div>
-        <label class="lable-tips" for="password">密码:</label>
-        <input type="password" id="password" name="password" class="inputstyle" />
-    </div>
-    <input type="submit" name="登录"/>
-    <a href="/register" class="zcxy" target="_blank">注册</a>
-</form>
-<a href="/index">首页</a>
-<h1>Session 跟踪</h1>
 
-<table border="1" align="center">
-    <tr bgcolor="#949494">
-        <th>Session 信息</th>
-        <th>值</th>
-    </tr>
-    <tr>
-        <td>id</td>
-        <td><% out.print( session.getId()); %></td>
-    </tr>
-    <tr>
-        <td>创建时间</td>
-        <td><% out.print(createTime); %></td>
-    </tr>
-    <tr>
-        <td>最后访问时间</td>
-        <td><% out.print(lastAccessTime); %></td>
-    </tr>
-    <tr>
-        <td>用户 ID</td>
-        <td><% out.print(userID); %></td>
-    </tr>
-    <tr>
-        <td>访问次数</td>
-        <td><% out.print(visitCount); %></td>
-    </tr>
-    <tr>
-        <td>用户名</td>
-        <td><% out.print(username2); %></td>
-    </tr>
-</table>
+<body>
+
+<!-- Top content -->
+<div class="top-content" style="background-image: url(/static/assets/img/backgrounds/1.jpg)" >
+
+    <div class="inner-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2 text">
+                    <h1><strong>Bootstrap</strong> Login Form</h1>
+                    <div class="description">
+                        <p>
+                            This is a free responsive login form made with Bootstrap.
+                            Download it on <a href="#"><strong>AZMIND</strong></a>, customize and use it as you like!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 form-box">
+                    <div class="form-top">
+                        <div class="form-top-left">
+                            <h3>Login to our site</h3>
+                            <p>Enter your username and password to log on:</p>
+                        </div>
+                        <div class="form-top-right">
+                            <i class="fa fa-lock"></i>
+                        </div>
+                    </div>
+                    <div class="form-bottom">
+                        <form role="form" action="/toindex" method="post" class="login-form">
+                            <div class="form-group">
+                                <label class="sr-only" for="username">用户名</label>
+                                <input type="text" name="username" placeholder="Username..."
+                                       class="form-username form-control" id="username">
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only" for="password">密码</label>
+                                <input type="password" name="password" placeholder="Password..."
+                                       class="form-password form-control" id="password">
+                            </div>
+                            <button type="submit" class="btn">登陆</button>
+                            <button type="button" href="/register" class="btn" style="margin-top: 10px">注册</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- Javascript -->
+<script src="static/assets/js/jquery-1.11.1.min.js"></script>
+<script src="static/assets/bootstrap/js/bootstrap.min.js"></script>
+<script src="static/assets/js/jquery.backstretch.min.js"></script>
+<script src="static/assets/js/scripts.js"></script>
+
+<!--[if lt IE 10]>
+<script src="static/assets/js/placeholder.js"></script>
+<![endif]-->
+
 </body>
+
 </html>
