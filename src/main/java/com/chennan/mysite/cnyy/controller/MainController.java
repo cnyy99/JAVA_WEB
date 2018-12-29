@@ -32,27 +32,6 @@ public class MainController {
         return "index";
     }
 
-    //    @GetMapping("/login")
-//    public String login() {
-//        return "login";
-//    }
-//
-//    @PostMapping("/loginPost")
-//    public @ResponseBody Map<String, Object> loginPost(String account, String password, HttpSession session) {
-//        Map<String, Object> map = new HashMap<>();
-//        if (!"123456".equals(password)) {
-//            map.put("success", false);
-//            map.put("message", "密码错误");
-//            return map;
-//        }
-//
-//        // 设置session
-//        session.setAttribute(WebSecurityConfig.SESSION_KEY, account);
-//
-//        map.put("success", true);
-//        map.put("message", "登录成功");
-//        return map;
-//    }
     @GetMapping("/register")
     public String toregister() {
         return "register";
@@ -122,7 +101,7 @@ public class MainController {
             }
         }
         session.removeAttribute(SESSION_KEY);
-        return "redirect:/login";
+        return "redirect:/index";
     }
 
 }

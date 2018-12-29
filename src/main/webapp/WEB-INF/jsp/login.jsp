@@ -20,13 +20,13 @@
         // 检测网页是否由新的访问用户
         if (session.isNew()){
             title = "访问菜鸟教程实例";
-            session.setAttribute(userIDKey, userID);
-            session.setAttribute(visitCountKey,  visitCount);
+//            session.setAttribute(userIDKey, userID);
+//            session.setAttribute(visitCountKey,  visitCount);
         } else {
-            visitCount = (Integer)session.getAttribute(visitCountKey);
-            visitCount += 1;
-            userID = (String)session.getAttribute(userIDKey);
-            session.setAttribute(visitCountKey,  visitCount);
+//            visitCount = (Integer)session.getAttribute(visitCountKey);
+//            visitCount += 1;
+//            userID = (String)session.getAttribute(userIDKey);
+//            session.setAttribute(visitCountKey,  visitCount);
         }
         String username2=(String) session.getAttribute(WebSecurityConfig.SESSION_KEY);
     %>
