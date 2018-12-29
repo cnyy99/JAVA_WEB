@@ -24,9 +24,12 @@
             session.setAttribute(visitCountKey,  visitCount);
         } else {
             visitCount = (Integer)session.getAttribute(visitCountKey);
-            visitCount += 1;
+            if(visitCount!=null)
+            {
+                visitCount += 1;
+                session.setAttribute(visitCountKey,  visitCount);
+            }
             userID = (String)session.getAttribute(userIDKey);
-            session.setAttribute(visitCountKey,  visitCount);
         }
         String username2=(String) session.getAttribute(WebSecurityConfig.SESSION_KEY);
     %>
