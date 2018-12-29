@@ -37,7 +37,7 @@
 <body>
 
 <!-- Top content -->
-<div class="top-content" style="background-image: url(/static/assets/img/backgrounds/1.jpg)" >
+<div class="top-content" style="background-image: url(/static/assets/img/backgrounds/1.jpg)">
 
     <div class="inner-bg">
         <div class="container">
@@ -76,7 +76,9 @@
                                        class="form-password form-control" id="password">
                             </div>
                             <button type="submit" class="btn">登陆</button>
-                            <button type="button" href="/register" class="btn" style="margin-top: 10px">注册</button>
+                            <a href="/register">
+                                <button type="button" class="btn" style="margin-top: 10px">注册</button>
+                            </a>
                         </form>
                     </div>
                 </div>
