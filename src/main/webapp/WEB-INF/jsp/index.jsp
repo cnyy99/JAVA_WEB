@@ -396,9 +396,9 @@
                             <img class="image img-fluid" src="/static/images/p1.jpg" alt="">
                         </div>
                         <a href="static/images/p1.jpg" class="img-pop-up">
-                            <div class="middle">
-                                <div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>
-                            </div>
+                            <%--<div class="middle">--%>
+                                <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
+                            <%--</div>--%>
                         </a>
                     </div>
                     <div class="p-inner">
@@ -413,9 +413,9 @@
                             <img class="image img-fluid" src="/static/images/p2.jpg" alt="">
                         </div>
                         <a href="static/images/p2.jpg" class="img-pop-up">
-                            <div class="middle">
-                                <div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>
-                            </div>
+                            <%--<div class="middle">--%>
+                                <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
+                            <%--</div>--%>
                         </a>
                     </div>
                     <div class="p-inner">
@@ -430,9 +430,9 @@
                             <img class="image img-fluid" src="/static/images/p3.jpg" alt="">
                         </div>
                         <a href="static/images/p3.jpg" class="img-pop-up">
-                            <div class="middle">
-                                <div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>
-                            </div>
+                            <%--<div class="middle">--%>
+                                <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
+                            <%--</div>--%>
                         </a>
 
                     </div>
@@ -448,9 +448,9 @@
                             <img class="image img-fluid" src="/static/images/p4.jpg" alt="">
                         </div>
                         <a href="images/p4.jpg" class="img-pop-up">
-                            <div class="middle">
-                                <div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>
-                            </div>
+                            <%--<div class="middle">--%>
+                                <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
+                            <%--</div>--%>
                         </a>
                     </div>
                     <div class="p-inner">
@@ -465,9 +465,9 @@
                             <img class="image img-fluid" src="/static/images/p5.jpg" alt="">
                         </div>
                         <a href="static/images/p5.jpg" class="img-pop-up">
-                            <div class="middle">
-                                <div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>
-                            </div>
+                            <%--<div class="middle">--%>
+                                <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
+                            <%--</div>--%>
                         </a>
                     </div>
                     <div class="p-inner">
@@ -482,9 +482,9 @@
                             <img class="image img-fluid" src="/static/images/p6.jpg" alt="">
                         </div>
                         <a href="static/images/p6.jpg" class="img-pop-up">
-                            <div class="middle">
-                                <div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>
-                            </div>
+                            <%--<div class="middle">--%>
+                                <%--<div class="text align-self-`center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
+                            <%--</div>--%>
                         </a>
                     </div>
                     <div class="p-inner">

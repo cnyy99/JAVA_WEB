@@ -23,10 +23,10 @@
 //            session.setAttribute(userIDKey, userID);
 //            session.setAttribute(visitCountKey,  visitCount);
         } else {
-            visitCount = (Integer)session.getAttribute(visitCountKey);
-            visitCount += 1;
-            userID = (String)session.getAttribute(userIDKey);
-            session.setAttribute(visitCountKey,  visitCount);
+//            visitCount = (Integer)session.getAttribute(visitCountKey);
+//            visitCount += 1;
+//            userID = (String)session.getAttribute(userIDKey);
+//            session.setAttribute(visitCountKey,  visitCount);
         }
         String username2=(String) session.getAttribute(WebSecurityConfig.SESSION_KEY);
     %>
@@ -35,7 +35,7 @@
 <%
     Enumeration enums=session.getAttributeNames();
     while(enums.hasMoreElements() ) {
-        out.println(enums.nextElement()+"</br>");
+       out.println(enums.nextElement()+"</br>");
     }
 %>
 <form action="/toindex" name="loginfrom" accept-charset="utf-8" method="post">
