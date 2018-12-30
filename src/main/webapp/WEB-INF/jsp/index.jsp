@@ -43,7 +43,8 @@
         <%
         } else {
         %>
-        <a class="navbar-brand" href="#"> <%=username%></a>
+        <a class="navbar-brand" href="/index"><%=username%>
+        </a>
         <%
             }
         %>
@@ -56,8 +57,16 @@
                 <li class="nav-item"><a class="nav-link" href="#section-resume">Resume</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-blog">Blog</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-contact">Contact</a></li>
+
             </ul>
         </div>
+        <%
+            if (username != null) {
+        %>
+        <a class="navbar-brand" href="/logout">注销</a>
+        <%
+            }
+        %>
     </div>
 </nav>
 
@@ -397,7 +406,7 @@
                         </div>
                         <a href="static/images/p1.jpg" class="img-pop-up">
                             <%--<div class="middle">--%>
-                                <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
+                            <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
                             <%--</div>--%>
                         </a>
                     </div>
@@ -414,7 +423,7 @@
                         </div>
                         <a href="static/images/p2.jpg" class="img-pop-up">
                             <%--<div class="middle">--%>
-                                <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
+                            <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
                             <%--</div>--%>
                         </a>
                     </div>
@@ -431,7 +440,7 @@
                         </div>
                         <a href="static/images/p3.jpg" class="img-pop-up">
                             <%--<div class="middle">--%>
-                                <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
+                            <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
                             <%--</div>--%>
                         </a>
 
@@ -449,7 +458,7 @@
                         </div>
                         <a href="images/p4.jpg" class="img-pop-up">
                             <%--<div class="middle">--%>
-                                <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
+                            <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
                             <%--</div>--%>
                         </a>
                     </div>
@@ -466,7 +475,7 @@
                         </div>
                         <a href="static/images/p5.jpg" class="img-pop-up">
                             <%--<div class="middle">--%>
-                                <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
+                            <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
                             <%--</div>--%>
                         </a>
                     </div>
@@ -483,7 +492,7 @@
                         </div>
                         <a href="static/images/p6.jpg" class="img-pop-up">
                             <%--<div class="middle">--%>
-                                <%--<div class="text align-self-`center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
+                            <%--<div class="text align-self-`center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
                             <%--</div>--%>
                         </a>
                     </div>
