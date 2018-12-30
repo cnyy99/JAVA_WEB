@@ -21,6 +21,14 @@
 
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
 
+    <!-- Favicon and touch icons -->
+    <link rel="shortcut icon" href="/static/assets/ico/favicon.png">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+          href="/static/assets/ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+          href="/static/assets/ico/apple-touch-icon-114-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/assets/ico/apple-touch-icon-57-precomposed.png">
 
 </head>
 <body data-spy="scroll" data-target="#pb-navbar" data-offset="200">
@@ -732,7 +740,7 @@
 
                 Copyright &copy;
                 <script>document.write(new Date().getFullYear());</script>
-                - Colorlib All rights reserved | More Templates <a href="http://www.cssmoban.com/" target="_blank"
+                - Chennan All rights reserved | More Templates <a href="http://www.cssmoban.com/" target="_blank"
                                                                    title="模板之家">模板之家</a> - Collect from <a
                     href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
 

@@ -37,13 +37,13 @@
 <body>
 
 <!-- Top content -->
-<div class="top-content" style="background-image: url(/static/assets/img/backgrounds/1.jpg)">
+<div class="top-content" >
 
     <div class="inner-bg">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
-                    <h1><strong>Bootstrap</strong> Login Form</h1>
+                    <h1>Web site of<strong></strong></h1>
                     <div class="description">
                         <p>
                             This is a free responsive login form made with Bootstrap.
