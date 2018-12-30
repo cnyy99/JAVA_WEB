@@ -1,11 +1,12 @@
-﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+﻿<%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+
+<html lang="en">
 <head>
     <meta charset="utf-8">
-    <link href="/static/css/style_register.css" rel='stylesheet' type='text/css'/>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel='stylesheet' href="/static/css/style_register.css" type="text/css"/>
+    <script  src="https://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script  src="https://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript"
             src="https://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
     <link rel="stylesheet"

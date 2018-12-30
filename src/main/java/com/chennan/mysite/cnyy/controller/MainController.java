@@ -27,8 +27,7 @@ public class MainController {
     private UserService userService;
 
     @GetMapping("/")
-    public String index(@SessionAttribute(SESSION_KEY) String account, Model model) {
-        model.addAttribute("name", account);
+    public String index() {
         return "index";
     }
 
@@ -55,8 +54,8 @@ public class MainController {
     }
 
     @GetMapping("/login")
-    public String tologin() {
-        return "login";
+    public ModelAndView tologin() {
+        return new ModelAndView("login");
     }
 
     @PostMapping("/toindex")
