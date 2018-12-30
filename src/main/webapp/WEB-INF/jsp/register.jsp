@@ -1,46 +1,104 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 69532
-  Date: 2018/12/27
-  Time: 18:30
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!doctype html>
+﻿<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8" />
-    <title>Title</title>
+    <meta charset="utf-8">
+    <link href="/static/css/style_register.css" rel='stylesheet' type='text/css'/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%--<script type="application/x-javascript"> addEventListener("load", function () {--%>
+    <%--setTimeout(hideURLbar, 0);--%>
+    <%--}, false);--%>
+    <%--function hideURLbar() {--%>
+    <%--window.scrollTo(0, 1);--%>
+    <%--} </script>--%>
+
 </head>
+
 <body>
-<div class="web_login">
-    <form name="form2" id="regUser" accept-charset="utf-8"  action="/register" method="post">
-        <ul class="reg_form" id="reg-ul">
-            <div id="userCue" class="cue">快速注册请注意格式</div>
-            <li>
-                <label for="username"  class="input-tips2">用户名：</label>
-                <div class="inputOuter2">
-                    <input type="text" id="username" name="username" maxlength="16" class="inputstyle2"/>
-                </div>
-            </li>
-            <li>
-                <label for="password" class="input-tips2">密码：</label>
-                <div class="inputOuter2">
-                    <input type="password" id="password"  name="password" maxlength="16" class="inputstyle2"/>
-                </div>
-            </li>
-            <li>
-                <label for="password2" class="input-tips2">确认密码：</label>
-                <div class="inputOuter2">
-                    <input type="password" id="password2" name="password2" maxlength="16" class="inputstyle2" />
-                </div>
-            </li>
-            <li>
-                <div class="inputArea">
-                    <input type="submit" id="reg"  style="margin-top:10px;margin-left:85px;" class="button_blue" value="同意协议并注册"/> <a href="#" class="zcxy" target="_blank">注册协议</a>
-                </div>
-            </li><div class="cl"></div>
-        </ul>
+<div class="main">
+    <!-----start-main---->
+    <div class="clear"></div>
+    <h2>注册</h2>
+    <form action="/register" id="register_from" class="form-horizontal" method="post">
+        <div class="lable-2 form-group">
+
+            <input type="text" class="text form-control" name="username" placeholder="请输入用户名">
+        </div>
+        <div class="clear"></div>
+        <div class="lable-2 form-group">
+            <input type="password" class="text form-control" name="password" placeholder="请输入密码">
+        </div>
+        <div class="lable-2 form-group">
+            <input type="password" class="text form-control" name="password2" placeholder="请重新输入密码">
+        </div>
+
+        <div class="clear"></div>
+        <h3>By creating an account, you agree to our <span><a href="#">Terms & Conditions</a> </span></h3>
+        <div class="submit">
+            <input type="submit" value="Create account">
+        </div>
+        <div class="clear"></div>
     </form>
+    <!-----//end-main---->
 </div>
+<script>
+    $(document).ready(function () {
+        $('#register_from').bootstrapValidator({
+            // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
+            feedbackIcons: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                username: {
+                    validators: {
+                        notEmpty: {
+                            message: '用户名不能为空'
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9_]{2,10}$|^[a-zA-Z0-9_\u4E00-\u9FA5]{2,6}$/,
+                            message: '用户名非法'
+                        }
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: '密码不能为空'
+                        },
+                        identical: {
+                            field: 'password2',
+                            message: '两次输入的密码不同'
+                        }
+                    }
+                },
+                password2: {
+                    validators: {
+                        notEmpty: {
+                            message: '密码不能为空'
+                        },
+                        identical: {
+                            field: 'password',
+                            message: '两次输入的密码不同'
+                        }
+                    }
+                }
+            }
+        });
+    });
+</script>
+<!-----start-copyright---->
+<%--<div class="copy-right">--%>
+    <%--<p>More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a></p>--%>
+<%--</div>--%>
+<!-----//end-copyright---->
+
 </body>
 </html>
