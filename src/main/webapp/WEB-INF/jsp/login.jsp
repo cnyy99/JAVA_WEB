@@ -71,6 +71,7 @@
                                        class="form-username form-control" id="username">
                             </div>
                             <div class="form-group">
+                                <p style="color: red">${SESSION_MSG_KEY}</p>
                                 <label class="sr-only" for="password">密码</label>
                                 <input type="password" name="password" placeholder="Password..."
                                        class="form-password form-control" id="password">
