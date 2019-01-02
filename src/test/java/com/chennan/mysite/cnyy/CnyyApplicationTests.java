@@ -10,6 +10,11 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Map;
+
+import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SESSION_MSG_KEY;
+import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.USER_TYPE_NORMAL;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CnyyApplicationTests {
@@ -21,15 +26,14 @@ public class CnyyApplicationTests {
 	}
 
 	@Test
-    @Transactional
-    @Rollback(value =true)
 	public void testinsert()
     {
         User user = new User();
-        user.setUserAge(1);
         user.setUserPassword("fas");
-        user.setUserName("fdasasafsfafsafasdfa");
-        userService.insert(user);
+        user.setUserName("123");
+        user.setUserType(USER_TYPE_NORMAL);
+        Map<String, String> stringMap=userService.register(user.getUserName(),userService.MD5(user.getUserPassword()),user.getUserType());
+        System.out.println(stringMap.get(SESSION_MSG_KEY));
     }
 
 }

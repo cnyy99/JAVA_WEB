@@ -44,7 +44,7 @@
 
         <!--<a class="navbar-brand" href="index.html">Alias</a>-->
         <%
-            String username = (String) session.getAttribute(WebSecurityConfig.SESSION_KEY);
+            String username = (String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY);
             if (username == null) {
         %>
         <a class="navbar-brand" href="/login">登陆</a>

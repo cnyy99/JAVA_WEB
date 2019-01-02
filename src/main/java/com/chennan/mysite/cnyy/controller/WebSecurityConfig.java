@@ -9,7 +9,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -19,7 +18,14 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
     /**
      * 登录session key
      */
-    public final static String SESSION_KEY = "user";
+    public final static String SESSION_USER_KEY = "SESSION_USER_KEY";
+    public final static String SESSION_USERTYPE_KEY = "SESSION_USERTYPE_KEY";
+    public final static String SESSION_MSG_KEY = "SESSION_MSG_KEY";
+    public final static String USER_TYPE_NORMAL = "USER_TYPE_NORMAL";
+    public final static String USER_TYPE_ADMINISTRATOR = "USER_TYPE_ADMINISTRATOR";
+    public final static String SUCCESS = "成功";
+    public final static String FAILURE = "失败";
+    public final static Integer COOKIE_MAX_AGE = 60 * 60 * 24;
 
     @Bean
     public SecurityInterceptor getSecurityInterceptor() {
@@ -45,15 +51,15 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
         public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
             HttpSession session = request.getSession();
             Cookie []cookies=request.getCookies();
-            if (session.getAttribute(SESSION_KEY) != null)
+            if (session.getAttribute(SESSION_USER_KEY) != null)
             {
                 return true;
             }
             for(Cookie cookie :cookies)
             {
-                if (cookie.getName().equalsIgnoreCase(SESSION_KEY))
+                if (cookie.getName().equalsIgnoreCase(SESSION_USER_KEY))
                 {
-                    session.setAttribute(WebSecurityConfig.SESSION_KEY, cookie.getValue());
+                    session.setAttribute(WebSecurityConfig.SESSION_USER_KEY, cookie.getValue());
                     return true;
                 }
             }

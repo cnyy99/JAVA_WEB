@@ -5,8 +5,8 @@
 <head>
     <meta charset="utf-8">
     <link rel='stylesheet' href="/static/css/style_register.css" type="text/css"/>
-    <script  src="https://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
-    <script  src="https://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript"
             src="https://cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
     <link rel="stylesheet"
@@ -24,7 +24,8 @@
           href="/static/assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114"
           href="/static/assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="/static/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/static/assets/ico/apple-touch-icon-57-precomposed.png">
 
 </head>
@@ -36,7 +37,7 @@
     <h2>注册</h2>
     <form action="/register" id="register_from" class="form-horizontal" method="post">
         <div class="lable-2 form-group">
-
+            <p style="color: red">${SESSION_MSG_KEY}</p>
             <input type="text" class="text form-control" name="username" placeholder="请输入用户名">
         </div>
         <div class="clear"></div>
@@ -52,7 +53,9 @@
         <div class="submit">
             <input type="submit" value="Create account">
         </div>
-        <div class="clear"></div>
+        <div class="clear">
+
+        </div>
     </form>
     <!-----//end-main---->
 </div>
@@ -105,7 +108,7 @@
 </script>
 <!-----start-copyright---->
 <%--<div class="copy-right">--%>
-    <%--<p>More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a></p>--%>
+<%--<p>More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a></p>--%>
 <%--</div>--%>
 <!-----//end-copyright---->
 

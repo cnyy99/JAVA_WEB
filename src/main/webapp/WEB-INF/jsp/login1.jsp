@@ -28,7 +28,7 @@
 //            userID = (String)session.getAttribute(userIDKey);
 //            session.setAttribute(visitCountKey,  visitCount);
         }
-        String username2=(String) session.getAttribute(WebSecurityConfig.SESSION_KEY);
+        String username2=(String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY);
     %>
 </head>
 <body>

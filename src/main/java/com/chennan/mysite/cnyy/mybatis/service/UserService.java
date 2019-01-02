@@ -16,6 +16,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SESSION_MSG_KEY;
+import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SESSION_USERTYPE_KEY;
+import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SUCCESS;
+
 
 @Service
 public class UserService {
@@ -50,48 +54,53 @@ public class UserService {
         }
     }
 
-    public String register(String username, String password) {
+    public Map<String,String> register(String username, String password,String type) {
+        Map<String,String> stringMap=new HashMap<>();
+        stringMap.put(SESSION_USERTYPE_KEY,type);
         if (StringUtils.isBlank(username)) {
-            return "用户名不能为空";
+            stringMap.put(SESSION_MSG_KEY,"用户名不能为空");
+            return stringMap;
         }
 
         if (StringUtils.isBlank(password)) {
-            return "密码不能为空";
+            stringMap.put(SESSION_MSG_KEY,"密码不能为空");
+            return stringMap;
         }
 
         User u = selectByName(username);
         if (u != null) {
-            return "用户名已经被占用";
+            stringMap.put(SESSION_MSG_KEY,"用户名已经被占用");
+            return stringMap;
         }
 
         User user = new User();
         user.setUserName(username);
         user.setUserPassword(MD5(password));
+        user.setUserType(type);
         insert(user);
+        stringMap.put(SESSION_MSG_KEY,SUCCESS);
+        return stringMap;
 
 
-        return "注册成功";
     }
 
-    public String login(String username, String password) {
-        if (StringUtils.isBlank(username)) {
-            return "用户名不能为空";
-        }
-
-        if (StringUtils.isBlank(password)) {
-            return "密码不能为空";
-        }
+    public Map<String,String> login(String username, String password) {
+        Map<String,String> stringMap=new HashMap<>();
 
         User u = selectByName(username);
         if (u == null) {
-            return "用户名不存在";
+            stringMap.put(SESSION_MSG_KEY,"用户名不存在");
+            return stringMap;
         }
 
         if (!MD5(password).equals(u.getUserPassword())) {
 //        if (!password.equals(u.getUserPassword())) {
-            return "密码错误";
+            stringMap.put(SESSION_MSG_KEY,"密码错误");
+            return stringMap;
         }
-        return "登陆成功";
+        stringMap.put(SESSION_MSG_KEY,SUCCESS);
+        stringMap.put(SESSION_USERTYPE_KEY,u.getUserType());
+        return stringMap;
     }
 
     public String MD5(String message) {
