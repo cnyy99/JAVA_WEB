@@ -5,6 +5,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistration;
@@ -15,6 +17,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 /**  *  */
 @Configuration
 public class WebSecurityConfig extends WebMvcConfigurerAdapter {
+    private Logger log = LoggerFactory.getLogger(MainController.class);
+
     /**
      * 登录session key
      */
@@ -38,7 +42,7 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
         addInterceptor.excludePathPatterns("/error");
         addInterceptor.excludePathPatterns("/login**");
         addInterceptor.excludePathPatterns("/toindex");
-        addInterceptor.excludePathPatterns("/");
+//        addInterceptor.excludePathPatterns("/");
         addInterceptor.excludePathPatterns("/static/**");
         addInterceptor.excludePathPatterns("/index");
         addInterceptor.excludePathPatterns("/register");
@@ -55,14 +59,24 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
             {
                 return true;
             }
+            boolean isLogined=false;
             for(Cookie cookie :cookies)
             {
                 if (cookie.getName().equalsIgnoreCase(SESSION_USER_KEY))
                 {
-                    session.setAttribute(WebSecurityConfig.SESSION_USER_KEY, cookie.getValue());
-                    return true;
+                    session.setAttribute(SESSION_USER_KEY, cookie.getValue());
+                    isLogined=true;
+                    log.info("cookie: "+cookie.getName()+": "+cookie.getValue());
+                }
+                if (cookie.getName().equalsIgnoreCase(SESSION_USERTYPE_KEY))
+                {
+                    session.setAttribute(SESSION_USERTYPE_KEY, cookie.getValue());
+                    isLogined=true;
+                    log.info("cookie: "+cookie.getName()+": "+cookie.getValue());
                 }
             }
+            if (isLogined)
+                return true;
             String url = "/login";
             response.sendRedirect(url);
             return false;

@@ -9,6 +9,8 @@ import javax.servlet.http.HttpSession;
 
 import com.chennan.mysite.cnyy.mybatis.entity.User;
 import com.chennan.mysite.cnyy.mybatis.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,6 +25,7 @@ import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.*;
 @Controller
 public class MainController {
 
+    private Logger log = LoggerFactory.getLogger(MainController.class);
     @Autowired
     private UserService userService;
 
@@ -66,11 +69,11 @@ public class MainController {
     public ModelAndView login(HttpServletRequest request, HttpSession session, Model model, HttpServletResponse response,
                               @RequestParam String username, @RequestParam String password) {
         Map<String, String> msg = userService.login(username, password);
-        System.out.println(msg);
+        log.info(msg.toString());
         model.addAttribute(SESSION_MSG_KEY, msg);
         if (msg.get(SESSION_MSG_KEY).equalsIgnoreCase(SUCCESS)) {
             // 设置 name 和 url cookie
-            Cookie name = new Cookie(WebSecurityConfig.SESSION_USER_KEY,
+            Cookie name = new Cookie(SESSION_USER_KEY,
                     username);
             Cookie url = new Cookie("url",
                     request.getParameter("url"));
