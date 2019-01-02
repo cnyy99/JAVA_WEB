@@ -27,7 +27,8 @@
           href="/static/assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114"
           href="/static/assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="/static/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/static/assets/ico/apple-touch-icon-57-precomposed.png">
 
 </head>
@@ -45,14 +46,21 @@
         <!--<a class="navbar-brand" href="index.html">Alias</a>-->
         <%
             String username = (String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY);
+            String userType = (String) session.getAttribute(WebSecurityConfig.SESSION_USERTYPE_KEY);
             if (username == null) {
         %>
         <a class="navbar-brand" href="/login">登陆</a>
+        <%
+        } else if (userType.equalsIgnoreCase(WebSecurityConfig.USER_TYPE_ADMINISTRATOR)) {
+        %>
+        <strong><a class="navbar-brand" href="/index"><%=username%>
+        </a></strong>
         <%
         } else {
         %>
         <a class="navbar-brand" href="/index"><%=username%>
         </a>
+
         <%
             }
         %>
@@ -741,7 +749,7 @@
                 Copyright &copy;
                 <script>document.write(new Date().getFullYear());</script>
                 - Chennan All rights reserved | More Templates <a href="http://www.cssmoban.com/" target="_blank"
-                                                                   title="模板之家">模板之家</a> - Collect from <a
+                                                                  title="模板之家">模板之家</a> - Collect from <a
                     href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
 
             </p>

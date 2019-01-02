@@ -32,29 +32,34 @@ public class MainController {
     }
 
     @GetMapping("/register")
-    public String toregister() {
+    public String toregister(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USER_KEY);
+        if (username != null)
+            return "redirect:/index";
         return "register";
     }
 
     @PostMapping("/register")
-    public ModelAndView register(HttpSession session, Model model, HttpServletResponse httpResponse,
-                                 @RequestParam String username, @RequestParam String password, @RequestParam(defaultValue = USER_TYPE_NORMAL) String type) {
+    public String register(Model model,
+                           @RequestParam String username, @RequestParam String password, @RequestParam(defaultValue = USER_TYPE_NORMAL) String type) {
 
         Map<String, String> msg = userService.register(username, password, type);
-        model.addAttribute(SESSION_MSG_KEY, msg);
         if (msg.get(SESSION_MSG_KEY).equalsIgnoreCase(SUCCESS)) {
-            ModelAndView view = new ModelAndView("login");
-            return view;
+            return "login";
         } else {
-            ModelAndView view = new ModelAndView("register");
-            view.addObject(SESSION_MSG_KEY, msg.get(SESSION_MSG_KEY));
-            return view;
+            model.addAttribute(SESSION_MSG_KEY, msg.get(SESSION_MSG_KEY));
+            return "register";
         }
     }
 
     @GetMapping("/login")
-    public ModelAndView tologin() {
-        return new ModelAndView("login");
+    public String tologin(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String username = (String) session.getAttribute(SESSION_USER_KEY);
+        if (username != null)
+            return "redirect:/index";
+        return "login";
     }
 
     @PostMapping("/toindex")
@@ -87,22 +92,27 @@ public class MainController {
             return view;
         } else {
             ModelAndView view = new ModelAndView("login");
-            view.addObject(SESSION_MSG_KEY,msg.get(SESSION_MSG_KEY));
+            view.addObject(SESSION_MSG_KEY, msg.get(SESSION_MSG_KEY));
             return view;
         }
     }
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, HttpSession session, HttpServletResponse response) {
-        // 移除session
+        // 移除cookie
         Cookie[] cookies = request.getCookies();
         for (Cookie cookie : cookies) {
             if (cookie.getName().equalsIgnoreCase(SESSION_USER_KEY)) {
                 cookie.setMaxAge(0);
                 response.addCookie(cookie);
+            } else if (cookie.getName().equalsIgnoreCase(SESSION_USERTYPE_KEY)) {
+                cookie.setMaxAge(0);
+                response.addCookie(cookie);
             }
         }
+        // 移除session
         session.removeAttribute(SESSION_USER_KEY);
+        session.removeAttribute(SESSION_USERTYPE_KEY);
         return "redirect:/index";
     }
 
