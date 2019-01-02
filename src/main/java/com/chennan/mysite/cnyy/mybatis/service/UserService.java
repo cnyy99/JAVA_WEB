@@ -3,10 +3,13 @@ package com.chennan.mysite.cnyy.mybatis.service;
 import com.chennan.mysite.cnyy.mybatis.entity.User;
 import com.chennan.mysite.cnyy.mybatis.entity.UserExample;
 import com.chennan.mysite.cnyy.mybatis.mapper.UserMapper;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.security.MessageDigest;
 import java.util.HashMap;
@@ -109,4 +112,10 @@ public class UserService {
         return null;
     }
 
+    public PageInfo<User> getAllUsersPage(int pageNo, int pageSize) {
+        PageHelper.startPage(pageNo,pageSize);
+        PageInfo<User> pageInfo = new PageInfo<>(getAllUsers());
+
+        return pageInfo;
+    }
 }

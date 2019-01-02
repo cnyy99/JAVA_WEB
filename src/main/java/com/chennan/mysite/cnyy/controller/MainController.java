@@ -45,7 +45,6 @@ public class MainController {
         if (msg.equalsIgnoreCase("登陆成功")) {
             session.setAttribute(SESSION_KEY, username);
             ModelAndView view = new ModelAndView("index");
-            view.addObject("username", username);
             return view;
         } else {
             ModelAndView view = new ModelAndView("login");
