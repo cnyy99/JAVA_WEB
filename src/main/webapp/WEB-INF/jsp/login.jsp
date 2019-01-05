@@ -29,7 +29,8 @@
           href="/static/assets/ico/apple-touch-icon-144-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="114x114"
           href="/static/assets/ico/apple-touch-icon-114-precomposed.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/assets/ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+          href="/static/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/static/assets/ico/apple-touch-icon-57-precomposed.png">
 
 </head>
@@ -37,17 +38,16 @@
 <body>
 
 <!-- Top content -->
-<div class="top-content" >
+<div class="top-content">
 
     <div class="inner-bg">
         <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 text">
-                    <h1>Web site of<strong></strong></h1>
+                    <h1>Web site of <strong>chennan</strong></h1>
                     <div class="description">
                         <p>
-                            This is a free responsive login form made with Bootstrap.
-                            Download it on <a href="#"><strong>AZMIND</strong></a>, customize and use it as you like!
+                            Welcome friends!
                         </p>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
                 <div class="col-sm-6 col-sm-offset-3 form-box">
                     <div class="form-top">
                         <div class="form-top-left">
-                            <h3>Login to our site</h3>
+                            <h3>Login to my site</h3>
                             <p>Enter your username and password to log on:</p>
                         </div>
                         <div class="form-top-right">

@@ -34,7 +34,7 @@
 <div class="main">
     <!-----start-main---->
     <div class="clear"></div>
-    <h2>注册</h2>
+    <h2>Sign up</h2>
     <form action="/register" id="register_from" class="form-horizontal" method="post">
         <div class="lable-2 form-group">
             <p style="color: red">${SESSION_MSG_KEY}</p>
@@ -49,7 +49,7 @@
         </div>
 
         <div class="clear"></div>
-        <h3>By creating an account, you agree to our <span><a href="#">Terms & Conditions</a> </span></h3>
+        <h3>By creating an account, you agree to my <span><a href="#">license</a> </span></h3>
         <div class="submit">
             <input type="submit" value="Create account">
         </div>

@@ -54,25 +54,21 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
         @Override
         public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
             HttpSession session = request.getSession();
-            Cookie []cookies=request.getCookies();
-            if (session.getAttribute(SESSION_USER_KEY) != null)
-            {
+            Cookie[] cookies = request.getCookies();
+            if (session.getAttribute(SESSION_USER_KEY) != null) {
                 return true;
             }
-            boolean isLogined=false;
-            for(Cookie cookie :cookies)
-            {
-                if (cookie.getName().equalsIgnoreCase(SESSION_USER_KEY))
-                {
+            boolean isLogined = false;
+            for (Cookie cookie : cookies) {
+                if (cookie.getName().equalsIgnoreCase(SESSION_USER_KEY)) {
                     session.setAttribute(SESSION_USER_KEY, cookie.getValue());
-                    isLogined=true;
-                    log.info("cookie: "+cookie.getName()+": "+cookie.getValue());
+                    isLogined = true;
+                    log.info("cookie: " + cookie.getName() + ": " + cookie.getValue());
                 }
-                if (cookie.getName().equalsIgnoreCase(SESSION_USERTYPE_KEY))
-                {
+                if (cookie.getName().equalsIgnoreCase(SESSION_USERTYPE_KEY)) {
                     session.setAttribute(SESSION_USERTYPE_KEY, cookie.getValue());
-                    isLogined=true;
-                    log.info("cookie: "+cookie.getName()+": "+cookie.getValue());
+                    isLogined = true;
+                    log.info("cookie: " + cookie.getName() + ": " + cookie.getValue());
                 }
             }
             if (isLogined)
