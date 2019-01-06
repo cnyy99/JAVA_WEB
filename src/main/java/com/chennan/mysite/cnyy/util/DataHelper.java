@@ -1,16 +1,9 @@
 package com.chennan.mysite.cnyy.util;
 
-import com.chennan.mysite.cnyy.mybatis.entity.Skill;
-import com.chennan.mysite.cnyy.mybatis.service.SkillService;
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.servlet.http.HttpSession;
 import java.security.MessageDigest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SKILL_KEY;
 
 public class DataHelper {
     /**
@@ -83,4 +76,16 @@ public class DataHelper {
         return null;
     }
 
+    public static int randInt(int min, int max) {
+
+        // NOTE: Usually this should be a field rather than a method
+        // variable so that it is not re-seeded every call.
+        Random rand = new Random();
+
+        // nextInt is normally exclusive of the top value,
+        // so add 1 to make it inclusive
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+
+        return randomNum;
+    }
 }

@@ -2,6 +2,7 @@ package com.chennan.mysite.cnyy.controller;
 
 import com.chennan.mysite.cnyy.mybatis.entity.Skill;
 import com.chennan.mysite.cnyy.mybatis.entity.User;
+import com.chennan.mysite.cnyy.mybatis.service.CourseService;
 import com.chennan.mysite.cnyy.mybatis.service.SkillService;
 import com.chennan.mysite.cnyy.mybatis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +21,15 @@ public class IndexController {
     private UserService userService;
     @Autowired
     private SkillService skillService;
+    @Autowired
+    private CourseService courseService;
 
     @GetMapping("/index")
     public ModelAndView index(HttpServletRequest request) {
         HttpSession session=request.getSession();
         skillService.addSkills(session);
+        courseService.addCourses(session);
+
         ModelAndView view = new ModelAndView("index");
         return view;
     }

@@ -1,12 +1,14 @@
 <%@ page import="com.chennan.mysite.cnyy.controller.WebSecurityConfig" %>
 <%@ page import="com.chennan.mysite.cnyy.mybatis.entity.Skill" %>
 <%@ page import="java.util.List" %>
-<%@ page import="static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SKILL_KEY" %>
+<%@ page import="static com.chennan.mysite.cnyy.controller.WebSecurityConfig.*" %>
+<%@ page import="com.chennan.mysite.cnyy.mybatis.entity.Course" %>
+<%@ page import="com.github.promeg.pinyinhelper.Pinyin" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Alias Colorlib &mdash; One Page Template for Personal/CV Website</title>
+    <title>Chennan website &mdash; One Page About Me</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <% String path = request.getContextPath(); %>
@@ -94,10 +96,9 @@
     <div class="container">
         <div class="row intro-text align-items-center justify-content-center">
             <div class="col-md-10 text-center">
-                <h1 class="site-heading site-animate">Howdy, I'm <strong>Jean Smith</strong></h1>
-                <p class="lead site-subheading mb-4 site-animate">A Product Designer working at Facebook. Separated they
-                    live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More On Me</a></p>
+                <h1 class="site-heading site-animate">Howdy, I'm <strong>Chen Nan</strong></h1>
+                <p class="lead site-subheading mb-4 site-animate">A Student studying in Beijing Forest University. Welcome to my page.</p>
+                <%--<p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More On Me</a></p>--%>
             </div>
         </div>
     </div>
@@ -135,17 +136,16 @@
             </div>
             <div class="col-md-9">
                 <%
-//                    List<Skill> skillList=skillService.getAllSkill();
-                    List<Skill> newSkillList=(List<Skill>)session.getAttribute(SKILL_KEY);
-                    for(Skill skill:newSkillList)
-                    {
-
+                    List<Skill> newSkillList = (List<Skill>) session.getAttribute(SKILL_KEY);
+                    for (Skill skill : newSkillList) {
                 %>
 
                 <div class="skill">
-                    <h3><%=skill.getSkillName()%></h3>
+                    <h3><%=skill.getSkillName()%>
+                    </h3>
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: <%=skill.getSkillScore()%>%" aria-valuenow="<%=skill.getSkillScore()%>"
+                        <div class="progress-bar" role="progressbar" style="width: <%=skill.getSkillScore()%>%"
+                             aria-valuenow="<%=skill.getSkillScore()%>"
                              aria-valuemin="0" aria-valuemax="100">
                             <span><%=skill.getSkillScore()%>%</span>
                         </div>
@@ -155,57 +155,6 @@
                     }
                 %>
             </div>
-            <%--<div class="col-md-9">--%>
-                <%--<div class="skill">--%>
-                    <%--<h3>Design</h3>--%>
-                    <%--<div class="progress">--%>
-                        <%--<div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85"--%>
-                             <%--aria-valuemin="0" aria-valuemax="100">--%>
-                            <%--<span>85%</span>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-
-                <%--<div class="skill">--%>
-                    <%--<h3>HTML5</h3>--%>
-                    <%--<div class="progress">--%>
-                        <%--<div class="progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98"--%>
-                             <%--aria-valuemin="0" aria-valuemax="100">--%>
-                            <%--<span>98%</span>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-
-                <%--<div class="skill">--%>
-                    <%--<h3>CSS3</h3>--%>
-                    <%--<div class="progress">--%>
-                        <%--<div class="progress-bar" role="progressbar" style="width: 97%" aria-valuenow="97"--%>
-                             <%--aria-valuemin="0" aria-valuemax="100">--%>
-                            <%--<span>97%</span>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-
-                <%--<div class="skill">--%>
-                    <%--<h3>WordPress</h3>--%>
-                    <%--<div class="progress">--%>
-                        <%--<div class="progress-bar" role="progressbar" style="width: 88%" aria-valuenow="88"--%>
-                             <%--aria-valuemin="0" aria-valuemax="100">--%>
-                            <%--<span>88%</span>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-
-                <%--<div class="skill">--%>
-                    <%--<h3>Bootstrap</h3>--%>
-                    <%--<div class="progress">--%>
-                        <%--<div class="progress-bar" role="progressbar" style="width: 92%" aria-valuenow="92"--%>
-                             <%--aria-valuemin="0" aria-valuemax="100">--%>
-                            <%--<span>92%</span>--%>
-                        <%--</div>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-            <%--</div>--%>
         </div>
     </div>
 </section>
@@ -423,39 +372,27 @@
     <div class="container">
         <div class="row">
             <div class="section-heading text-center col-md-12">
-                <h2>Featured <strong>Portfolio</strong></h2>
+                <h2>课<strong>程</strong></h2>
             </div>
         </div>
         <div class="filters">
             <ul>
                 <li class="active" data-filter="*">All</li>
-                <li data-filter=".packaging">Packaging</li>
-                <li data-filter=".mockup">Mockup</li>
-                <li data-filter=".typography">Typography</li>
-                <li data-filter=".photography">Photography</li>
+                <li data-filter=".<%=Pinyin.toPinyin("必修","")%>">必修</li>
+                <li data-filter=".<%=Pinyin.toPinyin("公选","")%>">公选</li>
+                <li data-filter=".<%=Pinyin.toPinyin("专选","")%>">专选</li>
+                <li data-filter=".<%=Pinyin.toPinyin("视频课","")%>">视频课</li>
             </ul>
         </div>
 
         <div class="filters-content">
             <div class="row grid">
-                <div class="single-portfolio col-sm-4 all mockup">
-                    <div class="relative">
-                        <div class="thumb">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="image img-fluid" src="/static/images/p1.jpg" alt="">
-                        </div>
-                        <a href="static/images/p1.jpg" class="img-pop-up">
-                            <%--<div class="middle">--%>
-                            <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
-                            <%--</div>--%>
-                        </a>
-                    </div>
-                    <div class="p-inner">
-                        <h4>Square Box Mockup</h4>
-                        <div class="cat">Mockup</div>
-                    </div>
-                </div>
-                <div class="single-portfolio col-sm-4 all mockup">
+                <%
+                    List<Course> newCourseList = (List<Course>) session.getAttribute(COURSE_KEY);
+                    for (Course course : newCourseList)
+                    {
+                %>
+                <div class="single-portfolio col-sm-3 all <%=Pinyin.toPinyin(course.getCourseType(),"")%>">
                     <div class="relative">
                         <div class="thumb">
                             <div class="overlay overlay-bg"></div>
@@ -468,79 +405,31 @@
                         </a>
                     </div>
                     <div class="p-inner">
-                        <h4>Product Box Package Mockup</h4>
-                        <div class="cat">Mockup</div>
+                        <h4><%=course.getCourseName()%></h4>
+                        <h4><%=course.getCourseScore()%></h4>
+                        <div class="cat"><%=course.getCourseType()%></div>
                     </div>
                 </div>
-                <div class="single-portfolio col-sm-4 all packaging">
-                    <div class="relative">
-                        <div class="thumb">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="image img-fluid" src="/static/images/p3.jpg" alt="">
-                        </div>
-                        <a href="static/images/p3.jpg" class="img-pop-up">
-                            <%--<div class="middle">--%>
-                            <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
-                            <%--</div>--%>
-                        </a>
-
-                    </div>
-                    <div class="p-inner">
-                        <h4>Creative Package Design</h4>
-                        <div class="cat">Packaging</div>
-                    </div>
-                </div>
-                <div class="single-portfolio col-sm-4 all packaging">
-                    <div class="relative">
-                        <div class="thumb">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="image img-fluid" src="/static/images/p4.jpg" alt="">
-                        </div>
-                        <a href="images/p4.jpg" class="img-pop-up">
-                            <%--<div class="middle">--%>
-                            <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
-                            <%--</div>--%>
-                        </a>
-                    </div>
-                    <div class="p-inner">
-                        <h4>Packaging Brand</h4>
-                        <div class="cat">Packaging</div>
-                    </div>
-                </div>
-                <div class="single-portfolio col-sm-4 all typography">
-                    <div class="relative">
-                        <div class="thumb">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="image img-fluid" src="/static/images/p5.jpg" alt="">
-                        </div>
-                        <a href="static/images/p5.jpg" class="img-pop-up">
-                            <%--<div class="middle">--%>
-                            <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
-                            <%--</div>--%>
-                        </a>
-                    </div>
-                    <div class="p-inner">
-                        <h4>Isometric 3D Extrusion</h4>
-                        <div class="cat">Typography</div>
-                    </div>
-                </div>
-                <div class="single-portfolio col-sm-4 all photography">
-                    <div class="relative">
-                        <div class="thumb">
-                            <div class="overlay overlay-bg"></div>
-                            <img class="image img-fluid" src="/static/images/p6.jpg" alt="">
-                        </div>
-                        <a href="static/images/p6.jpg" class="img-pop-up">
-                            <%--<div class="middle">--%>
-                            <%--<div class="text align-self-`center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
-                            <%--</div>--%>
-                        </a>
-                    </div>
-                    <div class="p-inner">
-                        <h4>White Space Photography</h4>
-                        <div class="cat">photography</div>
-                    </div>
-                </div>
+                <%
+                    }
+                %>
+                <%--<div class="single-portfolio col-sm-4 all mockup">--%>
+                    <%--<div class="relative">--%>
+                        <%--<div class="thumb">--%>
+                            <%--<div class="overlay overlay-bg"></div>--%>
+                            <%--<img class="image img-fluid" src="/static/images/p2.jpg" alt="">--%>
+                        <%--</div>--%>
+                        <%--<a href="static/images/p2.jpg" class="img-pop-up">--%>
+                            <%--&lt;%&ndash;<div class="middle">&ndash;%&gt;--%>
+                            <%--&lt;%&ndash;<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>&ndash;%&gt;--%>
+                            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+                        <%--</a>--%>
+                    <%--</div>--%>
+                    <%--<div class="p-inner">--%>
+                        <%--<h4>Product Box Package Mockup</h4>--%>
+                        <%--<div class="cat">Mockup</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
             </div>
         </div>
     </div>

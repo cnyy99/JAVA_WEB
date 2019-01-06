@@ -335,14 +335,14 @@ a {
         color: #57d131; }
 
 .single-portfolio {
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   display: block; }
   .single-portfolio .relative {
     margin-bottom: 20px; }
   .single-portfolio .p-inner {
     text-align: center; }
     .single-portfolio .p-inner h4 {
-      font-size: 20px; }
+      font-size: 18px; }
     .single-portfolio .p-inner .cat {
       font-size: 12px;
       text-transform: uppercase;

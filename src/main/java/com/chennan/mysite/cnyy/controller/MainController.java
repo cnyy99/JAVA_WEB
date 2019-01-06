@@ -1,25 +1,23 @@
 package com.chennan.mysite.cnyy.controller;
 
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-import com.chennan.mysite.cnyy.mybatis.entity.Skill;
-import com.chennan.mysite.cnyy.mybatis.entity.User;
+import com.chennan.mysite.cnyy.mybatis.service.CourseService;
 import com.chennan.mysite.cnyy.mybatis.service.SkillService;
 import com.chennan.mysite.cnyy.mybatis.service.UserService;
-import com.chennan.mysite.cnyy.util.DataHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.util.Map;
 
 import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.*;
 
@@ -33,13 +31,18 @@ public class MainController {
 
     @Autowired
     private UserService userService;
+
     @Autowired
     private SkillService skillService;
+
+    @Autowired
+    private CourseService courseService;
 
     @GetMapping("/")
     public String index(HttpServletRequest request) {
         HttpSession session=request.getSession();
         skillService.addSkills(session);
+        courseService.addCourses(session);
         return "index";
     }
 
@@ -50,6 +53,7 @@ public class MainController {
         if (username != null)
         {
             skillService.addSkills(session);
+            courseService.addCourses(session);
             return "redirect:/index";
         }
         return "register";
@@ -75,6 +79,7 @@ public class MainController {
         if (username != null)
         {
             skillService.addSkills(session);
+            courseService.addCourses(session);
             return "redirect:/index";
         }
         return "login";
@@ -105,6 +110,7 @@ public class MainController {
             response.addCookie(type);
             session.setAttribute(SESSION_USER_KEY, username);
             skillService.addSkills(session);
+            courseService.addCourses(session);
             session.setAttribute(SESSION_USERTYPE_KEY, msg.get(SESSION_USERTYPE_KEY));
             //            view.addObject("username", username);
             return new ModelAndView("index");
@@ -132,6 +138,7 @@ public class MainController {
         session.removeAttribute(SESSION_USER_KEY);
         session.removeAttribute(SESSION_USERTYPE_KEY);
         skillService.addSkills(session);
+        courseService.addCourses(session);
         return "redirect:/index";
     }
 

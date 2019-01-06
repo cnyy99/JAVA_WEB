@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SKILL_KEY;
+import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.*;
 
 @Service
 public class SkillService {
@@ -87,7 +87,7 @@ public class SkillService {
 
     public void addSkills(HttpSession session) {
         List<Skill> skillList = getAllSkill();
-        List<Skill> newSkillList = (List<Skill>) DataHelper.getRandomList(skillList, 5);
+        List<Skill> newSkillList = (List<Skill>) DataHelper.getRandomList(skillList, SKILL_NUM_KEY);
         session.setAttribute(SKILL_KEY, newSkillList);
     }
 }

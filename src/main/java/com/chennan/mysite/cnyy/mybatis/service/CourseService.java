@@ -4,6 +4,7 @@ import com.chennan.mysite.cnyy.controller.MainController;
 import com.chennan.mysite.cnyy.mybatis.entity.Course;
 import com.chennan.mysite.cnyy.mybatis.entity.CourseExample;
 import com.chennan.mysite.cnyy.mybatis.mapper.CourseMapper;
+import com.chennan.mysite.cnyy.util.DataHelper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.slf4j.Logger;
@@ -11,7 +12,12 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
+
+import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.COURSE_KEY;
+import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.COURSE_NUM_KEY;
+
 @Service
 public class CourseService {
     private Logger log = LoggerFactory.getLogger(MainController.class);
@@ -80,5 +86,10 @@ public class CourseService {
         PageInfo<Course> pageInfo = new PageInfo<>(getAllCourse());
 
         return pageInfo;
+    }
+    public void addCourses(HttpSession session) {
+        List<Course> courseList = getAllCourse();
+        List<Course> newCourseList = (List<Course>) DataHelper.getRandomList(courseList, COURSE_NUM_KEY);
+        session.setAttribute(COURSE_KEY, newCourseList);
     }
 }
