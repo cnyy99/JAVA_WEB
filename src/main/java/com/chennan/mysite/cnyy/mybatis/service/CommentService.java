@@ -1,16 +1,22 @@
 package com.chennan.mysite.cnyy.mybatis.service;
 
+import com.chennan.mysite.cnyy.controller.MainController;
 import com.chennan.mysite.cnyy.mybatis.entity.Comment;
 import com.chennan.mysite.cnyy.mybatis.entity.CommentExample;
 import com.chennan.mysite.cnyy.mybatis.mapper.CommentMapper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@Service
 public class CommentService {
+    private Logger log = LoggerFactory.getLogger(MainController.class);
+
     @Autowired(required = false)
     private CommentMapper commentMapper;
 

@@ -1,5 +1,6 @@
 package com.chennan.mysite.cnyy.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.Cookie;
@@ -7,8 +8,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.chennan.mysite.cnyy.mybatis.entity.Skill;
 import com.chennan.mysite.cnyy.mybatis.entity.User;
+import com.chennan.mysite.cnyy.mybatis.service.SkillService;
 import com.chennan.mysite.cnyy.mybatis.service.UserService;
+import com.chennan.mysite.cnyy.util.DataHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +30,16 @@ import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.*;
 public class MainController {
 
     private Logger log = LoggerFactory.getLogger(MainController.class);
+
     @Autowired
     private UserService userService;
+    @Autowired
+    private SkillService skillService;
 
     @GetMapping("/")
-    public String index() {
+    public String index(HttpServletRequest request) {
+        HttpSession session=request.getSession();
+        skillService.addSkills(session);
         return "index";
     }
 
@@ -39,7 +48,10 @@ public class MainController {
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute(SESSION_USER_KEY);
         if (username != null)
+        {
+            skillService.addSkills(session);
             return "redirect:/index";
+        }
         return "register";
     }
 
@@ -61,7 +73,10 @@ public class MainController {
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute(SESSION_USER_KEY);
         if (username != null)
+        {
+            skillService.addSkills(session);
             return "redirect:/index";
+        }
         return "login";
     }
 
@@ -89,10 +104,10 @@ public class MainController {
             response.addCookie(url);
             response.addCookie(type);
             session.setAttribute(SESSION_USER_KEY, username);
+            skillService.addSkills(session);
             session.setAttribute(SESSION_USERTYPE_KEY, msg.get(SESSION_USERTYPE_KEY));
-            ModelAndView view = new ModelAndView("index");
-//            view.addObject("username", username);
-            return view;
+            //            view.addObject("username", username);
+            return new ModelAndView("index");
         } else {
             ModelAndView view = new ModelAndView("login");
             view.addObject(SESSION_MSG_KEY, msg.get(SESSION_MSG_KEY));
@@ -116,6 +131,7 @@ public class MainController {
         // 移除session
         session.removeAttribute(SESSION_USER_KEY);
         session.removeAttribute(SESSION_USERTYPE_KEY);
+        skillService.addSkills(session);
         return "redirect:/index";
     }
 

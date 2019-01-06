@@ -1,6 +1,8 @@
 package com.chennan.mysite.cnyy.controller;
 
+import com.chennan.mysite.cnyy.mybatis.entity.Skill;
 import com.chennan.mysite.cnyy.mybatis.entity.User;
+import com.chennan.mysite.cnyy.mybatis.service.SkillService;
 import com.chennan.mysite.cnyy.mybatis.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -8,14 +10,21 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class IndexController {
 
     @Autowired
     private UserService userService;
+    @Autowired
+    private SkillService skillService;
 
     @GetMapping("/index")
-    public ModelAndView index() {
+    public ModelAndView index(HttpServletRequest request) {
+        HttpSession session=request.getSession();
+        skillService.addSkills(session);
         ModelAndView view = new ModelAndView("index");
         return view;
     }
@@ -24,14 +33,5 @@ public class IndexController {
         return "login2";
     }
 
-    @PostMapping("/toindex2")
-//    @PostMapping(value = "/login1")
-    public String toindex(@RequestParam String name, @RequestParam String pass,Model model) {
-        User user = new User();
-        user.setUserName(name);
-        user.setUserPassword(pass);
-        model.addAttribute("user",user);
-        return "index";
-    }
 
 }

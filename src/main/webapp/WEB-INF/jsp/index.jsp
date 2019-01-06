@@ -1,7 +1,9 @@
 <%@ page import="com.chennan.mysite.cnyy.controller.WebSecurityConfig" %>
+<%@ page import="com.chennan.mysite.cnyy.mybatis.entity.Skill" %>
+<%@ page import="java.util.List" %>
+<%@ page import="static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SKILL_KEY" %>
 <%@ page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <title>Alias Colorlib &mdash; One Page Template for Personal/CV Website</title>
@@ -132,56 +134,78 @@
                 </div>
             </div>
             <div class="col-md-9">
-                <div class="skill">
-                    <h3>Design</h3>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85"
-                             aria-valuemin="0" aria-valuemax="100">
-                            <span>85%</span>
-                        </div>
-                    </div>
-                </div>
+                <%
+//                    List<Skill> skillList=skillService.getAllSkill();
+                    List<Skill> newSkillList=(List<Skill>)session.getAttribute(SKILL_KEY);
+                    for(Skill skill:newSkillList)
+                    {
+
+                %>
 
                 <div class="skill">
-                    <h3>HTML5</h3>
+                    <h3><%=skill.getSkillName()%></h3>
                     <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98"
+                        <div class="progress-bar" role="progressbar" style="width: <%=skill.getSkillScore()%>%" aria-valuenow="<%=skill.getSkillScore()%>"
                              aria-valuemin="0" aria-valuemax="100">
-                            <span>98%</span>
+                            <span><%=skill.getSkillScore()%>%</span>
                         </div>
                     </div>
                 </div>
-
-                <div class="skill">
-                    <h3>CSS3</h3>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 97%" aria-valuenow="97"
-                             aria-valuemin="0" aria-valuemax="100">
-                            <span>97%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <h3>WordPress</h3>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 88%" aria-valuenow="88"
-                             aria-valuemin="0" aria-valuemax="100">
-                            <span>88%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="skill">
-                    <h3>Bootstrap</h3>
-                    <div class="progress">
-                        <div class="progress-bar" role="progressbar" style="width: 92%" aria-valuenow="92"
-                             aria-valuemin="0" aria-valuemax="100">
-                            <span>92%</span>
-                        </div>
-                    </div>
-                </div>
+                <%
+                    }
+                %>
             </div>
+            <%--<div class="col-md-9">--%>
+                <%--<div class="skill">--%>
+                    <%--<h3>Design</h3>--%>
+                    <%--<div class="progress">--%>
+                        <%--<div class="progress-bar" role="progressbar" style="width: 85%" aria-valuenow="85"--%>
+                             <%--aria-valuemin="0" aria-valuemax="100">--%>
+                            <%--<span>85%</span>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+
+                <%--<div class="skill">--%>
+                    <%--<h3>HTML5</h3>--%>
+                    <%--<div class="progress">--%>
+                        <%--<div class="progress-bar" role="progressbar" style="width: 98%" aria-valuenow="98"--%>
+                             <%--aria-valuemin="0" aria-valuemax="100">--%>
+                            <%--<span>98%</span>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+
+                <%--<div class="skill">--%>
+                    <%--<h3>CSS3</h3>--%>
+                    <%--<div class="progress">--%>
+                        <%--<div class="progress-bar" role="progressbar" style="width: 97%" aria-valuenow="97"--%>
+                             <%--aria-valuemin="0" aria-valuemax="100">--%>
+                            <%--<span>97%</span>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+
+                <%--<div class="skill">--%>
+                    <%--<h3>WordPress</h3>--%>
+                    <%--<div class="progress">--%>
+                        <%--<div class="progress-bar" role="progressbar" style="width: 88%" aria-valuenow="88"--%>
+                             <%--aria-valuemin="0" aria-valuemax="100">--%>
+                            <%--<span>88%</span>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+
+                <%--<div class="skill">--%>
+                    <%--<h3>Bootstrap</h3>--%>
+                    <%--<div class="progress">--%>
+                        <%--<div class="progress-bar" role="progressbar" style="width: 92%" aria-valuenow="92"--%>
+                             <%--aria-valuemin="0" aria-valuemax="100">--%>
+                            <%--<span>92%</span>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
         </div>
     </div>
 </section>

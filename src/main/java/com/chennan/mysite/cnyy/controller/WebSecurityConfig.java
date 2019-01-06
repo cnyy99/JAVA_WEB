@@ -29,6 +29,7 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
     public final static String USER_TYPE_ADMINISTRATOR = "USER_TYPE_ADMINISTRATOR";
     public final static String SUCCESS = "成功";
     public final static String FAILURE = "失败";
+    public final static String SKILL_KEY = "SKILL_KEY";
     public final static Integer COOKIE_MAX_AGE = 60 * 60 * 24;
 
     @Bean

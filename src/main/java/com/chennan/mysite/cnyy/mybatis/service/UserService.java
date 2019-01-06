@@ -1,13 +1,18 @@
 package com.chennan.mysite.cnyy.mybatis.service;
 
+import com.chennan.mysite.cnyy.controller.MainController;
 import com.chennan.mysite.cnyy.mybatis.entity.User;
 import com.chennan.mysite.cnyy.mybatis.entity.UserExample;
 import com.chennan.mysite.cnyy.mybatis.mapper.UserMapper;
+import com.chennan.mysite.cnyy.util.DataHelper;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -22,7 +27,9 @@ import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SUCCESS;
 
 
 @Service
+
 public class UserService {
+    private Logger log = LoggerFactory.getLogger(MainController.class);
 
     @Autowired(required = false)
     private UserMapper userMapper;
@@ -75,7 +82,7 @@ public class UserService {
 
         User user = new User();
         user.setUserName(username);
-        user.setUserPassword(MD5(password));
+        user.setUserPassword(DataHelper.MD5(password));
         user.setUserType(type);
         insert(user);
         stringMap.put(SESSION_MSG_KEY,SUCCESS);
@@ -93,7 +100,7 @@ public class UserService {
             return stringMap;
         }
 
-        if (!MD5(password).equals(u.getUserPassword())) {
+        if (!DataHelper.MD5(password).equals(u.getUserPassword())) {
 //        if (!password.equals(u.getUserPassword())) {
             stringMap.put(SESSION_MSG_KEY,"密码错误");
             return stringMap;
@@ -103,23 +110,7 @@ public class UserService {
         return stringMap;
     }
 
-    public String MD5(String message) {
-        try {
-            MessageDigest md5 = MessageDigest.getInstance("md5");
-            byte[] cipherData = md5.digest(message.getBytes());
-            StringBuilder builder = new StringBuilder();
-            for (byte cipher : cipherData) {
-                String toHexStr = Integer.toHexString(cipher & 0xff);
-                builder.append(toHexStr.length() == 1 ? "0" + toHexStr : toHexStr);
-            }
-            return builder.toString();
-        } catch (Exception e) {
-//            e.printStackTrace();
-//            System.out.println("xxx");
-        }
-        //System.out.println(builder.toString());
-        return null;
-    }
+
 
     public PageInfo<User> getAllUsersPage(int pageNo, int pageSize) {
         PageHelper.startPage(pageNo,pageSize);

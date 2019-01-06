@@ -2,6 +2,7 @@ package com.chennan.mysite.cnyy;
 
 import com.chennan.mysite.cnyy.mybatis.entity.User;
 import com.chennan.mysite.cnyy.mybatis.service.UserService;
+import com.chennan.mysite.cnyy.util.DataHelper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +33,7 @@ public class CnyyApplicationTests {
         user.setUserPassword("fas");
         user.setUserName("123");
         user.setUserType(USER_TYPE_NORMAL);
-        Map<String, String> stringMap=userService.register(user.getUserName(),userService.MD5(user.getUserPassword()),user.getUserType());
+        Map<String, String> stringMap=userService.register(user.getUserName(),DataHelper.MD5(user.getUserPassword()),user.getUserType());
         System.out.println(stringMap.get(SESSION_MSG_KEY));
     }
 
