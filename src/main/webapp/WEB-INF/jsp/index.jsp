@@ -91,7 +91,7 @@
 </nav>
 
 
-<section class="site-hero" style="background-image: url(/static/images/image_1.jpg);" id="section-home"
+<section class="site-hero" style="background-image: url(/static/images/preview.png);" id="section-home"
          data-stellar-background-ratio="0.5">
     <div class="container">
         <div class="row intro-text align-items-center justify-content-center">
