@@ -97,8 +97,9 @@
         <div class="row intro-text align-items-center justify-content-center">
             <div class="col-md-10 text-center">
                 <h1 class="site-heading site-animate">Howdy, I'm <strong>Chen Nan</strong></h1>
-                <p class="lead site-subheading mb-4 site-animate">A Student studying computer science in Beijing Forest University. Welcome to my page.</p>
-                <%--<p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More On Me</a></p>--%>
+                <p class="lead site-subheading mb-4 site-animate">A Student studying computer science in Beijing Forest
+                    University. Welcome to my page.</p>
+                <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More On Me</a></p>
             </div>
         </div>
     </div>
@@ -382,6 +383,7 @@
                 <li data-filter=".<%=Pinyin.toPinyin("公选","")%>">公选</li>
                 <li data-filter=".<%=Pinyin.toPinyin("专选","")%>">专选</li>
                 <li data-filter=".<%=Pinyin.toPinyin("视频课","")%>">视频课</li>
+                <li data-filter=".<%=Pinyin.toPinyin("体育","")%>">体育</li>
             </ul>
         </div>
 
@@ -389,14 +391,15 @@
             <div class="row grid">
                 <%
                     List<Course> newCourseList = (List<Course>) session.getAttribute(COURSE_KEY);
-                    for (Course course : newCourseList)
-                    {
+                    for (Course course : newCourseList) {
                 %>
                 <div class="single-portfolio col-sm-2 all <%=Pinyin.toPinyin(course.getCourseType(),"")%>">
                     <div class="relative">
                         <div class="thumb">
                             <div class="overlay overlay-bg"></div>
-                            <img class="image img-fluid" src="/static/images/CourseImages/<%=Pinyin.toPinyin(course.getCourseName(),"")%>.jpg" alt="">
+                            <img class="image img-fluid"
+                                 src="/static/images/CourseImages/<%=course.getCourseName()%>.jpg"
+                                 alt="">
                         </div>
                         <a href="static/images/CourseImages/<%=course.getCourseName()%>.jpg" class="img-pop-up">
                             <%--<div class="middle">--%>
@@ -405,30 +408,33 @@
                         </a>
                     </div>
                     <div class="p-inner">
-                        <h4><%=course.getCourseName()%></h4>
-                        <h4><%=course.getCourseScore()%></h4>
-                        <div class="cat"><%=course.getCourseType()%></div>
+                        <h4><%=course.getCourseName()%>
+                        </h4>
+                        <h4><%=course.getCourseScore()%>
+                        </h4>
+                        <div class="cat"><%=course.getCourseType()%>
+                        </div>
                     </div>
                 </div>
                 <%
                     }
                 %>
                 <%--<div class="single-portfolio col-sm-4 all mockup">--%>
-                    <%--<div class="relative">--%>
-                        <%--<div class="thumb">--%>
-                            <%--<div class="overlay overlay-bg"></div>--%>
-                            <%--<img class="image img-fluid" src="/static/images/p2.jpg" alt="">--%>
-                        <%--</div>--%>
-                        <%--<a href="static/images/p2.jpg" class="img-pop-up">--%>
-                            <%--&lt;%&ndash;<div class="middle">&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                        <%--</a>--%>
-                    <%--</div>--%>
-                    <%--<div class="p-inner">--%>
-                        <%--<h4>Product Box Package Mockup</h4>--%>
-                        <%--<div class="cat">Mockup</div>--%>
-                    <%--</div>--%>
+                <%--<div class="relative">--%>
+                <%--<div class="thumb">--%>
+                <%--<div class="overlay overlay-bg"></div>--%>
+                <%--<img class="image img-fluid" src="/static/images/p2.jpg" alt="">--%>
+                <%--</div>--%>
+                <%--<a href="static/images/p2.jpg" class="img-pop-up">--%>
+                <%--&lt;%&ndash;<div class="middle">&ndash;%&gt;--%>
+                <%--&lt;%&ndash;<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>&ndash;%&gt;--%>
+                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+                <%--</a>--%>
+                <%--</div>--%>
+                <%--<div class="p-inner">--%>
+                <%--<h4>Product Box Package Mockup</h4>--%>
+                <%--<div class="cat">Mockup</div>--%>
+                <%--</div>--%>
                 <%--</div>--%>
             </div>
         </div>
