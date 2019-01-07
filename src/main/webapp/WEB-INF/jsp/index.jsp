@@ -22,7 +22,42 @@
 
     <link rel="stylesheet" href="/static/css/bootstrap.css">
     <link rel="stylesheet" href="/static/css/style.css">
+    <%--<link rel="stylesheet" type="text/css" href="/static/css/main.css" />--%>
 
+    <%--<link rel="stylesheet" type="text/css" href="/static/css/bgstretcher.css" />--%>
+
+    <%--<script type="text/javascript" src="/static/js/jquery-1.5.2.min.js"></script>--%>
+
+    <%--<script type="text/javascript" src="/static/js/bgstretcher.js"></script>--%>
+    <%--<script type="text/javascript">--%>
+
+    <%--$(document).ready(function(){--%>
+
+
+    <%--//  Initialize Backgound Stretcher--%>
+
+    <%--$('.section-home').bgStretcher({--%>
+
+    <%--images: ['/static/images/preview.png', '/static/images/preview1.png', 'images/sample-3.jpg', 'images/sample-4.jpg', 'images/sample-5.jpg', 'images/sample-6.jpg'],--%>
+
+    <%--imageWidth: 800,--%>
+
+    <%--imageHeight: 400,--%>
+
+    <%--slideDirection: 'N',--%>
+
+    <%--slideShowSpeed: 1000,--%>
+
+    <%--transitionEffect: 'fade',--%>
+
+    <%--sequenceMode: 'normal',--%>
+
+    <%--});--%>
+
+
+    <%--});--%>
+
+    <%--</script>--%>
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
 
     <!-- Favicon and touch icons -->
@@ -97,8 +132,9 @@
         <div class="row intro-text align-items-center justify-content-center">
             <div class="col-md-10 text-center">
                 <h1 class="site-heading site-animate">Howdy, I'm <strong>Chen Nan</strong></h1>
-                <p class="lead site-subheading mb-4 site-animate">A Student studying computer science in Beijing Forest University. Welcome to my page.</p>
-                <%--<p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More On Me</a></p>--%>
+                <p class="lead site-subheading mb-4 site-animate">A Student studying computer science in Beijing Forest
+                    University. Welcome to my page.</p>
+                <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More On Me</a></p>
             </div>
         </div>
     </div>
@@ -389,14 +425,14 @@
             <div class="row grid">
                 <%
                     List<Course> newCourseList = (List<Course>) session.getAttribute(COURSE_KEY);
-                    for (Course course : newCourseList)
-                    {
+                    for (Course course : newCourseList) {
                 %>
                 <div class="single-portfolio col-sm-2 all <%=Pinyin.toPinyin(course.getCourseType(),"")%>">
                     <div class="relative">
                         <div class="thumb">
                             <div class="overlay overlay-bg"></div>
-                            <img class="image img-fluid" src="/static/images/CourseImages/<%=Pinyin.toPinyin(course.getCourseName(),"")%>.jpg" alt="">
+                            <img class="image img-fluid"
+                                 src="/static/images/CourseImages/<%=course.getCourseName()%>.jpg" alt="">
                         </div>
                         <a href="static/images/CourseImages/<%=course.getCourseName()%>.jpg" class="img-pop-up">
                             <%--<div class="middle">--%>
@@ -405,30 +441,33 @@
                         </a>
                     </div>
                     <div class="p-inner">
-                        <h4><%=course.getCourseName()%></h4>
-                        <h4><%=course.getCourseScore()%></h4>
-                        <div class="cat"><%=course.getCourseType()%></div>
+                        <h4><%=course.getCourseName()%>
+                        </h4>
+                        <h4><%=course.getCourseScore()%>
+                        </h4>
+                        <div class="cat"><%=course.getCourseType()%>
+                        </div>
                     </div>
                 </div>
                 <%
                     }
                 %>
                 <%--<div class="single-portfolio col-sm-4 all mockup">--%>
-                    <%--<div class="relative">--%>
-                        <%--<div class="thumb">--%>
-                            <%--<div class="overlay overlay-bg"></div>--%>
-                            <%--<img class="image img-fluid" src="/static/images/p2.jpg" alt="">--%>
-                        <%--</div>--%>
-                        <%--<a href="static/images/p2.jpg" class="img-pop-up">--%>
-                            <%--&lt;%&ndash;<div class="middle">&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>&ndash;%&gt;--%>
-                            <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
-                        <%--</a>--%>
-                    <%--</div>--%>
-                    <%--<div class="p-inner">--%>
-                        <%--<h4>Product Box Package Mockup</h4>--%>
-                        <%--<div class="cat">Mockup</div>--%>
-                    <%--</div>--%>
+                <%--<div class="relative">--%>
+                <%--<div class="thumb">--%>
+                <%--<div class="overlay overlay-bg"></div>--%>
+                <%--<img class="image img-fluid" src="/static/images/p2.jpg" alt="">--%>
+                <%--</div>--%>
+                <%--<a href="static/images/p2.jpg" class="img-pop-up">--%>
+                <%--&lt;%&ndash;<div class="middle">&ndash;%&gt;--%>
+                <%--&lt;%&ndash;<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>&ndash;%&gt;--%>
+                <%--&lt;%&ndash;</div>&ndash;%&gt;--%>
+                <%--</a>--%>
+                <%--</div>--%>
+                <%--<div class="p-inner">--%>
+                <%--<h4>Product Box Package Mockup</h4>--%>
+                <%--<div class="cat">Mockup</div>--%>
+                <%--</div>--%>
                 <%--</div>--%>
             </div>
         </div>
