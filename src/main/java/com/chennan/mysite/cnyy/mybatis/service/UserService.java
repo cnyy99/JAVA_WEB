@@ -27,7 +27,6 @@ import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SUCCESS;
 
 
 @Service
-
 public class UserService {
     private Logger log = LoggerFactory.getLogger(MainController.class);
 

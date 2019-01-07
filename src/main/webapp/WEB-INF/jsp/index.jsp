@@ -97,7 +97,7 @@
         <div class="row intro-text align-items-center justify-content-center">
             <div class="col-md-10 text-center">
                 <h1 class="site-heading site-animate">Howdy, I'm <strong>Chen Nan</strong></h1>
-                <p class="lead site-subheading mb-4 site-animate">A Student studying in Beijing Forest University. Welcome to my page.</p>
+                <p class="lead site-subheading mb-4 site-animate">A Student studying computer science in Beijing Forest University. Welcome to my page.</p>
                 <%--<p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More On Me</a></p>--%>
             </div>
         </div>
@@ -109,7 +109,7 @@
     <div class="container">
         <div class="row mb-5 align-items-center">
             <div class="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
-                <img src="/static/images/image_1_long.jpg" alt="Image placeholder" class="img-fluid">
+                <img src="/static/images/image_1.jpg" alt="Image placeholder" class="img-fluid">
             </div>
             <div class="col-lg-5 pl-lg-5">
                 <div class="section-heading">
@@ -396,9 +396,9 @@
                     <div class="relative">
                         <div class="thumb">
                             <div class="overlay overlay-bg"></div>
-                            <img class="image img-fluid" src="/static/images/p2.jpg" alt="">
+                            <img class="image img-fluid" src="/static/images/CourseImages/<%=Pinyin.toPinyin(course.getCourseName(),"")%>.jpg" alt="">
                         </div>
-                        <a href="static/images/p2.jpg" class="img-pop-up">
+                        <a href="static/images/CourseImages/<%=course.getCourseName()%>.jpg" class="img-pop-up">
                             <%--<div class="middle">--%>
                             <%--<div class="text align-self-center d-flex"><img src="/static/images/preview.png" alt=""></div>--%>
                             <%--</div>--%>
