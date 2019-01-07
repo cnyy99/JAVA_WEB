@@ -392,7 +392,7 @@
                     for (Course course : newCourseList)
                     {
                 %>
-                <div class="single-portfolio col-sm-3 all <%=Pinyin.toPinyin(course.getCourseType(),"")%>">
+                <div class="single-portfolio col-sm-2 all <%=Pinyin.toPinyin(course.getCourseType(),"")%>">
                     <div class="relative">
                         <div class="thumb">
                             <div class="overlay overlay-bg"></div>

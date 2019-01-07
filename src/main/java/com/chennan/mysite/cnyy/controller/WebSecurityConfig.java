@@ -30,9 +30,9 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
     public final static String SUCCESS = "成功";
     public final static String FAILURE = "失败";
     public final static String SKILL_KEY = "SKILL_KEY";
-    public final static Integer SKILL_NUM_KEY = 5;
+    public final static Integer SKILL_NUM_KEY = 7;
     public final static String COURSE_KEY = "COURSE_KEY";
-    public final static Integer COURSE_NUM_KEY = 15;
+    public final static Integer COURSE_NUM_KEY = 50;
     public final static Integer COOKIE_MAX_AGE = 60 * 60 * 24;
 
     @Bean
