@@ -12,11 +12,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import java.security.MessageDigest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -81,7 +78,7 @@ public class UserService {
 
         User user = new User();
         user.setUserName(username);
-        user.setUserPassword(DataHelper.MD5(password));
+        user.setUserPassword(DataHelper.getSHA256Str(password));
         user.setUserType(type);
         insert(user);
         stringMap.put(SESSION_MSG_KEY,SUCCESS);
@@ -99,7 +96,7 @@ public class UserService {
             return stringMap;
         }
 
-        if (!DataHelper.MD5(password).equals(u.getUserPassword())) {
+        if (!DataHelper.getSHA256Str(password).equals(u.getUserPassword())) {
 //        if (!password.equals(u.getUserPassword())) {
             stringMap.put(SESSION_MSG_KEY,"密码错误");
             return stringMap;
