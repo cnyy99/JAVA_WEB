@@ -7,9 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Map;
 
@@ -33,7 +31,7 @@ public class CnyyApplicationTests {
         user.setUserPassword("fas");
         user.setUserName("123");
         user.setUserType(USER_TYPE_NORMAL);
-        Map<String, String> stringMap=userService.register(user.getUserName(),DataHelper.MD5(user.getUserPassword()),user.getUserType());
+        Map<String, String> stringMap=userService.register(user.getUserName(),DataHelper.getSHA256Str(user.getUserPassword()),user.getUserType());
         System.out.println(stringMap.get(SESSION_MSG_KEY));
     }
 

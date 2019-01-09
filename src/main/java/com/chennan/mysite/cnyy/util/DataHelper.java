@@ -1,6 +1,8 @@
 package com.chennan.mysite.cnyy.util;
 
+import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -58,24 +60,6 @@ public class DataHelper {
         return newList;
     }
 
-    public static String MD5(String message) {
-        try {
-            MessageDigest md5 = MessageDigest.getInstance("md5");
-            byte[] cipherData = md5.digest(message.getBytes());
-            StringBuilder builder = new StringBuilder();
-            for (byte cipher : cipherData) {
-                String toHexStr = Integer.toHexString(cipher & 0xff);
-                builder.append(toHexStr.length() == 1 ? "0" + toHexStr : toHexStr);
-            }
-            return builder.toString();
-        } catch (Exception e) {
-            //            e.printStackTrace();
-            //            System.out.println("xxx");
-        }
-        //System.out.println(builder.toString());
-        return null;
-    }
-
     public static int randInt(int min, int max) {
 
         // NOTE: Usually this should be a field rather than a method
@@ -87,5 +71,42 @@ public class DataHelper {
         int randomNum = rand.nextInt((max - min) + 1) + min;
 
         return randomNum;
+    }
+    /**
+     * 利用java原生的摘要实现SHA256加密
+     * @param str 加密后的报文
+     * @return
+     */
+    public static String getSHA256Str(String str){
+        MessageDigest messageDigest;
+        String encodeStr = "";
+        try {
+            messageDigest = MessageDigest.getInstance("SHA-256");
+            messageDigest.update(str.getBytes("UTF-8"));
+            encodeStr = byte2Hex(messageDigest.digest());
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return encodeStr;
+    }
+    /**
+     * 将byte转为16进制
+     * @param bytes
+     * @return
+     */
+    private static String byte2Hex(byte[] bytes){
+        StringBuffer stringBuffer = new StringBuffer();
+        String temp = null;
+        for (int i=0;i<bytes.length;i++){
+            temp = Integer.toHexString(bytes[i] & 0xFF);
+            if (temp.length()==1){
+                //1得到一位的进行补0操作
+                stringBuffer.append("0");
+            }
+            stringBuffer.append(temp);
+        }
+        return stringBuffer.toString();
     }
 }
