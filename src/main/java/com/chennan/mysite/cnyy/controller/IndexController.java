@@ -30,9 +30,9 @@ public class IndexController {
         ModelAndView view = new ModelAndView("index");
         return view;
     }
-    @GetMapping("/login2")
+    @GetMapping("/test")
     public String  login2() {
-        return "login2";
+        return "test";
     }
 
 
