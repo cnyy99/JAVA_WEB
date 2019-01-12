@@ -44,11 +44,16 @@ public class SkillService {
         skillExample.or().andSkillNameEqualTo(name);
         return skillMapper.deleteByExample(skillExample);
     }
+    public Integer deletePrimaryKey(Integer id) {
+
+        return skillMapper.deleteByPrimaryKey(id);
+    }
 
     /**
      * 更新
      */
     public Integer update(Skill skill) {
+
         return skillMapper.updateByPrimaryKeySelective(skill);
     }
 

@@ -17,7 +17,7 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 /**  *  */
 @Configuration
 public class WebSecurityConfig extends WebMvcConfigurerAdapter {
-    private Logger log = LoggerFactory.getLogger(MainController.class);
+    private Logger log = LoggerFactory.getLogger(WebSecurityConfig.class);
 
     /**
      * 登录session key
@@ -52,7 +52,7 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
         addInterceptor.excludePathPatterns("/index");
         addInterceptor.excludePathPatterns("/register");
 //        拦截配置
-//        addInterceptor.addPathPatterns("/**");
+        addInterceptor.addPathPatterns("/**");
     }
 
     private class SecurityInterceptor extends HandlerInterceptorAdapter {
@@ -60,6 +60,8 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
         public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
             HttpSession session = request.getSession();
             Cookie[] cookies = request.getCookies();
+            String targetUrl = request.getRequestURI();
+            String USER_TYPE=null;
             if (session.getAttribute(SESSION_USER_KEY) != null) {
                 return true;
             }
@@ -80,8 +82,17 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
                 if (cookie.getName().equalsIgnoreCase(SESSION_USERTYPE_KEY)) {
                     session.setAttribute(SESSION_USERTYPE_KEY, cookie.getValue());
                     isLogined = true;
+                    USER_TYPE=cookie.getValue();
                     log.info("cookie: " + cookie.getName() + ": " + cookie.getValue());
                 }
+            }
+            log.warn(USER_TYPE);
+            log.warn(request.getRequestURI());
+
+            if(targetUrl.contains("manage")&&USER_TYPE!=null&&USER_TYPE.equalsIgnoreCase(USER_TYPE_NORMAL))
+            {
+                response.sendRedirect("/404");
+                return false;
             }
             if (isLogined)
                 return true;

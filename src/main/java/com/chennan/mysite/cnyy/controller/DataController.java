@@ -11,13 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Controller
 @RestController
-@RequestMapping("/get")
+@RequestMapping("/data")
 public class DataController {
-    private Logger log = LoggerFactory.getLogger(MainController.class);
+    private Logger log = LoggerFactory.getLogger(DataController.class);
 
     @Autowired
     private SkillService skillService;
@@ -35,10 +37,42 @@ public class DataController {
         return skillService.getAllSkillPage(pageNo, pageSize);
     }
 
+
     @GetMapping("/skills")
-    public List<Skill> listSkills(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize) {
-        log.info("call /get/skills");
-        return skillService.getAllSkill();
+    public Map<String,Object> listSkills() {
+        log.info("call /data/skills");
+        List<Skill> skillList=skillService.getAllSkill();
+        Map<String,Object> stringObjectMap=new HashMap<>();
+        stringObjectMap.put("data",skillList);
+        stringObjectMap.put("itemsCount",skillList.size());
+        return stringObjectMap;
+    }
+
+    @GetMapping("/deleteSkill")
+    public Integer deleteSkills(@RequestParam Integer skillId) {
+        log.info("call /data/deleteSkill");
+        return skillService.deletePrimaryKey(skillId);
+    }
+
+    @PostMapping("/insertSkill")
+    public Integer listSkillss(@RequestParam String skillName,@RequestParam Integer skillScore,@RequestParam Boolean skillShow) {
+        Skill skill=new Skill();
+        skill.setSkillName(skillName);
+        skill.setSkillScore(skillScore);
+        skill.setSkillShow(skillShow);
+        log.info("call /data/insertSkills");
+        return skillService.insert(skill);
+    }
+    @PostMapping("/updateSkill")
+    public Skill listSkillsup(@RequestParam Integer skillId,@RequestParam String skillName,@RequestParam Integer skillScore,@RequestParam Boolean skillShow) {
+        Skill skill=new Skill();
+        skill.setSkillId(skillId);
+        skill.setSkillName(skillName);
+        skill.setSkillScore(skillScore);
+        skill.setSkillShow(skillShow);
+        log.info("call /data/updateSkill");
+        skillService.update(skill);
+        return skill;
     }
 
     @GetMapping("/user/{id}")
