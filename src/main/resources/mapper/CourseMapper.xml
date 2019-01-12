@@ -8,7 +8,7 @@
     -->
     <id column="course_id" jdbcType="INTEGER" property="courseId" />
     <result column="course_name" jdbcType="VARCHAR" property="courseName" />
-    <result column="course_score" jdbcType="VARCHAR" property="courseScore" />
+    <result column="course_score" jdbcType="INTEGER" property="courseScore" />
     <result column="course_type" jdbcType="VARCHAR" property="courseType" />
     <result column="course_term" jdbcType="VARCHAR" property="courseTerm" />
     <result column="course_show" jdbcType="BIT" property="courseShow" />
@@ -140,7 +140,7 @@
     insert into course (course_id, course_name, course_score, 
       course_type, course_term, course_show
       )
-    values (#{courseId,jdbcType=INTEGER}, #{courseName,jdbcType=VARCHAR}, #{courseScore,jdbcType=VARCHAR}, 
+    values (#{courseId,jdbcType=INTEGER}, #{courseName,jdbcType=VARCHAR}, #{courseScore,jdbcType=INTEGER}, 
       #{courseType,jdbcType=VARCHAR}, #{courseTerm,jdbcType=VARCHAR}, #{courseShow,jdbcType=BIT}
       )
   </insert>
@@ -178,7 +178,7 @@
         #{courseName,jdbcType=VARCHAR},
       </if>
       <if test="courseScore != null">
-        #{courseScore,jdbcType=VARCHAR},
+        #{courseScore,jdbcType=INTEGER},
       </if>
       <if test="courseType != null">
         #{courseType,jdbcType=VARCHAR},
@@ -215,7 +215,7 @@
         course_name = #{record.courseName,jdbcType=VARCHAR},
       </if>
       <if test="record.courseScore != null">
-        course_score = #{record.courseScore,jdbcType=VARCHAR},
+        course_score = #{record.courseScore,jdbcType=INTEGER},
       </if>
       <if test="record.courseType != null">
         course_type = #{record.courseType,jdbcType=VARCHAR},
@@ -239,7 +239,7 @@
     update course
     set course_id = #{record.courseId,jdbcType=INTEGER},
       course_name = #{record.courseName,jdbcType=VARCHAR},
-      course_score = #{record.courseScore,jdbcType=VARCHAR},
+      course_score = #{record.courseScore,jdbcType=INTEGER},
       course_type = #{record.courseType,jdbcType=VARCHAR},
       course_term = #{record.courseTerm,jdbcType=VARCHAR},
       course_show = #{record.courseShow,jdbcType=BIT}
@@ -258,7 +258,7 @@
         course_name = #{courseName,jdbcType=VARCHAR},
       </if>
       <if test="courseScore != null">
-        course_score = #{courseScore,jdbcType=VARCHAR},
+        course_score = #{courseScore,jdbcType=INTEGER},
       </if>
       <if test="courseType != null">
         course_type = #{courseType,jdbcType=VARCHAR},
@@ -279,7 +279,7 @@
     -->
     update course
     set course_name = #{courseName,jdbcType=VARCHAR},
-      course_score = #{courseScore,jdbcType=VARCHAR},
+      course_score = #{courseScore,jdbcType=INTEGER},
       course_type = #{courseType,jdbcType=VARCHAR},
       course_term = #{courseTerm,jdbcType=VARCHAR},
       course_show = #{courseShow,jdbcType=BIT}

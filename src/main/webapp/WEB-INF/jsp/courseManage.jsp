@@ -24,7 +24,7 @@
             src="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
 </head>
 <body>
-<div class="col-lg-6 offset-3" style="text-align: center"><h1>Skill Manage</h1></div>
+<div class="col-lg-6 offset-3" style="text-align: center"><h1>Course Manage</h1></div>
 <div class="container">
     <div id="jsGrid"></div>
 </div>
@@ -34,7 +34,7 @@
         loadData: function(filter) {
             return $.ajax({
                 type: "GET",
-                url: "/data/skills",
+                url: "/data/courses",
                 data: filter,
                 dataType: "JSON"
             });
@@ -43,7 +43,7 @@
         insertItem: function(item) {
             return $.ajax({
                 type: "POST",
-                url: "/data/insertSkill",
+                url: "/data/insertCourse",
                 data: item
             });
         },
@@ -51,7 +51,7 @@
         updateItem: function(item) {
             return $.ajax({
                 type: "POST",
-                url: "/data/updateSkill",
+                url: "/data/updateCourse",
                 data: item
             });
         },
@@ -59,14 +59,14 @@
         deleteItem: function(item) {
             return $.ajax({
                 type: "GET",
-                url: "/data/deleteSkill",
+                url: "/data/deleteCourse",
                 data: item
             });
         }
     };
     $("#jsGrid").jsGrid({
         width: "100%",
-        height: "500px",
+        height: "477px",
         autoload:true,
         inserting: true,
         editing: true,
@@ -86,10 +86,12 @@
         controller:myController,
 
         fields: [
-            {name: "skillId", type: "number", width: 30, editing: false},
-            {name: "skillName", type: "text", width: 30},
-            {name: "skillScore", type: "number", width: 7},
-            {name: "skillShow", type: "checkbox", width:3},
+            {name: "courseId", type: "number", width: 7, editing: false},
+            {name: "courseName", type: "text", width: 23},
+            {name: "courseScore", type: "number", width: 13},
+            {name: "courseType", type: "text", width: 17},
+            {name: "courseTerm", type: "text", width: 20},
+            {name: "courseShow", type: "checkbox", width:3},
             {type: "control"}
         ]
     });

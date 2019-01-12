@@ -35,7 +35,7 @@ public class Course implements Serializable {
      *
      * @mbg.generated
      */
-    private String courseScore;
+    private Integer courseScore;
 
     /**
      *
@@ -128,7 +128,7 @@ public class Course implements Serializable {
      *
      * @mbg.generated
      */
-    public String getCourseScore() {
+    public Integer getCourseScore() {
         return courseScore;
     }
 
@@ -140,7 +140,7 @@ public class Course implements Serializable {
      *
      * @mbg.generated
      */
-    public void setCourseScore(String courseScore) {
+    public void setCourseScore(Integer courseScore) {
         this.courseScore = courseScore;
     }
 

@@ -14,7 +14,7 @@ import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.USER_TYPE_NOR
 @RequestMapping("/manage")
 public class ManageController {
     @GetMapping("/skillmanage")
-    public String login2(HttpServletRequest request) {
+    public String skillmanage(HttpServletRequest request) {
         HttpSession session=request.getSession();
         String  UserType=(String) session.getAttribute(SESSION_USERTYPE_KEY);
         if(UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
@@ -22,5 +22,26 @@ public class ManageController {
             return "/404";
         }
         return "skillManage";
+    }
+    @GetMapping("/coursemanage")
+    public String coursemanage(HttpServletRequest request) {
+        HttpSession session=request.getSession();
+        String  UserType=(String) session.getAttribute(SESSION_USERTYPE_KEY);
+        if(UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
+        {
+            return "/404";
+        }
+        return "courseManage";
+    }
+
+    @GetMapping("/commentmanage")
+    public String commentemanage(HttpServletRequest request) {
+        HttpSession session=request.getSession();
+        String  UserType=(String) session.getAttribute(SESSION_USERTYPE_KEY);
+        if(UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
+        {
+            return "/404";
+        }
+        return "commentManage";
     }
 }

@@ -106,4 +106,8 @@ public class CourseService {
         List<Course> newCourseList = (List<Course>) DataHelper.getRandomList(courseList, COURSE_NUM_KEY);
         session.setAttribute(COURSE_KEY, newCourseList);
     }
+
+    public Integer deletePrimaryKey(Integer courseId) {
+        return courseMapper.deleteByPrimaryKey(courseId);
+    }
 }

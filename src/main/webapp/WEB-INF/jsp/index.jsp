@@ -58,7 +58,7 @@
         <%
         } else if (userType.equalsIgnoreCase(WebSecurityConfig.USER_TYPE_ADMINISTRATOR)) {
         %>
-        <strong><a class="navbar-brand" href="/index"><%=username%>
+        <strong><a class="navbar-brand" href="/manage/coursemanage"><%=username%>
         </a></strong>
         <%
         } else {

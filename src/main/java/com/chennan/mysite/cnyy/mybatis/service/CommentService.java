@@ -88,4 +88,8 @@ public class CommentService {
 
         return pageInfo;
     }
+
+    public Integer deletePrimaryKey(Integer commentId) {
+        return commentMapper.deleteByPrimaryKey(commentId);
+    }
 }
