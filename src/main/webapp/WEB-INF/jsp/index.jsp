@@ -22,8 +22,9 @@
 
     <link rel="stylesheet" href="/static/css/bootstrap.css">
     <link rel="stylesheet" href="/static/css/style.css">
-
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="http://at.alicdn.com/t/font_1012673_q1pp9wrsph.css">
 
     <!-- Favicon and touch icons -->
     <link rel="shortcut icon" href="/static/assets/ico/favicon.png">
@@ -122,8 +123,8 @@
                     mouth.</p>
 
                 <p>
-                    <a href="#section-contact" class="btn btn-primary px-4 py-2 btn-sm smoothscroll">Hire Me</a>
-                    <a href="#" class="btn btn-secondary px-4 py-2 btn-sm">Download CV</a>
+                    <a href="#section-contact" class="btn btn-primary px-4 py-2 btn-sm smoothscroll">Leave Message</a>
+                    <%--<a href="#" class="btn btn-secondary px-4 py-2 btn-sm">Download CV</a>--%>
                 </p>
             </div>
         </div>
@@ -595,7 +596,7 @@
         <div class="row">
             <div class="col-md-12 mb-5">
                 <div class="section-heading text-center">
-                    <h2>Wanna <strong>Start Work</strong> With Me?</h2>
+                    <h2>Wanna <strong>Start Contact</strong> With Me?</h2>
                 </div>
             </div>
 
@@ -605,22 +606,28 @@
                     <%
                         if (username == null) {
                     %>
-                    <p>请登陆后留言</p>
+                    <p style="color: orangered">请登陆后留言</p>
                     <%
                         }
                     %>
                     <%--<div class="form-group">--%>
-                        <%--<input type="email" class="form-control px-3 py-4" placeholder="Your Email">--%>
+                    <%--<input type="email" class="form-control px-3 py-4" placeholder="Your Email">--%>
                     <%--</div>--%>
                     <%--<div class="form-group">--%>
-                        <%--<input type="email" class="form-control px-3 py-4" placeholder="Your Phone">--%>
+                    <%--<input type="email" class="form-control px-3 py-4" placeholder="Your Phone">--%>
                     <%--</div>--%>
                     <div class="form-group mb-5">
                         <textarea class="form-control px-3 py-4" cols="30" rows="10"
                                   placeholder="Leave a Message" name="commentText"></textarea>
                     </div>
                     <div class="form-group">
+                        <%
+                            if (username != null) {
+                        %>
                         <input type="submit" class="btn btn-primary  px-4 py-3" value="Leave Message">
+                        <%
+                            }
+                        %>
                     </div>
                 </form>
             </div>
@@ -653,11 +660,12 @@
         <div class="row mb-3">
             <div class="col-md-12 text-center">
                 <p>
-                    <a href="#" class="social-item"><span class="icon-facebook2"></span></a>
-                    <a href="#" class="social-item"><span class="icon-twitter"></span></a>
-                    <a href="#" class="social-item"><span class="icon-instagram2"></span></a>
-                    <a href="#" class="social-item"><span class="icon-linkedin2"></span></a>
-                    <a href="#" class="social-item"><span class="icon-vimeo"></span></a>
+                    <a href="https://github.com/cnyy7" class="social-item"><span class="icon-github2"></span></a>
+                    <a href="https://www.zhihu.com/people/chen-nan-55" class="social-item"><span class="fab fa-zhihu"></span></a>
+                    <a href="https://yayawonder.netlify.com/yaya.html" class="social-item"><span class="iconfont icon-yueryingerbaby-yaziduckquac" ></span></a>
+                    <a href="https://mp.weixin.qq.com/s?__biz=MzU3NDc1ODkxOQ==&mid=2247483675&idx=1&sn=79384586d758b29aedcf6a275dfae5a5&chksm=fd2cc873ca5b4165ea18824e86b4b4c07bd8c2d6812e8c7a9f18130462f5d79acc0fb34996a3&xtrack=1&scene=0&subscene=131&clicktime=1547283295&ascene=7&devicetype=android-27&version=27000038&nettype=WIFI&abtest_cookie=BQABAAoACwASABMAFAAGACaXHgBXmR4Am5keAJ2ZHgClmR4At5keAAAA&lang=zh_CN&pass_ticket=C6r1Ne3gjNwqLwHfl%2F7Gly8vqamKcCMXat%2FTVlWTBqg%3D&wx_header=1" class="social-item"><span class="fas fa-cat"></span></a>
+                    <%--<a href="#" class="social-item"><span class="icon-linkedin2"></span></a>--%>
+                    <%--<a href="#" class="social-item"><span class="icon-vimeo"></span></a>--%>
                 </p>
             </div>
         </div>
