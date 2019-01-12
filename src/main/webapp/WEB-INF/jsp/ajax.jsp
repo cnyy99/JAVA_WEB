@@ -12,14 +12,14 @@
     <script type="text/javascript">
         $(function() {
             $.ajax({
-                url: '${pageContext.request.contextPath}/ajaxlist',
+                url: '${pageContext.request.contextPath}/allusers',
                 type: 'post',
                 contentType: "application/json; charset=utf-8",
                 dataType: 'json',
                 success: function(rawdata) {//這裏的data代表的就是返回person集合list
                     var html = "";
                     html += "<tr><th>姓名</th><th>密码</th></tr>";
-                    var data=rawdata.list;
+                    var data=rawdata;
                     for(var i=0; i<data.length; i++){
                         html += "<tr><td>"+data[i].userName+"</td><td>"+data[i].userPassword+"</td></tr>";
                     }
@@ -52,7 +52,7 @@
                 methods:{
                     get:function(){
                         //发送get请求
-                        this.$http.get('http://localhost:8080/users').then(function(res){
+                        this.$http.get('/users').then(function(res){
                             var str="";
                             for(var property in res) {
                                 str+=property + "=" + res[property]+"</br>";

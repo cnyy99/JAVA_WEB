@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class UserController {
 
@@ -22,6 +24,11 @@ public class UserController {
         PageInfo<User> pageInfo = new PageInfo<>(userService.getAllUsers());
         System.out.println("/users");
         return pageInfo;
+    }
+    @GetMapping("/allusers")
+    public List<User> listss() {
+
+        return userService.getAllUsers();
     }
 
     @GetMapping("/user/{id}")
