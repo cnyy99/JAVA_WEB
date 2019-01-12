@@ -25,6 +25,7 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
     public final static String SESSION_USER_KEY = "SESSION_USER_KEY";
     public final static String SESSION_USERTYPE_KEY = "SESSION_USERTYPE_KEY";
     public final static String SESSION_MSG_KEY = "SESSION_MSG_KEY";
+    public final static String SESSION_MSG_EMAIL_KEY = "SESSION_MSG_EMAIL_KEY";
     public final static String USER_TYPE_NORMAL = "USER_TYPE_NORMAL";
     public final static String USER_TYPE_ADMINISTRATOR = "USER_TYPE_ADMINISTRATOR";
     public final static String SUCCESS = "成功";

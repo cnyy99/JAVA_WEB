@@ -601,10 +601,12 @@
 
             <div class="col-md-7 mb-5 mb-md-0">
                 <form action="/" class="site-form">
-                    <h3 class="mb-5">Get In Touch</h3>
-                    <div class="form-group">
-                        <input type="text" class="form-control px-3 py-4" placeholder="Your Name">
-                    </div>
+                    <h3 class="mb-5">Leave a message</h3>
+                    <%
+                    if (username==null)
+
+                    %>
+
                     <div class="form-group">
                         <input type="email" class="form-control px-3 py-4" placeholder="Your Email">
                     </div>
@@ -625,21 +627,17 @@
                 <ul class="site-contact-details">
                     <li>
                         <span class="text-uppercase">Email</span>
-                        site@gmail.com
+                        chennan@bjfu.edu.cn
                     </li>
                     <li>
                         <span class="text-uppercase">Phone</span>
-                        +30 976 1382 9921
-                    </li>
-                    <li>
-                        <span class="text-uppercase">Fax</span>
-                        +30 976 1382 9922
+                        +86 176 1060 2157
                     </li>
                     <li>
                         <span class="text-uppercase">Address</span>
-                        San Francisco, CA <br>
-                        4th Floor8 Lower <br>
-                        San Francisco street, M1 50F
+                        Beijing, China <br>
+                        35th Qinghuadonglu <br>
+                        Beijing Forestry University
                     </li>
                 </ul>
             </div>

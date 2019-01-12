@@ -18,9 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SESSION_MSG_KEY;
-import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SESSION_USERTYPE_KEY;
-import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SUCCESS;
+import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.*;
 
 
 @Service
@@ -56,8 +54,18 @@ public class UserService {
             return userList.get(0);
         }
     }
+    public User selectByEmail(String email) {
+        UserExample userExample = new UserExample();
+        userExample.or().andUserEmailEqualTo(email);
+        List<User> userList = userMapper.selectByExample(userExample);
+        if (userList.size() == 0) {
+            return null;
+        } else {
+            return userList.get(0);
+        }
+    }
 
-    public Map<String, String> register(String username, String password, String type) {
+    public Map<String, String> register(String username, String password, String email,String type) {
         Map<String, String> stringMap = new HashMap<>();
         stringMap.put(SESSION_USERTYPE_KEY, type);
         if (StringUtils.isBlank(username)) {
@@ -73,6 +81,13 @@ public class UserService {
         User u = selectByName(username);
         if (u != null) {
             stringMap.put(SESSION_MSG_KEY, "用户名已经被占用");
+            stringMap.put(SESSION_MSG_EMAIL_KEY, "");
+            return stringMap;
+        }
+        User u1 = selectByEmail(email);
+        if (u1 != null) {
+            stringMap.put(SESSION_MSG_EMAIL_KEY, "邮箱已经被占用");
+            stringMap.put(SESSION_MSG_KEY, "");
             return stringMap;
         }
 

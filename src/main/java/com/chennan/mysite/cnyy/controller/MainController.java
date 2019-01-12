@@ -40,7 +40,7 @@ public class MainController {
 
     @GetMapping("/")
     public String index(HttpServletRequest request) {
-        HttpSession session=request.getSession();
+        HttpSession session = request.getSession();
         skillService.addSkillsToSession(session);
         courseService.addCoursesToSession(session);
         return "index";
@@ -50,8 +50,7 @@ public class MainController {
     public String toregister(HttpServletRequest request) {
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute(SESSION_USER_KEY);
-        if (username != null)
-        {
+        if (username != null) {
             skillService.addSkillsToSession(session);
             courseService.addCoursesToSession(session);
             return "redirect:/index";
@@ -61,13 +60,14 @@ public class MainController {
 
     @PostMapping("/register")
     public String register(Model model,
-                           @RequestParam String username, @RequestParam String password, @RequestParam(defaultValue = USER_TYPE_NORMAL) String type) {
+                           @RequestParam String username, @RequestParam String password, @RequestParam String email, @RequestParam(defaultValue = USER_TYPE_NORMAL) String type) {
 
-        Map<String, String> msg = userService.register(username, password, type);
+        Map<String, String> msg = userService.register(username, password, email, type);
         if (msg.get(SESSION_MSG_KEY).equalsIgnoreCase(SUCCESS)) {
             return "login";
         } else {
             model.addAttribute(SESSION_MSG_KEY, msg.get(SESSION_MSG_KEY));
+            model.addAttribute(SESSION_MSG_EMAIL_KEY, msg.get(SESSION_MSG_EMAIL_KEY));
             return "register";
         }
     }
@@ -76,8 +76,7 @@ public class MainController {
     public String tologin(HttpServletRequest request) {
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute(SESSION_USER_KEY);
-        if (username != null)
-        {
+        if (username != null) {
             skillService.addSkillsToSession(session);
             courseService.addCoursesToSession(session);
             return "redirect:/index";
