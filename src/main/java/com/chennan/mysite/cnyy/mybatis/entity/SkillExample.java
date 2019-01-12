@@ -383,6 +383,66 @@ public class SkillExample {
             addCriterion("skill_score not between", value1, value2, "skillScore");
             return (Criteria) this;
         }
+
+        public Criteria andSkillShowIsNull() {
+            addCriterion("skill_show is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSkillShowIsNotNull() {
+            addCriterion("skill_show is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andSkillShowEqualTo(Boolean value) {
+            addCriterion("skill_show =", value, "skillShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andSkillShowNotEqualTo(Boolean value) {
+            addCriterion("skill_show <>", value, "skillShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andSkillShowGreaterThan(Boolean value) {
+            addCriterion("skill_show >", value, "skillShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andSkillShowGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("skill_show >=", value, "skillShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andSkillShowLessThan(Boolean value) {
+            addCriterion("skill_show <", value, "skillShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andSkillShowLessThanOrEqualTo(Boolean value) {
+            addCriterion("skill_show <=", value, "skillShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andSkillShowIn(List<Boolean> values) {
+            addCriterion("skill_show in", values, "skillShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andSkillShowNotIn(List<Boolean> values) {
+            addCriterion("skill_show not in", values, "skillShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andSkillShowBetween(Boolean value1, Boolean value2) {
+            addCriterion("skill_show between", value1, value2, "skillShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andSkillShowNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("skill_show not between", value1, value2, "skillShow");
+            return (Criteria) this;
+        }
     }
 
     /**

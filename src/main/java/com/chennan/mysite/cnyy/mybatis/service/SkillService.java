@@ -78,6 +78,19 @@ public class SkillService {
         return skillMapper.selectByExample(skillExample);
     }
 
+    public List<Skill> getAllShowSkill(){
+        SkillExample skillExample = new SkillExample();
+        skillExample.or().andSkillIdIsNotNull();
+        List<Skill> skillList= skillMapper.selectByExample(skillExample);
+        for (int i=0;i<skillList.size();i++)
+        {
+            if (!skillList.get(i).getSkillShow())
+            {
+                skillList.remove(i);
+            }
+        }
+        return skillList;
+    }
     public PageInfo<Skill> getAllSkillPage(int pageNo, int pageSize) {
         PageHelper.startPage(pageNo, pageSize);
         PageInfo<Skill> pageInfo = new PageInfo<>(getAllSkill());
@@ -85,8 +98,8 @@ public class SkillService {
         return pageInfo;
     }
 
-    public void addSkills(HttpSession session) {
-        List<Skill> skillList = getAllSkill();
+    public void addSkillsToSession(HttpSession session) {
+        List<Skill> skillList = getAllShowSkill();
         List<Skill> newSkillList = (List<Skill>) DataHelper.getRandomList(skillList, SKILL_NUM_KEY);
         session.setAttribute(SKILL_KEY, newSkillList);
     }

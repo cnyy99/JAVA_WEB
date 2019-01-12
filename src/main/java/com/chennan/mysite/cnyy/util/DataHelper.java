@@ -41,7 +41,7 @@ public class DataHelper {
      * @return:由抽取元素组成的新list
      */
     public static List getRandomList(List paramList, int count) {
-        if (paramList.size() < count) {
+        if (paramList.size() <= count) {
             return paramList;
         }
         Random random = new Random();

@@ -41,8 +41,8 @@ public class MainController {
     @GetMapping("/")
     public String index(HttpServletRequest request) {
         HttpSession session=request.getSession();
-        skillService.addSkills(session);
-        courseService.addCourses(session);
+        skillService.addSkillsToSession(session);
+        courseService.addCoursesToSession(session);
         return "index";
     }
 
@@ -52,8 +52,8 @@ public class MainController {
         String username = (String) session.getAttribute(SESSION_USER_KEY);
         if (username != null)
         {
-            skillService.addSkills(session);
-            courseService.addCourses(session);
+            skillService.addSkillsToSession(session);
+            courseService.addCoursesToSession(session);
             return "redirect:/index";
         }
         return "register";
@@ -78,8 +78,8 @@ public class MainController {
         String username = (String) session.getAttribute(SESSION_USER_KEY);
         if (username != null)
         {
-            skillService.addSkills(session);
-            courseService.addCourses(session);
+            skillService.addSkillsToSession(session);
+            courseService.addCoursesToSession(session);
             return "redirect:/index";
         }
         return "login";
@@ -109,8 +109,8 @@ public class MainController {
             response.addCookie(url);
             response.addCookie(type);
             session.setAttribute(SESSION_USER_KEY, username);
-            skillService.addSkills(session);
-            courseService.addCourses(session);
+            skillService.addSkillsToSession(session);
+            courseService.addCoursesToSession(session);
             session.setAttribute(SESSION_USERTYPE_KEY, msg.get(SESSION_USERTYPE_KEY));
             //            view.addObject("username", username);
             return new ModelAndView("index");
@@ -137,8 +137,8 @@ public class MainController {
         // 移除session
         session.removeAttribute(SESSION_USER_KEY);
         session.removeAttribute(SESSION_USERTYPE_KEY);
-        skillService.addSkills(session);
-        courseService.addCourses(session);
+        skillService.addSkillsToSession(session);
+        courseService.addCoursesToSession(session);
         return "redirect:/index";
     }
 

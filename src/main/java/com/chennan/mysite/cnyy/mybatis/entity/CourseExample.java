@@ -533,6 +533,66 @@ public class CourseExample {
             addCriterion("course_term not between", value1, value2, "courseTerm");
             return (Criteria) this;
         }
+
+        public Criteria andCourseShowIsNull() {
+            addCriterion("course_show is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowIsNotNull() {
+            addCriterion("course_show is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowEqualTo(Boolean value) {
+            addCriterion("course_show =", value, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowNotEqualTo(Boolean value) {
+            addCriterion("course_show <>", value, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowGreaterThan(Boolean value) {
+            addCriterion("course_show >", value, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("course_show >=", value, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowLessThan(Boolean value) {
+            addCriterion("course_show <", value, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowLessThanOrEqualTo(Boolean value) {
+            addCriterion("course_show <=", value, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowIn(List<Boolean> values) {
+            addCriterion("course_show in", values, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowNotIn(List<Boolean> values) {
+            addCriterion("course_show not in", values, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowBetween(Boolean value1, Boolean value2) {
+            addCriterion("course_show between", value1, value2, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("course_show not between", value1, value2, "courseShow");
+            return (Criteria) this;
+        }
     }
 
     /**

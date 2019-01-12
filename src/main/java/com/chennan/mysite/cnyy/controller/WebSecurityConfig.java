@@ -30,7 +30,7 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
     public final static String SUCCESS = "成功";
     public final static String FAILURE = "失败";
     public final static String SKILL_KEY = "SKILL_KEY";
-    public final static Integer SKILL_NUM_KEY = 7;
+    public final static Integer SKILL_NUM_KEY = 9;
     public final static String COURSE_KEY = "COURSE_KEY";
     public final static Integer COURSE_NUM_KEY = 50;
     public final static Integer COOKIE_MAX_AGE = 60 * 60 * 24;
@@ -63,6 +63,13 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
                 return true;
             }
             boolean isLogined = false;
+            if (cookies==null)
+            {
+                log.error("cookies is null");
+                String url = "/login";
+                response.sendRedirect(url);
+                return false;
+            }
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equalsIgnoreCase(SESSION_USER_KEY)) {
                     session.setAttribute(SESSION_USER_KEY, cookie.getValue());

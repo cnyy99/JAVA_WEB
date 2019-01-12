@@ -43,8 +43,7 @@ public class CourseService {
     public Integer delete(String name) {
         CourseExample courseExample = new CourseExample();
         courseExample.or().andCourseNameEqualTo(name);
-        int ret = courseMapper.deleteByExample(courseExample);
-        return ret > 0 ? ret : -1;
+        return  courseMapper.deleteByExample(courseExample);
     }
 
     /**
@@ -52,8 +51,7 @@ public class CourseService {
      */
     public Integer update(Course course) {
 
-        int ret = courseMapper.updateByPrimaryKeySelective(course);
-        return ret > 0 ? ret : -1;
+        return courseMapper.updateByPrimaryKeySelective(course);
     }
 
     /**
@@ -81,14 +79,30 @@ public class CourseService {
         return  courseMapper.selectByExample(courseExample);
     }
 
+    public List<Course> getAllShowCourse()
+    {
+        CourseExample courseExample=new CourseExample();
+        courseExample.or().andCourseIdIsNotNull();
+        List<Course> courseList= courseMapper.selectByExample(courseExample);
+        for (int i=0;i<courseList.size();i++)
+        {
+            if (!courseList.get(i).getCourseShow())
+            {
+                courseList.remove(i);
+            }
+        }
+        return courseList;
+    }
+
     public PageInfo<Course> getAllCoursePage(int pageNo, int pageSize) {
         PageHelper.startPage(pageNo,pageSize);
         PageInfo<Course> pageInfo = new PageInfo<>(getAllCourse());
 
         return pageInfo;
     }
-    public void addCourses(HttpSession session) {
-        List<Course> courseList = getAllCourse();
+
+    public void addCoursesToSession(HttpSession session) {
+        List<Course> courseList = getAllShowCourse();
         List<Course> newCourseList = (List<Course>) DataHelper.getRandomList(courseList, COURSE_NUM_KEY);
         session.setAttribute(COURSE_KEY, newCourseList);
     }

@@ -89,8 +89,6 @@
         %>
     </div>
 </nav>
-
-
 <section class="site-hero" style="background-image: url(/static/images/preview.png);" id="section-home"
          data-stellar-background-ratio="0.5">
     <div class="container">
@@ -98,7 +96,8 @@
             <div class="col-md-10 text-center">
                 <h1 class="site-heading site-animate">Howdy, I'm <strong>Chen Nan</strong></h1>
                 <p class="lead site-subheading mb-4 site-animate">A Student studying computer science in Beijing Forest
-                    University. Welcome to my page.</p>
+                    University. </p>
+                <p class="lead site-subheading mb-4 site-animate">Welcome to my page. </p>
                 <p><a href="#section-about" class="smoothscroll btn btn-primary px-4 py-3">More On Me</a></p>
             </div>
         </div>
@@ -601,7 +600,7 @@
             </div>
 
             <div class="col-md-7 mb-5 mb-md-0">
-                <form action="" class="site-form">
+                <form action="/" class="site-form">
                     <h3 class="mb-5">Get In Touch</h3>
                     <div class="form-group">
                         <input type="text" class="form-control px-3 py-4" placeholder="Your Name">
@@ -667,9 +666,7 @@
 
                 Copyright &copy;
                 <script>document.write(new Date().getFullYear());</script>
-                - Chennan All rights reserved | More Templates <a href="http://www.cssmoban.com/" target="_blank"
-                                                                  title="模板之家">模板之家</a> - Collect from <a
-                    href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+                - Chennan All rights reserved
 
             </p>
         </div>
