@@ -26,7 +26,7 @@ public class CommentController {
     @Autowired
     private CommentService commentService;
     @PostMapping("/comment/save")
-    public void saveComment(HttpServletRequest request, @RequestParam String commentText)
+    public String saveComment(HttpServletRequest request, @RequestParam String commentText)
     {
         HttpSession session=request.getSession();
         Comment comment=new Comment();
@@ -35,10 +35,11 @@ public class CommentController {
         comment.setCommentTime(new Date());
         comment.setUserId(userService.getUserId((String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY)));
         commentService.insert(comment);
+        return "redirect:/index";
     }
 
     @PostMapping("/comment/psave")
-    public void saveCommentP(HttpServletRequest request, @RequestParam String commentText,@RequestParam(required = false) Integer pid)
+    public String saveCommentP(HttpServletRequest request, @RequestParam String commentText,@RequestParam(required = false) Integer pid)
     {
         HttpSession session=request.getSession();
         Comment comment=new Comment();
@@ -47,5 +48,6 @@ public class CommentController {
         comment.setCommentTime(new Date());
         comment.setUserId(userService.getUserId((String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY)));
         commentService.insert(comment);
+        return "redirect:/index";
     }
 }

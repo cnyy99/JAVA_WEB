@@ -600,25 +600,27 @@
             </div>
 
             <div class="col-md-7 mb-5 mb-md-0">
-                <form action="/" class="site-form">
+                <form action="/comment/save" class="site-form" method="post">
                     <h3 class="mb-5">Leave a message</h3>
                     <%
-                    if (username==null)
-
+                        if (username == null) {
                     %>
-
-                    <div class="form-group">
-                        <input type="email" class="form-control px-3 py-4" placeholder="Your Email">
-                    </div>
-                    <div class="form-group">
-                        <input type="email" class="form-control px-3 py-4" placeholder="Your Phone">
-                    </div>
+                    <p>请登陆后留言</p>
+                    <%
+                        }
+                    %>
+                    <%--<div class="form-group">--%>
+                        <%--<input type="email" class="form-control px-3 py-4" placeholder="Your Email">--%>
+                    <%--</div>--%>
+                    <%--<div class="form-group">--%>
+                        <%--<input type="email" class="form-control px-3 py-4" placeholder="Your Phone">--%>
+                    <%--</div>--%>
                     <div class="form-group mb-5">
                         <textarea class="form-control px-3 py-4" cols="30" rows="10"
-                                  placeholder="Write a Message"></textarea>
+                                  placeholder="Leave a Message" name="commentText"></textarea>
                     </div>
                     <div class="form-group">
-                        <input type="submit" class="btn btn-primary  px-4 py-3" value="Send Message">
+                        <input type="submit" class="btn btn-primary  px-4 py-3" value="Leave Message">
                     </div>
                 </form>
             </div>
