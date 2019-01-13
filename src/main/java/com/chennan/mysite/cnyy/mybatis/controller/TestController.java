@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+
 @RestController
 public class TestController {
     private Logger log = LoggerFactory.getLogger(MainController.class);
 
     @GetMapping("/tryintercept")
-    public String tryintercept()
-    {
+    public String tryintercept() {
         return "tryintercept";
     }
 

@@ -20,7 +20,7 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
     private Logger log = LoggerFactory.getLogger(WebSecurityConfig.class);
 
     /**
-     * 登录session key
+     * session key
      */
     public final static String SESSION_USER_KEY = "SESSION_USER_KEY";
     public final static String SESSION_USERTYPE_KEY = "SESSION_USERTYPE_KEY";
@@ -61,13 +61,12 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
             HttpSession session = request.getSession();
             Cookie[] cookies = request.getCookies();
             String targetUrl = request.getRequestURI();
-            String USER_TYPE=null;
+            String USER_TYPE = null;
             if (session.getAttribute(SESSION_USER_KEY) != null) {
                 return true;
             }
             boolean isLogined = false;
-            if (cookies==null)
-            {
+            if (cookies == null) {
                 log.error("cookies is null");
                 String url = "/login";
                 response.sendRedirect(url);
@@ -82,15 +81,14 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
                 if (cookie.getName().equalsIgnoreCase(SESSION_USERTYPE_KEY)) {
                     session.setAttribute(SESSION_USERTYPE_KEY, cookie.getValue());
                     isLogined = true;
-                    USER_TYPE=cookie.getValue();
+                    USER_TYPE = cookie.getValue();
                     log.info("cookie: " + cookie.getName() + ": " + cookie.getValue());
                 }
             }
             log.warn(USER_TYPE);
             log.warn(request.getRequestURI());
 
-            if(targetUrl.contains("manage")&&USER_TYPE!=null&&USER_TYPE.equalsIgnoreCase(USER_TYPE_NORMAL))
-            {
+            if (targetUrl.contains("manage") && USER_TYPE != null && USER_TYPE.equalsIgnoreCase(USER_TYPE_NORMAL)) {
                 response.sendRedirect("/404");
                 return false;
             }

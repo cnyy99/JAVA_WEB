@@ -52,17 +52,17 @@
 
 <div class="row">
     <div class="container  hide" id="skill">
-        <div class="col-lg-6 offset-3" style="text-align: center"><h1>Skill Manage</h1></div>
+        <div class="row" style="text-align: center"><h1>Skill Manage</h1></div>
         <div id="jsGrid_skill"></div>
     </div>
 
     <div class="container" id="course">
-        <div class="col-lg-6 offset-3" style="text-align: center"><h1>Course Manage</h1></div>
+        <div class="row" style="text-align: center"><h1>Course Manage</h1></div>
         <div id="jsGrid_course"></div>
     </div>
 
     <div class="container  hide" id="comment">
-        <div class="col-lg-6 offset-3" style="text-align: center"><h1>Comment Manage</h1></div>
+        <div class="row" style="text-align: center"><h1>Comment Manage</h1></div>
         <div id="jsGrid_comment"></div>
     </div>
 </div>

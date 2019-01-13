@@ -15,14 +15,26 @@ import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.USER_TYPE_NOR
 public class ManageController {
 
     @GetMapping("/")
-    public String manage()
+    public String manage(HttpServletRequest request)
     {
+        HttpSession session=request.getSession();
+        String  UserType=(String) session.getAttribute(SESSION_USERTYPE_KEY);
+        if(UserType==null||UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
+        {
+            return "/404";
+        }
         return "manage";
     }
 
     @GetMapping("")
-    public String manage1()
+    public String manage1(HttpServletRequest request)
     {
+        HttpSession session=request.getSession();
+        String  UserType=(String) session.getAttribute(SESSION_USERTYPE_KEY);
+        if(UserType==null||UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
+        {
+            return "/404";
+        }
         return "manage";
     }
 
@@ -30,7 +42,7 @@ public class ManageController {
     public String skillmanage(HttpServletRequest request) {
         HttpSession session=request.getSession();
         String  UserType=(String) session.getAttribute(SESSION_USERTYPE_KEY);
-        if(UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
+        if(UserType==null||UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
         {
             return "/404";
         }
@@ -40,7 +52,7 @@ public class ManageController {
     public String coursemanage(HttpServletRequest request) {
         HttpSession session=request.getSession();
         String  UserType=(String) session.getAttribute(SESSION_USERTYPE_KEY);
-        if(UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
+        if(UserType==null||UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
         {
             return "/404";
         }
@@ -51,7 +63,7 @@ public class ManageController {
     public String commentemanage(HttpServletRequest request) {
         HttpSession session=request.getSession();
         String  UserType=(String) session.getAttribute(SESSION_USERTYPE_KEY);
-        if(UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
+        if(UserType==null||UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
         {
             return "/404";
         }
