@@ -1,9 +1,6 @@
 package com.chennan.mysite.cnyy.controller;
 
-import com.chennan.mysite.cnyy.mybatis.entity.Comment;
-import com.chennan.mysite.cnyy.mybatis.entity.Course;
-import com.chennan.mysite.cnyy.mybatis.entity.Skill;
-import com.chennan.mysite.cnyy.mybatis.entity.User;
+import com.chennan.mysite.cnyy.mybatis.entity.*;
 import com.chennan.mysite.cnyy.mybatis.service.CommentService;
 import com.chennan.mysite.cnyy.mybatis.service.CourseService;
 import com.chennan.mysite.cnyy.mybatis.service.SkillService;
@@ -47,9 +44,13 @@ public class DataController {
 
 
     @GetMapping("/skills")
-    public List<Skill> listSkills() {
+    public List<Skill> listSkills(@RequestParam(required = false) Integer skillId,@RequestParam(required = false) String skillName,@RequestParam(required = false) Integer skillScore,@RequestParam(required = false) Boolean skillShow) {
+        if(skillId==null&&skillShow==null&&(skillName==null||skillName.equalsIgnoreCase(""))&&skillScore==null)
+        {
+            return skillService.getAllSkill();
+        }
         log.info("call /data/skills");
-        List<Skill> skillList=skillService.getAllSkill();
+        List<Skill> skillList=skillService.findSkill(skillId,skillName,skillScore,skillShow);
         Map<String,Object> stringObjectMap=new HashMap<>();
         stringObjectMap.put("data",skillList);
         stringObjectMap.put("itemsCount",skillList.size());

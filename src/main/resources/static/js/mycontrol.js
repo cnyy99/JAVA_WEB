@@ -53,13 +53,14 @@ var myController_comment={
 };
 $("#jsGrid_comment").jsGrid({
     width: "100%",
-    height: "430px",
+    height: "440px",
     autoload:true,
     inserting: true,
     editing: true,
     reloadAfterSubmit:true,
     localUpdate:true,
     sorting: true,
+    filtering: true,
     paging: true,
     // pageLoading:true,
     pageSize: 10,
@@ -116,12 +117,13 @@ var myController_course={
 };
 $("#jsGrid_course").jsGrid({
     width: "100%",
-    height: "430px",
+    height: "440px",
     autoload:true,
     inserting: true,
     editing: true,
     reloadAfterSubmit:true,
     localUpdate:true,
+    filtering: true,
     sorting: true,
     paging: true,
     // pageLoading:true,
@@ -181,10 +183,11 @@ var myController_skill={
 };
 $("#jsGrid_skill").jsGrid({
     width: "100%",
-    height: "430px",
+    height: "440px",
     autoload:true,
     inserting: true,
     editing: true,
+    filtering: true,
     reloadAfterSubmit:true,
     localUpdate:true,
     sorting: true,

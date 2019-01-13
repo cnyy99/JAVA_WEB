@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -44,6 +45,7 @@ public class SkillService {
         skillExample.or().andSkillNameEqualTo(name);
         return skillMapper.deleteByExample(skillExample);
     }
+
     public Integer deletePrimaryKey(Integer id) {
 
         return skillMapper.deleteByPrimaryKey(id);
@@ -64,6 +66,7 @@ public class SkillService {
         return skillMapper.selectByPrimaryKey(id);
     }
 
+
     public Skill selectByName(String name) {
         SkillExample userExample = new SkillExample();
         userExample.or().andSkillNameEqualTo(name);
@@ -83,19 +86,35 @@ public class SkillService {
         return skillMapper.selectByExample(skillExample);
     }
 
-    public List<Skill> getAllShowSkill(){
+    public List<Skill> findSkill(Integer skillId, String skillName, Integer skillScore, Boolean skillShow) {
+        SkillExample skillExample = new SkillExample();
+        if (skillId != null) {
+            skillExample.or().andSkillIdEqualTo(skillId);
+        }
+        if (skillName != null && !skillName.equalsIgnoreCase("")) {
+            skillExample.or().andSkillNameLike(skillName);
+        }
+        if (skillScore != null) {
+            skillExample.or().andSkillScoreEqualTo(skillScore);
+        }
+        if (skillShow != null) {
+            skillExample.or().andSkillShowEqualTo(skillShow);
+        }
+        return skillMapper.selectByExample(skillExample);
+    }
+
+    public List<Skill> getAllShowSkill() {
         SkillExample skillExample = new SkillExample();
         skillExample.or().andSkillIdIsNotNull();
-        List<Skill> skillList= skillMapper.selectByExample(skillExample);
-        for (int i=0;i<skillList.size();i++)
-        {
-            if (!skillList.get(i).getSkillShow())
-            {
+        List<Skill> skillList = skillMapper.selectByExample(skillExample);
+        for (int i = 0; i < skillList.size(); i++) {
+            if (!skillList.get(i).getSkillShow()) {
                 skillList.remove(i);
             }
         }
         return skillList;
     }
+
     public PageInfo<Skill> getAllSkillPage(int pageNo, int pageSize) {
         PageHelper.startPage(pageNo, pageSize);
         PageInfo<Skill> pageInfo = new PageInfo<>(getAllSkill());
