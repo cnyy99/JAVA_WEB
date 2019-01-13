@@ -62,6 +62,9 @@ public class DataController {
 
     @PostMapping("/insertSkill")
     public Skill listSkillss(@RequestParam String skillName, @RequestParam Integer skillScore, @RequestParam Boolean skillShow) {
+        if (skillName == null || skillName.equalsIgnoreCase("")) {
+            return null;
+        }
         Skill skill = new Skill();
         skill.setSkillName(skillName);
         skill.setSkillScore(skillScore);
@@ -73,6 +76,9 @@ public class DataController {
 
     @PostMapping("/updateSkill")
     public Skill listSkillsup(@RequestParam Integer skillId, @RequestParam String skillName, @RequestParam Integer skillScore, @RequestParam Boolean skillShow) {
+        if (skillName == null || skillName.equalsIgnoreCase("")) {
+            return skillService.selectById(skillId);
+        }
         Skill skill = new Skill();
         skill.setSkillId(skillId);
         skill.setSkillName(skillName);
@@ -99,6 +105,9 @@ public class DataController {
     @PostMapping("/insertCourse")
     public Course listCoursess(@RequestParam String courseName, @RequestParam Integer courseScore, @RequestParam String courseType, @RequestParam String courseTerm, @RequestParam Boolean courseShow) {
         Course course = new Course();
+        if (courseName == null || courseName.equalsIgnoreCase("") || courseTerm == null || courseTerm.equalsIgnoreCase("") || courseType == null || courseType.equalsIgnoreCase("")) {
+            return null;
+        }
         course.setCourseName(courseName);
         course.setCourseScore(courseScore);
         course.setCourseShow(courseShow);
@@ -111,6 +120,9 @@ public class DataController {
 
     @PostMapping("/updateCourse")
     public Course listCoursesup(@RequestParam Integer courseId, @RequestParam String courseName, @RequestParam Integer courseScore, @RequestParam String courseType, @RequestParam String courseTerm, @RequestParam Boolean courseShow) {
+        if (courseName == null || courseName.equalsIgnoreCase("") || courseTerm == null || courseTerm.equalsIgnoreCase("") || courseType == null || courseType.equalsIgnoreCase("")) {
+            return courseService.selectById(courseId);
+        }
         Course course = new Course();
         course.setCourseId(courseId);
         course.setCourseName(courseName);
