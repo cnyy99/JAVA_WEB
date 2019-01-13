@@ -1,5 +1,7 @@
 package com.chennan.mysite.cnyy.mybatis.entity;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -45,6 +47,7 @@ public class Comment implements Serializable {
      *
      * @mbg.generated
      */
+    @JSONField(format = "yyyy-MM-dd HH:mm:ss")
     private Date commentTime;
 
     /**
