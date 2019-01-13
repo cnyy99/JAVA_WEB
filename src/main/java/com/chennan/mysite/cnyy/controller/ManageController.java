@@ -13,6 +13,19 @@ import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.USER_TYPE_NOR
 @Controller
 @RequestMapping("/manage")
 public class ManageController {
+
+    @GetMapping("/")
+    public String manage()
+    {
+        return "manage";
+    }
+
+    @GetMapping("")
+    public String manage1()
+    {
+        return "manage";
+    }
+
     @GetMapping("/skillmanage")
     public String skillmanage(HttpServletRequest request) {
         HttpSession session=request.getSession();
