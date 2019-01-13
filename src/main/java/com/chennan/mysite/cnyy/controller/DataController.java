@@ -32,6 +32,7 @@ public class DataController {
 
     @Autowired
     private CommentService commentService;
+
     @GetMapping("/usersPage")
     public PageInfo<User> lists(@RequestParam(defaultValue = "1") int pageNo, @RequestParam(defaultValue = "10") int pageSize) {
         return userService.getAllUsersPage(pageNo, pageSize);
@@ -44,16 +45,12 @@ public class DataController {
 
 
     @GetMapping("/skills")
-    public List<Skill> listSkills(@RequestParam(required = false) Integer skillId,@RequestParam(required = false) String skillName,@RequestParam(required = false) Integer skillScore,@RequestParam(required = false) Boolean skillShow) {
-        if(skillId==null&&skillShow==null&&(skillName==null||skillName.equalsIgnoreCase(""))&&skillScore==null)
-        {
+    public List<Skill> listSkills(@RequestParam(required = false) Integer skillId, @RequestParam(required = false) String skillName, @RequestParam(required = false) Integer skillScore, @RequestParam(required = false) Boolean skillShow) {
+        log.info("call /data/skills");
+        if (skillId == null && skillShow == null && (skillName == null || skillName.equalsIgnoreCase("")) && skillScore == null) {
             return skillService.getAllSkill();
         }
-        log.info("call /data/skills");
-        List<Skill> skillList=skillService.findSkill(skillId,skillName,skillScore,skillShow);
-        Map<String,Object> stringObjectMap=new HashMap<>();
-        stringObjectMap.put("data",skillList);
-        stringObjectMap.put("itemsCount",skillList.size());
+        List<Skill> skillList = skillService.findSkill(skillId, skillName, skillScore, skillShow);
         return skillList;
     }
 
@@ -64,8 +61,8 @@ public class DataController {
     }
 
     @PostMapping("/insertSkill")
-    public Skill listSkillss(@RequestParam String skillName,@RequestParam Integer skillScore,@RequestParam Boolean skillShow) {
-        Skill skill=new Skill();
+    public Skill listSkillss(@RequestParam String skillName, @RequestParam Integer skillScore, @RequestParam Boolean skillShow) {
+        Skill skill = new Skill();
         skill.setSkillName(skillName);
         skill.setSkillScore(skillScore);
         skill.setSkillShow(skillShow);
@@ -73,9 +70,10 @@ public class DataController {
         skillService.insert(skill);
         return skillService.selectByName(skillName);
     }
+
     @PostMapping("/updateSkill")
-    public Skill listSkillsup(@RequestParam Integer skillId,@RequestParam String skillName,@RequestParam Integer skillScore,@RequestParam Boolean skillShow) {
-        Skill skill=new Skill();
+    public Skill listSkillsup(@RequestParam Integer skillId, @RequestParam String skillName, @RequestParam Integer skillScore, @RequestParam Boolean skillShow) {
+        Skill skill = new Skill();
         skill.setSkillId(skillId);
         skill.setSkillName(skillName);
         skill.setSkillScore(skillScore);
@@ -84,13 +82,11 @@ public class DataController {
         skillService.update(skill);
         return skill;
     }
+
     @GetMapping("/courses")
     public List<Course> listCourses() {
         log.info("call /data/courses");
-        List<Course> courseList=courseService.getAllCourse();
-        Map<String,Object> stringObjectMap=new HashMap<>();
-        stringObjectMap.put("data",courseList);
-        stringObjectMap.put("itemsCount",courseList.size());
+        List<Course> courseList = courseService.getAllCourse();
         return courseList;
     }
 
@@ -101,8 +97,8 @@ public class DataController {
     }
 
     @PostMapping("/insertCourse")
-    public Course listCoursess(@RequestParam String courseName,@RequestParam Integer courseScore,@RequestParam String courseType,@RequestParam String courseTerm,@RequestParam Boolean courseShow) {
-        Course course=new Course();
+    public Course listCoursess(@RequestParam String courseName, @RequestParam Integer courseScore, @RequestParam String courseType, @RequestParam String courseTerm, @RequestParam Boolean courseShow) {
+        Course course = new Course();
         course.setCourseName(courseName);
         course.setCourseScore(courseScore);
         course.setCourseShow(courseShow);
@@ -112,9 +108,10 @@ public class DataController {
         courseService.insert(course);
         return courseService.selectByName(courseName);
     }
+
     @PostMapping("/updateCourse")
-    public Course listCoursesup(@RequestParam Integer courseId,@RequestParam String courseName,@RequestParam Integer courseScore,@RequestParam String courseType,@RequestParam String courseTerm,@RequestParam Boolean courseShow) {
-        Course course=new Course();
+    public Course listCoursesup(@RequestParam Integer courseId, @RequestParam String courseName, @RequestParam Integer courseScore, @RequestParam String courseType, @RequestParam String courseTerm, @RequestParam Boolean courseShow) {
+        Course course = new Course();
         course.setCourseId(courseId);
         course.setCourseName(courseName);
         course.setCourseScore(courseScore);
@@ -125,15 +122,14 @@ public class DataController {
         courseService.update(course);
         return course;
     }
+
     @GetMapping("/comments")
-    public List<Comment> comments()
-    {
+    public List<Comment> comments() {
         return commentService.getAllComment();
     }
 
     @GetMapping("/deleteComment")
-    public Integer deleteComment(@RequestParam Integer commentId)
-    {
+    public Integer deleteComment(@RequestParam Integer commentId) {
         return commentService.deletePrimaryKey(commentId);
     }
 
