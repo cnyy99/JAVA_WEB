@@ -22,42 +22,45 @@
 
     <link rel="stylesheet" href="/static/css/bootstrap.css">
     <link rel="stylesheet" href="/static/css/style.css">
-    <%--<link rel="stylesheet" type="text/css" href="/static/css/main.css" />--%>
-
-    <%--<link rel="stylesheet" type="text/css" href="/static/css/bgstretcher.css" />--%>
-
-    <%--<script type="text/javascript" src="/static/js/jquery-1.5.2.min.js"></script>--%>
-
-    <%--<script type="text/javascript" src="/static/js/bgstretcher.js"></script>--%>
-    <%--<script type="text/javascript">--%>
-
-    <%--$(document).ready(function(){--%>
+    <link rel="stylesheet" type="text/css" href="/static/css/main.css" />
 
 
-    <%--//  Initialize Backgound Stretcher--%>
+    <script type="text/javascript" src="/static/js/jquery-1.5.2.min.js"></script>
 
-    <%--$('.section-home').bgStretcher({--%>
+    <script type="text/javascript" src="/static/js/bgstretcher.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/bgstretcher.css" />
 
-    <%--images: ['/static/images/preview.png', '/static/images/preview1.png', 'images/sample-3.jpg', 'images/sample-4.jpg', 'images/sample-5.jpg', 'images/sample-6.jpg'],--%>
+    <script type="text/javascript">
 
-    <%--imageWidth: 800,--%>
-
-    <%--imageHeight: 400,--%>
-
-    <%--slideDirection: 'N',--%>
-
-    <%--slideShowSpeed: 1000,--%>
-
-    <%--transitionEffect: 'fade',--%>
-
-    <%--sequenceMode: 'normal',--%>
-
-    <%--});--%>
+        $(document).ready(function(){
 
 
-    <%--});--%>
 
-    <%--</script>--%>
+            //  Initialize Backgound Stretcher
+
+            $('.site-hero').bgStretcher({
+
+                images: ['/static/images/preview.png', '/static/images/preview1.png'],
+
+                imageWidth: 'auto',
+
+                imageHeight: 'auto',
+
+                slideDirection: 'N',
+
+                slideShowSpeed: 1000,
+
+                transitionEffect: 'fade',
+
+                sequenceMode: 'normal',
+
+            });
+
+
+
+        });
+
+    </script>
     <link href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,700" rel="stylesheet">
 
     <!-- Favicon and touch icons -->
