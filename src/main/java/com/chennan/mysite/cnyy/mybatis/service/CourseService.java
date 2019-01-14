@@ -82,16 +82,8 @@ public class CourseService {
     public List<Course> getAllShowCourse()
     {
         CourseExample courseExample=new CourseExample();
-        courseExample.or().andCourseIdIsNotNull();
-        List<Course> courseList= courseMapper.selectByExample(courseExample);
-        for (int i=0;i<courseList.size();i++)
-        {
-            if (!courseList.get(i).getCourseShow())
-            {
-                courseList.remove(i);
-            }
-        }
-        return courseList;
+        courseExample.or().andCourseShowEqualTo(true);
+        return courseMapper.selectByExample(courseExample);
     }
 
     public PageInfo<Course> getAllCoursePage(int pageNo, int pageSize) {

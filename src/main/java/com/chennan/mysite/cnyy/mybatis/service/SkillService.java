@@ -105,14 +105,8 @@ public class SkillService {
 
     public List<Skill> getAllShowSkill() {
         SkillExample skillExample = new SkillExample();
-        skillExample.or().andSkillIdIsNotNull();
-        List<Skill> skillList = skillMapper.selectByExample(skillExample);
-        for (int i = 0; i < skillList.size(); i++) {
-            if (!skillList.get(i).getSkillShow()) {
-                skillList.remove(i);
-            }
-        }
-        return skillList;
+        skillExample.or().andSkillShowEqualTo(true);
+        return skillMapper.selectByExample(skillExample);
     }
 
     public PageInfo<Skill> getAllSkillPage(int pageNo, int pageSize) {
