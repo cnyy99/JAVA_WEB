@@ -31,6 +31,10 @@ public class IndexController {
         return view;
     }
 
-
+    @GetMapping("/comment")
+    public String s()
+    {
+        return "comment";
+    }
 
 }

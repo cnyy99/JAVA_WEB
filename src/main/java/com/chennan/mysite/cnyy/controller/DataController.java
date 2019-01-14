@@ -135,6 +135,8 @@ public class DataController {
         return course;
     }
 
+
+
     @GetMapping("/comments")
     public List<Comment> comments() {
         return commentService.getAllComment();
@@ -150,5 +152,6 @@ public class DataController {
     public User selectUserById(@PathVariable("id") Integer id) {
         return userService.selectById(id);
     }
+
 
 }
