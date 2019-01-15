@@ -55,6 +55,12 @@ public class CommentService {
     public Comment selectById(Integer id) {
         return commentMapper.selectByPrimaryKey(id);
     }
+
+    public Comment selectByText(String text) {
+        CommentExample commentExample=new CommentExample();
+        commentExample.or().andCommentTextLike(text);
+        return commentMapper.selectByExample(commentExample).get(0);
+    }
     public List<Comment> getCommentsById(Integer id) {
         List<Comment> commentList=new ArrayList<>();
         CommentExample commentExample=new CommentExample();

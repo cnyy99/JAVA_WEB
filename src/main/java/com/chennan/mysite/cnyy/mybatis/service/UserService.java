@@ -54,6 +54,7 @@ public class UserService {
             return userList.get(0);
         }
     }
+
     public User selectByEmail(String email) {
         UserExample userExample = new UserExample();
         userExample.or().andUserEmailEqualTo(email);
@@ -65,7 +66,7 @@ public class UserService {
         }
     }
 
-    public Map<String, String> register(String username, String password, String email,String type) {
+    public Map<String, String> register(String username, String password, String email, String type) {
         Map<String, String> stringMap = new HashMap<>();
         stringMap.put(SESSION_USERTYPE_KEY, type);
         if (StringUtils.isBlank(username)) {
@@ -93,7 +94,7 @@ public class UserService {
 
         User user = new User();
         user.setUserName(username);
-        user.setUserPassword(DataHelper.getSHA256Str(password));
+        user.setUserPassword(DataHelper.getSHA256Str(password + PASSWORD_SALT));
         user.setUserType(type);
         insert(user);
         stringMap.put(SESSION_MSG_KEY, SUCCESS);
@@ -111,7 +112,7 @@ public class UserService {
             return stringMap;
         }
 
-        if (!DataHelper.getSHA256Str(password).equals(u.getUserPassword())) {
+        if (!DataHelper.getSHA256Str(password + PASSWORD_SALT).equals(u.getUserPassword())) {
 //        if (!password.equals(u.getUserPassword())) {
             stringMap.put(SESSION_MSG_KEY, "密码错误");
             return stringMap;

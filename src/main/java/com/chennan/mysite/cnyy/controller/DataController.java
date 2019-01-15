@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -142,6 +145,25 @@ public class DataController {
         return commentService.getAllComment();
     }
 
+    @GetMapping("/commentshow")
+    public List<Comment> commentshow() {
+
+        return commentService.getAllComment();
+    }
+
+    @PostMapping("/commentshowinsert")
+    public Comment commentshowinsert(HttpServletRequest request, @RequestParam String commentText,@RequestParam Integer commentPid)
+    {
+        HttpSession session=request.getSession();
+        Comment comment=new Comment();
+        comment.setCommentPid(commentPid);
+        comment.setCommentText(commentText);
+        comment.setCommentTime(new Date());
+        comment.setUserId(userService.getUserId((String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY)));
+        comment.setUserName((String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY));
+        commentService.insert(comment);
+        return commentService.selectByText(commentText);
+    }
     @GetMapping("/deleteComment")
     public Integer deleteComment(@RequestParam Integer commentId) {
         return commentService.deletePrimaryKey(commentId);

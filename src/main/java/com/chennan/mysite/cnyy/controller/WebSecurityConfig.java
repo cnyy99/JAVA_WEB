@@ -35,6 +35,7 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
     public final static String COURSE_KEY = "COURSE_KEY";
     public final static Integer COURSE_NUM_KEY = 50;
     public final static Integer COOKIE_MAX_AGE = 60 * 60 * 24;
+    public final static String PASSWORD_SALT = "ddFjr!vn$BJ43tpAqw#y";
 
     @Bean
     public SecurityInterceptor getSecurityInterceptor() {

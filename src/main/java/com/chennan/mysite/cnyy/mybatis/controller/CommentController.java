@@ -34,6 +34,7 @@ public class CommentController {
         comment.setCommentText(commentText);
         comment.setCommentTime(new Date());
         comment.setUserId(userService.getUserId((String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY)));
+        comment.setUserName((String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY));
         commentService.insert(comment);
         return "redirect:/index";
     }
@@ -47,6 +48,7 @@ public class CommentController {
         comment.setCommentText(commentText);
         comment.setCommentTime(new Date());
         comment.setUserId(userService.getUserId((String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY)));
+        comment.setUserName((String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY));
         commentService.insert(comment);
         return "redirect:/index";
     }

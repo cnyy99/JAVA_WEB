@@ -75,6 +75,7 @@ $("#jsGrid_comment").jsGrid({
     fields: [
         {name: "commentId", type: "number", width: 17, editing: false},
         {name: "userId", type: "number", width: 17, editing: false},
+        {name: "userName", type: "text", width: 17, editing: false},
         {name: "commentPid", type: "number", width: 17 , editing: false},
         {name: "commentTime", type: "date", width: 27, editing: false},
         {name: "commentText", type: "textarea", width: 50, editing: false},

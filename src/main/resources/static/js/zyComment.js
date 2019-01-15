@@ -57,35 +57,35 @@
 					}
 					
 					var item = '';
-					item += '<div id="comment'+v.id+'" class="comment">';
+					item += '<div id="comment'+v.commentId+'" class="comment">';
 					item += '	<div class="content '+topStyle+'">';
 					item += '		<a class="author"> '+v.userName+' </a>';
 					item += '		<div class="metadata">';
-					item += '			<span class="date"> '+v.time+' </span>';
+					item += '			<span class="date"> '+v.commentTime+' </span>';
 					item += '		</div>';
-					item += '		<div class="text"> '+v.content+' </div>';
+					item += '		<div class="text"> '+v.commentText+' </div>';
 					item += '		<div class="actions">';
-					item += '			<a class="reply" href="javascript:void(0)" selfID="'+v.id+'" >回复</a>';
+					item += '			<a class="reply" href="javascript:void(0)" selfID="'+v.commentId+'" >回复</a>';
 					item += '		</div>';
 					item += '	</div>';
 					item += '</div>';
 					
 					// 判断此条评论是不是子级评论
-					if(v.sortID==0){  // 不是
+					if(v.commentPid==0){  // 不是
 						$("#commentItems").append(item);
 					}else{  // 否
 						// 判断父级评论下是不是已经有了子级评论
-						if($("#comment"+v.sortID).find(".comments").length==0){  // 没有
+						if($("#comment"+v.commentPid).find(".comments").length==0){  // 没有
 							var comments = '';
-							comments += '<div id="comments'+v.sortID+'" class="comments">';
+							comments += '<div id="comments'+v.commentPid+'" class="comments">';
 							comments += 	item;
 							comments += '</div>';
 							
-							$("#comment"+v.sortID).append(comments);
+							$("#comment"+v.commentPid).append(comments);
 						}else{  // 有
-							$("#comments"+v.sortID).append(item);
+							$("#comments"+v.commentPid).append(item);
 						}
-						// $("#comments"+v.sortID).append(item);
+						// $("#comments"+v.commentPid).append(item);
 					}
 				});
 				
@@ -165,9 +165,10 @@
 					$("#publicComment").die("click");
 					$("#publicComment").live("click",function(){
 						var result = {
-								"name":$("#userName").val(),
-								"email":$("#userEmail").val(),
-								"content":$("#commentContent").val()
+								// "name":$("#userName").val(),
+								// "email":$("#userEmail").val(),
+								"commentText":$("#commentContent").val(),
+								"commentPid":fCode
 						};
 						para.callback(result);
 					});
@@ -225,9 +226,10 @@
 				$("#submitComment").die("click");
 				$("#submitComment").live("click",function(){
 					var result = {
-							// "name":$("#userName").val(),
-							// "email":$("#userEmail").val(),
-							"content":$("#commentContent").val()
+                        // "name":$("#userName").val(),
+                        // "email":$("#userEmail").val(),
+                        "commentText":$("#commentContent").val(),
+                        "commentPid":fCode
 					};
 					para.callback(result);
 				});
@@ -323,24 +325,25 @@
 			
 			// 添加新评论的内容
 			this.addNewComment = function(param){
+			    console.log(param.commentText);
 				var topStyle = "";
 				if(parseInt(fCode)!=0){
 					topStyle = "topStyle";
 				}
 				
 				var item = '';
-				item += '<div id="comment'+param.id+'" class="comment">';
+				item += '<div id="comment'+param.commentId+'" class="comment">';
 				// item += '	<a class="avatar">';
 				// item += '		<img src="images/foot.png">';
 				// item += '	</a>';
 				item += '	<div class="content '+topStyle+'">';
-				item += '		<a class="author"> '+param.name+' </a>';
+				item += '		<a class="author"> '+param.userName+' </a>';
 				item += '		<div class="metadata">';
-				item += '			<span class="date"> '+param.time+' </span>';
+				item += '			<span class="date"> '+param.commentTime+' </span>';
 				item += '		</div>';
-				item += '		<div class="text"> '+param.content+' </div>';
+				item += '		<div class="text"> '+param.commentText+' </div>';
 				item += '		<div class="actions">';
-				item += '			<a class="reply" href="javascript:void(0)" selfID="'+param.id+'" >回复</a>';
+				item += '			<a class="reply" href="javascript:void(0)" selfID="'+param.commentId+'" >回复</a>';
 				item += '		</div>';
 				item += '	</div>';
 				item += '</div>';
@@ -360,6 +363,7 @@
 						$("#comments"+fCode).append(item);
 					}
 				}
+				fCode=0;
 			};
 			
 			

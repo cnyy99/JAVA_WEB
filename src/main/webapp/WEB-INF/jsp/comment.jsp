@@ -28,45 +28,50 @@ a {
 	<div id="articleComment"></div>
 	
 	<%--<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>--%>
-    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
     <script type="text/javascript" src="/static/js/zyComment.js"></script>
 	
 	<script type="text/javascript">
-	
-		var agoComment = [
-		                  {"id":1,"userName":"游客1","time":"2014-04-04","sortID":0,"content":"第一条评论"},
-		                  {"id":2,"userName":"游客2","time":"2014-04-04","sortID":0,"content":"第二条评论"},
-		                  {"id":3,"userName":"站长","time":"2014-04-04","sortID":1,"content":"第一条评论的回复"},
-		                  {"id":4,"userName":"站长","time":"2014-04-04","sortID":2,"content":"第二条评论的回复"},
-		                  {"id":5,"userName":"游客3","time":"2014-04-04","sortID":0,"content":"第三条评论"},
-		                  {"id":6,"userName":"游客2","time":"2014-04-04","sortID":4,"content":"第二条评论的回复的回复"},
-		                  ];
-		                 i=1;
         $.ajax({
-            url : '/data/comments',
+            url : '/data/commentshow',
             type : 'GET',
-            async: true,//使用同步的方式,true为异步方式
-            data : {'act':'addvideo', 'videoname':videoname},//这里使用json对象
+            async: false,//使用同步的方式,true为异步方式
             success : function(data){
 //code here...
+//                 alert('success')
                 agoComment=data;
             },
             fail:function(){
 //code here...
             }
         });
+        var newComment;
 		$("#articleComment").zyComment({
 			"width":"355",
 			"height":"33",
 			"agoComment":agoComment,
 			"callback":function(comment){
+			    for (var i in comment)
+                {
+                    console.log(i+"   "+comment[i]);
+                }
+                $.ajax({
+                    url : '/data/commentshowinsert',
+                    type : 'POST',
+                    async: false,
+                    dataType: "json",
+                    data:comment,
+                    success : function(data){
+                        newComment=data;
+                    },
+                    fail:function(){
+                    }
+                });
 				console.info("填写内容返回值：");
-				console.info(comment);
-				i+=1;
-				comment.id=999+i;
-				comment.name="name"+i;
-				// 添加新的评论
-				$("#articleComment").zyComment("setCommentAfter",{"id":comment.id, "name":comment.name, "content":comment.content, "time":new Date()});
+				console.info("comment.text:"+comment.commentText+"    commentPid:"+comment.commentPid);
+				comment=newComment;
+                console.info("newComment"+comment);// 添加新的评论
+				$("#articleComment").zyComment("setCommentAfter",{"commentId":comment.commentId, "userName":comment.userName, "commentText":comment.commentText, "commentTime":comment.commentTime});
 
 			}
 		});
