@@ -2,7 +2,7 @@
 <!doctype html>
 <html>
 <head>
-    <title> Manage</title>
+    <title> Chennan's website &mdash; Manage</title>
     <!-- Favicon and touch icons -->
     <link rel="shortcut icon" href="/static/assets/ico/favicon.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144"

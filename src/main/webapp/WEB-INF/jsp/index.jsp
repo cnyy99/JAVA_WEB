@@ -8,7 +8,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Chennan website &mdash; One Page About Me</title>
+    <title>Chennan's website &mdash; One Page About Me</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <% String path = request.getContextPath(); %>

@@ -3,7 +3,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>messages</title>
+<title>Chennan's website &mdash; Messages</title>
     <!-- Favicon and touch icons -->
     <link rel="shortcut icon" href="/static/assets/ico/favicon.png">
     <link rel="apple-touch-icon-precomposed" sizes="144x144"

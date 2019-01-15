@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8">
     <link rel='stylesheet' href="/static/css/style_register.css" type="text/css"/>
+    <title>Chennan's website &mdash; Register</title>
     <script src="https://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript"
