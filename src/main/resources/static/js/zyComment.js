@@ -44,8 +44,8 @@
 			this.createAgoCommentHtml = function(){
 				
 				var html = '';
-				html += '<div id="commentItems" class="ui threaded comments" style="margin-bottom:20px;">';
-				html += '	<div class="text" style="font-size:2rem;padding-bottom:10px;border-bottom: 1px solid #DFDFDF;"> 大家的脚印 </div>';
+				html += '<div id="commentItems" class="row ui threaded comments" style="margin-bottom:20px;">';
+				html += '	<div class="text col-6" style="font-size:2rem;padding-bottom:10px;border-bottom: 1px solid #DFDFDF;"> 大家的脚印  &nbsp;&nbsp;&nbsp;&nbsp;<a href="/index" style="font-size: small;color: #0AA5DF">回到主页</a></div>';
 				html += '</div>';
 				$(self).append(html);
 				

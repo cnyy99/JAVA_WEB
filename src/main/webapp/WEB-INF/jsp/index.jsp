@@ -74,10 +74,10 @@
             <ul class="navbar-nav">
                 <li class="nav-item"><a class="nav-link" href="#section-home">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-about">About</a></li>
-                <li class="nav-item"><a class="nav-link" href="#section-services">Services</a></li>
-                <li class="nav-item"><a class="nav-link" href="#section-portfolio">Portfolio</a></li>
+                <%--<li class="nav-item"><a class="nav-link" href="#section-services">Services</a></li>--%>
+                <%--<li class="nav-item"><a class="nav-link" href="#section-portfolio">Portfolio</a></li>--%>
                 <li class="nav-item"><a class="nav-link" href="#section-resume">Resume</a></li>
-                <li class="nav-item"><a class="nav-link" href="#section-blog">Blog</a></li>
+                <%--<li class="nav-item"><a class="nav-link" href="#section-blog">Blog</a></li>--%>
                 <li class="nav-item"><a class="nav-link" href="#section-contact">Contact</a></li>
 
             </ul>
@@ -107,7 +107,7 @@
 </section> <!-- section -->
 
 
-<section class="site-section" id="section-about">
+<section class="site-section bg-light" id="section-about">
     <div class="container">
         <div class="row mb-5 align-items-center">
             <div class="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
@@ -161,213 +161,212 @@
     </div>
 </section>
 
-<section class="site-section bg-light">
-    <div class="container">
-        <div class="row mb-5">
-            <div class="col-md-12">
-                <div class="section-heading text-center">
-                    <h2>Client <strong>Testimonial</strong></h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
+<%--<section class="site-section bg-light">--%>
+    <%--<div class="container">--%>
+        <%--<div class="row mb-5">--%>
+            <%--<div class="col-md-12">--%>
+                <%--<div class="section-heading text-center">--%>
+                    <%--<h2>Client <strong>Testimonial</strong></h2>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+        <%--<div class="row">--%>
+            <%--<div class="col-md-6">--%>
 
-                <div class="block-47 d-flex mb-5">
-                    <div class="block-47-image">
-                        <img src="/static/images/person_1.jpg" alt="Image placeholder" class="img-fluid">
-                    </div>
-                    <blockquote class="block-47-quote">
-                        <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and
-                            Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the
-                            coast of the Semantics, a large language ocean.&rdquo;</p>
-                        <cite class="block-47-quote-author">&mdash; Ethan McCown, CEO <a href="#">XYZ Inc.</a></cite>
-                    </blockquote>
-                </div>
+                <%--<div class="block-47 d-flex mb-5">--%>
+                    <%--<div class="block-47-image">--%>
+                        <%--<img src="/static/images/person_1.jpg" alt="Image placeholder" class="img-fluid">--%>
+                    <%--</div>--%>
+                    <%--<blockquote class="block-47-quote">--%>
+                        <%--<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and--%>
+                            <%--Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the--%>
+                            <%--coast of the Semantics, a large language ocean.&rdquo;</p>--%>
+                        <%--<cite class="block-47-quote-author">&mdash; Ethan McCown, CEO <a href="#">XYZ Inc.</a></cite>--%>
+                    <%--</blockquote>--%>
+                <%--</div>--%>
 
-            </div>
-            <div class="col-md-6">
+            <%--</div>--%>
+            <%--<div class="col-md-6">--%>
 
-                <div class="block-47 d-flex mb-5">
-                    <div class="block-47-image">
-                        <img src="/static/images/person_2.jpg" alt="Image placeholder" class="img-fluid">
-                    </div>
-                    <blockquote class="block-47-quote">
-                        <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and
-                            Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the
-                            coast of the Semantics, a large language ocean.&rdquo;</p>
-                        <cite class="block-47-quote-author">&mdash; Craig Gowen, CEO <a href="#">XYZ Inc.</a></cite>
-                    </blockquote>
-                </div>
+                <%--<div class="block-47 d-flex mb-5">--%>
+                    <%--<div class="block-47-image">--%>
+                        <%--<img src="/static/images/person_2.jpg" alt="Image placeholder" class="img-fluid">--%>
+                    <%--</div>--%>
+                    <%--<blockquote class="block-47-quote">--%>
+                        <%--<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and--%>
+                            <%--Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the--%>
+                            <%--coast of the Semantics, a large language ocean.&rdquo;</p>--%>
+                        <%--<cite class="block-47-quote-author">&mdash; Craig Gowen, CEO <a href="#">XYZ Inc.</a></cite>--%>
+                    <%--</blockquote>--%>
+                <%--</div>--%>
 
-            </div>
+            <%--</div>--%>
 
-            <div class="col-md-6">
+            <%--<div class="col-md-6">--%>
 
-                <div class="block-47 d-flex mb-5">
-                    <div class="block-47-image">
-                        <img src="/static/images/person_3.jpg" alt="Image placeholder" class="img-fluid">
-                    </div>
-                    <blockquote class="block-47-quote">
-                        <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and
-                            Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the
-                            coast of the Semantics, a large language ocean.&rdquo;</p>
-                        <cite class="block-47-quote-author">&mdash; Ethan McCown, CEO <a href="#">XYZ Inc.</a></cite>
-                    </blockquote>
-                </div>
+                <%--<div class="block-47 d-flex mb-5">--%>
+                    <%--<div class="block-47-image">--%>
+                        <%--<img src="/static/images/person_3.jpg" alt="Image placeholder" class="img-fluid">--%>
+                    <%--</div>--%>
+                    <%--<blockquote class="block-47-quote">--%>
+                        <%--<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and--%>
+                            <%--Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the--%>
+                            <%--coast of the Semantics, a large language ocean.&rdquo;</p>--%>
+                        <%--<cite class="block-47-quote-author">&mdash; Ethan McCown, CEO <a href="#">XYZ Inc.</a></cite>--%>
+                    <%--</blockquote>--%>
+                <%--</div>--%>
 
-            </div>
-            <div class="col-md-6">
+            <%--</div>--%>
+            <%--<div class="col-md-6">--%>
 
-                <div class="block-47 d-flex mb-5">
-                    <div class="block-47-image">
-                        <img src="/static/images/person_4.jpg" alt="Image placeholder" class="img-fluid">
-                    </div>
-                    <blockquote class="block-47-quote">
-                        <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and
-                            Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the
-                            coast of the Semantics, a large language ocean.&rdquo;</p>
-                        <cite class="block-47-quote-author">&mdash; Craig Gowen, CEO <a href="#">XYZ Inc.</a></cite>
-                    </blockquote>
-                </div>
+                <%--<div class="block-47 d-flex mb-5">--%>
+                    <%--<div class="block-47-image">--%>
+                        <%--<img src="/static/images/person_4.jpg" alt="Image placeholder" class="img-fluid">--%>
+                    <%--</div>--%>
+                    <%--<blockquote class="block-47-quote">--%>
+                        <%--<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and--%>
+                            <%--Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the--%>
+                            <%--coast of the Semantics, a large language ocean.&rdquo;</p>--%>
+                        <%--<cite class="block-47-quote-author">&mdash; Craig Gowen, CEO <a href="#">XYZ Inc.</a></cite>--%>
+                    <%--</blockquote>--%>
+                <%--</div>--%>
 
-            </div>
+            <%--</div>--%>
 
-        </div>
-    </div>
-</section>
-
-
-<section class="site-section border-top pb-0" id="section-services">
-    <div class="container">
-
-        <div class="row mb-4">
-            <div class="col-md-12">
-                <div class="section-heading text-center">
-                    <h2>My <strong>Services</strong></h2>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-
-            <div class="col-md-6 col-lg-4 text-center mb-5">
-                <div class="site-service-item site-animate" data-animate-effect="fadeIn">
-              <span class="icon">
-                <span class="icon-phone3"></span>
-              </span>
-                    <h3 class="mb-4">Mobile Optimize</h3>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                        a large language ocean.</p>
-                    <p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 text-center mb-5">
-                <div class="site-service-item site-animate" data-animate-effect="fadeIn">
-              <span class="icon">
-                <span class="icon-wallet2"></span>
-              </span>
-                    <h3 class="mb-4">Increase Revenue</h3>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It
-                        is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                    <p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 text-center mb-5">
-                <div class="site-service-item site-animate" data-animate-effect="fadeIn">
-              <span class="icon">
-                <span class="icon-lightbulb"></span>
-              </span>
-                    <h3 class="mb-4">Intuitive Idea</h3>
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                        unorthographic life One day however a small line of blind text by the name of Lorem Ipsum
-                        decided to leave for the far World of Grammar.</p>
-                    <p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>
-                </div>
-            </div>
-
-            <div class="col-md-6 col-lg-4 text-center mb-5">
-                <div class="site-service-item site-animate" data-animate-effect="fadeIn">
-              <span class="icon">
-                <span class="icon-phone3"></span>
-              </span>
-                    <h3 class="mb-4">Mobile Optimize</h3>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
-                        live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,
-                        a large language ocean.</p>
-                    <p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 text-center mb-5">
-                <div class="site-service-item site-animate" data-animate-effect="fadeIn">
-              <span class="icon">
-                <span class="icon-wallet2"></span>
-              </span>
-                    <h3 class="mb-4">Increase Revenue</h3>
-                    <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It
-                        is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                    <p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 text-center mb-5">
-                <div class="site-service-item site-animate" data-animate-effect="fadeIn">
-              <span class="icon">
-                <span class="icon-lightbulb"></span>
-              </span>
-                    <h3 class="mb-4">Intuitive Idea</h3>
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                        unorthographic life One day however a small line of blind text by the name of Lorem Ipsum
-                        decided to leave for the far World of Grammar.</p>
-                    <p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section>
-<div class="tlinks">Collect from <a href="http://www.cssmoban.com/" title="网站模板">网站模板</a></div>
-
-<section class="site-section" id="section-features">
-    <div class="container">
-        <div class="row site-section">
-            <div class="col-md-8">
-                <p><img src="/static/images/laptop_1.jpg" alt="" class="img-fluid"></p>
-            </div>
-            <div class="col-md-4">
-                <h3 class="mb-3">Big Benefits for Small Business</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the
-                    far World of Grammar.</p>
-
-                <ul class="site-list">
-                    <li class="site-check">Pointing has no control</li>
-                    <li class="site-check">A small river named Duden flows</li>
-                    <li class="site-check">Roasted parts of sentences fly into your mouth</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-8 order-md-2">
-                <p><img src="/static/images/laptop_1.jpg" alt="" class="img-fluid"></p>
-            </div>
-            <div class="col-md-4 order-md-1">
-                <h3 class="mb-3">All in One Place</h3>
-                <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic
-                    life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the
-                    far World of Grammar.</p>
-
-                <ul class="site-list">
-                    <li class="site-check">Pointing has no control</li>
-                    <li class="site-check">A small river named Duden flows</li>
-                    <li class="site-check">Roasted parts of sentences fly into your mouth</li>
-                </ul>
-            </div>
-        </div>
+        <%--</div>--%>
+    <%--</div>--%>
+<%--</section>--%>
 
 
-    </div>
-</section>
+<%--<section class="site-section border-top pb-0" id="section-services">--%>
+    <%--<div class="container">--%>
+
+        <%--<div class="row mb-4">--%>
+            <%--<div class="col-md-12">--%>
+                <%--<div class="section-heading text-center">--%>
+                    <%--<h2>My <strong>Services</strong></h2>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+        <%--<div class="row">--%>
+
+            <%--<div class="col-md-6 col-lg-4 text-center mb-5">--%>
+                <%--<div class="site-service-item site-animate" data-animate-effect="fadeIn">--%>
+              <%--<span class="icon">--%>
+                <%--<span class="icon-phone3"></span>--%>
+              <%--</span>--%>
+                    <%--<h3 class="mb-4">Mobile Optimize</h3>--%>
+                    <%--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there--%>
+                        <%--live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,--%>
+                        <%--a large language ocean.</p>--%>
+                    <%--<p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="col-md-6 col-lg-4 text-center mb-5">--%>
+                <%--<div class="site-service-item site-animate" data-animate-effect="fadeIn">--%>
+              <%--<span class="icon">--%>
+                <%--<span class="icon-wallet2"></span>--%>
+              <%--</span>--%>
+                    <%--<h3 class="mb-4">Increase Revenue</h3>--%>
+                    <%--<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It--%>
+                        <%--is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>--%>
+                    <%--<p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="col-md-6 col-lg-4 text-center mb-5">--%>
+                <%--<div class="site-service-item site-animate" data-animate-effect="fadeIn">--%>
+              <%--<span class="icon">--%>
+                <%--<span class="icon-lightbulb"></span>--%>
+              <%--</span>--%>
+                    <%--<h3 class="mb-4">Intuitive Idea</h3>--%>
+                    <%--<p>Even the all-powerful Pointing has no control about the blind texts it is an almost--%>
+                        <%--unorthographic life One day however a small line of blind text by the name of Lorem Ipsum--%>
+                        <%--decided to leave for the far World of Grammar.</p>--%>
+                    <%--<p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+
+            <%--<div class="col-md-6 col-lg-4 text-center mb-5">--%>
+                <%--<div class="site-service-item site-animate" data-animate-effect="fadeIn">--%>
+              <%--<span class="icon">--%>
+                <%--<span class="icon-phone3"></span>--%>
+              <%--</span>--%>
+                    <%--<h3 class="mb-4">Mobile Optimize</h3>--%>
+                    <%--<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there--%>
+                        <%--live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics,--%>
+                        <%--a large language ocean.</p>--%>
+                    <%--<p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="col-md-6 col-lg-4 text-center mb-5">--%>
+                <%--<div class="site-service-item site-animate" data-animate-effect="fadeIn">--%>
+              <%--<span class="icon">--%>
+                <%--<span class="icon-wallet2"></span>--%>
+              <%--</span>--%>
+                    <%--<h3 class="mb-4">Increase Revenue</h3>--%>
+                    <%--<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It--%>
+                        <%--is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>--%>
+                    <%--<p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+            <%--<div class="col-md-6 col-lg-4 text-center mb-5">--%>
+                <%--<div class="site-service-item site-animate" data-animate-effect="fadeIn">--%>
+              <%--<span class="icon">--%>
+                <%--<span class="icon-lightbulb"></span>--%>
+              <%--</span>--%>
+                    <%--<h3 class="mb-4">Intuitive Idea</h3>--%>
+                    <%--<p>Even the all-powerful Pointing has no control about the blind texts it is an almost--%>
+                        <%--unorthographic life One day however a small line of blind text by the name of Lorem Ipsum--%>
+                        <%--decided to leave for the far World of Grammar.</p>--%>
+                    <%--<p><a href="#" class="site-link">Learn More <i class="icon-chevron-right"></i></a></p>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+
+        <%--</div>--%>
+    <%--</div>--%>
+<%--</section>--%>
+
+<%--<section class="site-section" id="section-features">--%>
+    <%--<div class="container">--%>
+        <%--<div class="row site-section">--%>
+            <%--<div class="col-md-8">--%>
+                <%--<p><img src="/static/images/laptop_1.jpg" alt="" class="img-fluid"></p>--%>
+            <%--</div>--%>
+            <%--<div class="col-md-4">--%>
+                <%--<h3 class="mb-3">Big Benefits for Small Business</h3>--%>
+                <%--<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic--%>
+                    <%--life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the--%>
+                    <%--far World of Grammar.</p>--%>
+
+                <%--<ul class="site-list">--%>
+                    <%--<li class="site-check">Pointing has no control</li>--%>
+                    <%--<li class="site-check">A small river named Duden flows</li>--%>
+                    <%--<li class="site-check">Roasted parts of sentences fly into your mouth</li>--%>
+                <%--</ul>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+
+        <%--<div class="row">--%>
+            <%--<div class="col-md-8 order-md-2">--%>
+                <%--<p><img src="/static/images/laptop_1.jpg" alt="" class="img-fluid"></p>--%>
+            <%--</div>--%>
+            <%--<div class="col-md-4 order-md-1">--%>
+                <%--<h3 class="mb-3">All in One Place</h3>--%>
+                <%--<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic--%>
+                    <%--life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the--%>
+                    <%--far World of Grammar.</p>--%>
+
+                <%--<ul class="site-list">--%>
+                    <%--<li class="site-check">Pointing has no control</li>--%>
+                    <%--<li class="site-check">A small river named Duden flows</li>--%>
+                    <%--<li class="site-check">Roasted parts of sentences fly into your mouth</li>--%>
+                <%--</ul>--%>
+            <%--</div>--%>
+        <%--</div>--%>
+
+
+    <%--</div>--%>
+<%--</section>--%>
 
 
 <section class="site-section" id="section-portfolio">
@@ -454,145 +453,91 @@
             <div class="col-md-6">
                 <h2 class="mb-5">Education</h2>
                 <div class="resume-item mb-4">
-                    <span class="date"><span class="icon-calendar"></span> March 2013 - Present</span>
-                    <h3>Masteral in Information Technology</h3>
+                    <span class="date"><span class="icon-calendar"></span> September 2016 - Present</span>
+                    <h3>Computer Science and Technology</h3>
                     <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
                         unorthographic.</p>
-                    <span class="school">New York University</span>
+                    <span class="school">Beijing Forestry University</span>
                 </div>
-
-                <div class="resume-item mb-4">
-                    <span class="date"><span class="icon-calendar"></span> March 2013 - Present Deacember.</span>
-                    <h3>Masteral in Information Technology</h3>
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                        unorthographic.</p>
-                    <span class="school">New York University</span>
-                </div>
-
-                <div class="resume-item mb-4">
-                    <span class="date"><span class="icon-calendar"></span> March 2013 - Present</span>
-                    <h3>Masteral in Information Technology</h3>
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                        unorthographic.</p>
-                    <span class="school">New York University</span>
-                </div>
-
-                <div class="resume-item mb-4">
-                    <span class="date"><span class="icon-calendar"></span> March 2013 - Present Deacember.</span>
-                    <h3>Masteral in Information Technology</h3>
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                        unorthographic.</p>
-                    <span class="school">New York University</span>
-                </div>
-
             </div>
             <div class="col-md-6">
-
-
                 <h2 class="mb-5">Experience</h2>
-
                 <div class="resume-item mb-4">
-                    <span class="date"><span class="icon-calendar"></span> March 2013 - Present</span>
-                    <h3>Lead Product Designer</h3>
+                    <span class="date"><span class="icon-calendar"></span> July 2018 - October 2018</span>
+                    <h3>Intern</h3>
                     <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
                         unorthographic.</p>
-                    <span class="school">Github</span>
+                    <span class="school">Bytedance</span>
                 </div>
-
-                <div class="resume-item mb-4">
-                    <span class="date"><span class="icon-calendar"></span> March 2013 - Present</span>
-                    <h3>Lead Product Designer</h3>
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                        unorthographic.</p>
-                    <span class="school">Facebook</span>
-                </div>
-
-                <div class="resume-item mb-4">
-                    <span class="date"><span class="icon-calendar"></span> March 2013 - Present</span>
-                    <h3>Lead Product Designer</h3>
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                        unorthographic.</p>
-                    <span class="school">Twitter</span>
-                </div>
-
-                <div class="resume-item mb-4">
-                    <span class="date"><span class="icon-calendar"></span> March 2013 - Present</span>
-                    <h3>Lead Product Designer</h3>
-                    <p>Even the all-powerful Pointing has no control about the blind texts it is an almost
-                        unorthographic.</p>
-                    <span class="school">Shopify</span>
-                </div>
-
-
             </div>
         </div>
     </div>
 </section> <!-- .section -->
 
-<section class="site-section" id="section-blog">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 mb-5">
-                <div class="section-heading text-center">
-                    <h2>Blog on <strong>Medium</strong></h2>
-                </div>
-            </div>
-        </div>
+<%--<section class="site-section" id="section-blog">--%>
+    <%--<div class="container">--%>
+        <%--<div class="row">--%>
+            <%--<div class="col-md-12 mb-5">--%>
+                <%--<div class="section-heading text-center">--%>
+                    <%--<h2>Blog on <strong>Medium</strong></h2>--%>
+                <%--</div>--%>
+            <%--</div>--%>
+        <%--</div>--%>
 
-        <div class="row">
-            <div class="col-sm-6 col-lg-4 mb-4">
-                <div class="blog-entry">
-                    <a href="#"><img src="/static/images/post_1.jpg" alt="Image placeholder" class="img-fluid"></a>
-                    <div class="blog-entry-text">
-                        <h3><a href="#">Creative Product Designer From Facebook</a></h3>
-                        <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an
-                            almost unorthographic.</p>
+        <%--<div class="row">--%>
+            <%--<div class="col-sm-6 col-lg-4 mb-4">--%>
+                <%--<div class="blog-entry">--%>
+                    <%--<a href="#"><img src="/static/images/post_1.jpg" alt="Image placeholder" class="img-fluid"></a>--%>
+                    <%--<div class="blog-entry-text">--%>
+                        <%--<h3><a href="#">Creative Product Designer From Facebook</a></h3>--%>
+                        <%--<p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an--%>
+                            <%--almost unorthographic.</p>--%>
 
-                        <div class="meta">
-                            <a href="#"><span class="icon-calendar"></span> Aug 7, 2018</a>
-                            <a href="#"><span class="icon-bubble"></span> 5 Comments</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <%--<div class="meta">--%>
+                            <%--<a href="#"><span class="icon-calendar"></span> Aug 7, 2018</a>--%>
+                            <%--<a href="#"><span class="icon-bubble"></span> 5 Comments</a>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
 
-            <div class="col-sm-6 col-lg-4 mb-4">
-                <div class="blog-entry">
-                    <a href="#"><img src="/static/images/post_2.jpg" alt="Image placeholder" class="img-fluid"></a>
-                    <div class="blog-entry-text">
-                        <h3><a href="#">Creative Product Designer From Facebook</a></h3>
-                        <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an
-                            almost unorthographic.</p>
+            <%--<div class="col-sm-6 col-lg-4 mb-4">--%>
+                <%--<div class="blog-entry">--%>
+                    <%--<a href="#"><img src="/static/images/post_2.jpg" alt="Image placeholder" class="img-fluid"></a>--%>
+                    <%--<div class="blog-entry-text">--%>
+                        <%--<h3><a href="#">Creative Product Designer From Facebook</a></h3>--%>
+                        <%--<p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an--%>
+                            <%--almost unorthographic.</p>--%>
 
-                        <div class="meta">
-                            <a href="#"><span class="icon-calendar"></span> Aug 7, 2018</a>
-                            <a href="#"><span class="icon-bubble"></span> 5 Comments</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <%--<div class="meta">--%>
+                            <%--<a href="#"><span class="icon-calendar"></span> Aug 7, 2018</a>--%>
+                            <%--<a href="#"><span class="icon-bubble"></span> 5 Comments</a>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
 
-            <div class="col-sm-6 col-lg-4 mb-4">
-                <div class="blog-entry">
-                    <a href="#"><img src="/static/images/post_3.jpg" alt="Image placeholder" class="img-fluid"></a>
-                    <div class="blog-entry-text">
-                        <h3><a href="#">Creative Product Designer From Facebook</a></h3>
-                        <p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an
-                            almost unorthographic.</p>
+            <%--<div class="col-sm-6 col-lg-4 mb-4">--%>
+                <%--<div class="blog-entry">--%>
+                    <%--<a href="#"><img src="/static/images/post_3.jpg" alt="Image placeholder" class="img-fluid"></a>--%>
+                    <%--<div class="blog-entry-text">--%>
+                        <%--<h3><a href="#">Creative Product Designer From Facebook</a></h3>--%>
+                        <%--<p class="mb-4">Even the all-powerful Pointing has no control about the blind texts it is an--%>
+                            <%--almost unorthographic.</p>--%>
 
-                        <div class="meta">
-                            <a href="#"><span class="icon-calendar"></span> Aug 7, 2018</a>
-                            <a href="#"><span class="icon-bubble"></span> 5 Comments</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <%--<div class="meta">--%>
+                            <%--<a href="#"><span class="icon-calendar"></span> Aug 7, 2018</a>--%>
+                            <%--<a href="#"><span class="icon-bubble"></span> 5 Comments</a>--%>
+                        <%--</div>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+            <%--</div>--%>
 
-        </div>
-    </div>
-</section>
+        <%--</div>--%>
+    <%--</div>--%>
+<%--</section>--%>
 
-<section class="site-section bg-light" id="section-contact">
+<section class="site-section" id="section-contact" style="padding-bottom: 1em;">
     <div class="container">
         <div class="row">
             <div class="col-md-12 mb-5">
@@ -626,9 +571,9 @@
                             <%
                                 if (username != null) {
                             %>
-                            <div class="col-md-8"style="margin-top: 5px">
+                            <div class="col-md-8" style="margin-top: 5px">
                                 <input type="submit" class="btn btn-primary  px-4 py-3"
-                                                     value="Leave Message">
+                                       value="Leave Message">
                             </div>
                             <%
                                 }
@@ -647,17 +592,17 @@
                 <ul class="site-contact-details">
                     <li>
                         <span class="text-uppercase">Email</span>
-                        chennan@bjfu.edu.cn
+                        <strong>chennan@bjfu.edu.cn</strong>
                     </li>
                     <li>
                         <span class="text-uppercase">Phone</span>
-                        +86 176 1060 2157
+                        <strong>+86 176 1060 2157</strong>
                     </li>
                     <li>
                         <span class="text-uppercase">Address</span>
-                        Beijing, China <br>
-                        35th Qinghuadonglu <br>
-                        Beijing Forestry University
+                        <strong>Beijing, China</strong> <br>
+                        <strong>35th Qinghuadonglu </strong><br>
+                        <strong>Beijing Forestry University</strong>
                     </li>
                 </ul>
             </div>
@@ -666,7 +611,7 @@
 </section>
 
 
-<footer class="site-footer">
+<footer class="site-footer bg-light">
     <div class="container">
         <div class="row mb-3">
             <div class="col-md-12 text-center">

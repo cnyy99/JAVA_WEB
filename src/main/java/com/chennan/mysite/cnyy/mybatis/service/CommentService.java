@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 @Service
 public class CommentService {
@@ -56,10 +57,11 @@ public class CommentService {
         return commentMapper.selectByPrimaryKey(id);
     }
 
-    public Comment selectByText(String text) {
+    public Comment selectByTextAndUserNameAndPid(String text, String userName,Integer pid) {
         CommentExample commentExample=new CommentExample();
-        commentExample.or().andCommentTextLike(text);
-        return commentMapper.selectByExample(commentExample).get(0);
+        commentExample.or().andCommentTextLike(text).andUserNameEqualTo(userName).andCommentPidEqualTo(pid);
+        List<Comment> commentList=commentMapper.selectByExample(commentExample);
+        return commentList.get(commentList.size()-1);
     }
     public List<Comment> getCommentsById(Integer id) {
         List<Comment> commentList=new ArrayList<>();

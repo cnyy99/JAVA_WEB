@@ -60,6 +60,12 @@ a {
 			"height":"33",
 			"agoComment":agoComment,
 			"callback":function(comment){
+                var SESSION_USER_KEY="${SESSION_USER_KEY}";
+			    if(SESSION_USER_KEY=="")
+                {
+                    alert("请先登录后再留言");
+                    self.location='/login';
+                }
 			    for (var i in comment)
                 {
                     console.log(i+"   "+comment[i]);

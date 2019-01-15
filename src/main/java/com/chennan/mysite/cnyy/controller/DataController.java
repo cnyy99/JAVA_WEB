@@ -158,11 +158,13 @@ public class DataController {
         Comment comment=new Comment();
         comment.setCommentPid(commentPid);
         comment.setCommentText(commentText);
-        comment.setCommentTime(new Date());
-        comment.setUserId(userService.getUserId((String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY)));
+        Date date=new Date();
+        comment.setCommentTime(date);
+        String userName=(String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY);
+        comment.setUserId(userService.getUserId(userName));
         comment.setUserName((String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY));
         commentService.insert(comment);
-        return commentService.selectByText(commentText);
+        return commentService.selectByTextAndUserNameAndPid(commentText,userName,commentPid);
     }
     @GetMapping("/deleteComment")
     public Integer deleteComment(@RequestParam Integer commentId) {
