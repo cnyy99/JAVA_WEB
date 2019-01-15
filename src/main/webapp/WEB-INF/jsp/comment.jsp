@@ -38,7 +38,7 @@ a {
 	
 	<%--<script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>--%>
     <script type="text/javascript" src="/static/js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="/static/js/zyComment.js"></script>
+    <script type="text/javascript" src="/static/js/comment-min.js"></script>
 	
 	<script type="text/javascript">
         $.ajax({
