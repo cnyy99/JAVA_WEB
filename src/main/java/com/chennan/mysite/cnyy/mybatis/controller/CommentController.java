@@ -36,7 +36,7 @@ public class CommentController {
         comment.setUserId(userService.getUserId((String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY)));
         comment.setUserName((String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY));
         commentService.insert(comment);
-        return "redirect:/index";
+        return "redirect:/comment";
     }
 
     @PostMapping("/comment/psave")
