@@ -37,4 +37,10 @@ public class IndexController {
         return "comment";
     }
 
+    @GetMapping("/videos")
+    public String ss()
+    {
+        return "videos";
+    }
+
 }

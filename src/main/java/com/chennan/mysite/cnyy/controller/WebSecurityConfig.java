@@ -33,7 +33,7 @@ public class WebSecurityConfig extends WebMvcConfigurerAdapter {
     public final static String SKILL_KEY = "SKILL_KEY";
     public final static Integer SKILL_NUM_KEY = 9;
     public final static String COURSE_KEY = "COURSE_KEY";
-    public final static Integer COURSE_NUM_KEY = 1;
+    public final static Integer COURSE_NUM_KEY = 60;
     public final static Integer COOKIE_MAX_AGE = 60 * 60 * 24;
     public final static String PASSWORD_SALT = "ddFjr!vn$BJ43tpAqw#y";
 
