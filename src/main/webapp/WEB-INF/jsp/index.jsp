@@ -111,7 +111,7 @@
     <div class="container">
         <div class="row mb-5 align-items-center">
             <div class="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
-                <img src="/static/images/image_1.jpg" alt="Image placeholder" class="img-fluid">
+                <img src="/static/images/us1.jpg" alt="Image placeholder" class="img-fluid">
             </div>
             <div class="col-lg-5 pl-lg-5">
                 <div class="section-heading">
