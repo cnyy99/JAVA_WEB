@@ -54,7 +54,7 @@
         </div>
     </div>
     <div class="col-sm-3">
-        <h3><a href="/druid">database click here</a></h3>
+        <h3><a href="/druid">database click here</a> &nbsp;&nbsp;&nbsp;  <a href="/index">goback to index</a></h3>
     </div>
 </div>
 
