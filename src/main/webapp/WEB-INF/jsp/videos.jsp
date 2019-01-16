@@ -26,62 +26,62 @@
 
 <div class="row mb-5">
     <div class="container" style="border: #0c5460">
-    <video id="us1" class="video-js  m-auto" controls preload="auto" width="640" height="300"
-           poster="/static/images/us11.jpg" data-setup="{}">
-        <source src="/static/images/us1.mp4" type='video/mp4'>
-        <p class="vjs-no-js">
-            To view this video please enable JavaScript, and consider upgrading to a web browser that
-            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-        </p>
-    </video>
+        <video id="us1" class="video-js  m-auto" controls preload="auto" width="640" height="300"
+               poster="/static/images/us11.jpg" data-setup="{}">
+            <source src="/static/images/us1.mp4" type='video/mp4'>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
     </div>
 </div>
 <div class="row mb-5">
     <div class="container" style="border: #0c5460">
-    <video id="us2" class="video-js  m-auto" controls preload="auto" width="640" height="300"
-           poster="/static/images/us22.jpg" data-setup="{}">
-        <source src="/static/images/us2.mp4" type='video/mp4'>
-        <p class="vjs-no-js">
-            To view this video please enable JavaScript, and consider upgrading to a web browser that
-            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-        </p>
-    </video>
+        <video id="us2" class="video-js  m-auto" controls preload="auto" width="640" height="300"
+               poster="/static/images/us22.jpg" data-setup="{}">
+            <source src="/static/images/us2.mp4" type='video/mp4'>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
     </div>
 </div>
 <div class="row mb-5">
     <div class="container" style="border: #0c5460">
-    <video id="us3" class="video-js  m-auto" controls preload="auto" width="640" height="300"
-           poster="/static/images/us33.jpg" data-setup="{}">
-        <source src="/static/images/us3.mp4" type='video/mp4'>
-        <p class="vjs-no-js">
-            To view this video please enable JavaScript, and consider upgrading to a web browser that
-            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-        </p>
-    </video>
+        <video id="us3" class="video-js  m-auto" controls preload="auto" width="640" height="300"
+               poster="/static/images/us33.jpg" data-setup="{}">
+            <source src="/static/images/us3.mp4" type='video/mp4'>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
     </div>
 </div>
 <div class="row mb-5">
     <div class="container" style="border: #0c5460">
-    <video id="us4" class="video-js  m-auto" controls preload="auto" width="640" height="300"
-           poster="/static/images/us44.jpg" data-setup="{}">
-        <source src="/static/images/us4.mp4" type='video/mp4'>
-        <p class="vjs-no-js">
-            To view this video please enable JavaScript, and consider upgrading to a web browser that
-            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-        </p>
-    </video>
+        <video id="us4" class="video-js  m-auto" controls preload="auto" width="640" height="300"
+               poster="/static/images/us44.jpg" data-setup="{}">
+            <source src="/static/images/us4.mp4" type='video/mp4'>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
     </div>
 </div>
 <div class="row mb-5">
     <div class="container" style="border: #0c5460">
-    <video id="us5" class="video-js  m-auto" controls preload="auto" width="640" height="300"
-           poster="/static/images/us55.jpg" data-setup="{}">
-        <source src="/static/images/us5.mp4" type='video/mp4'>
-        <p class="vjs-no-js">
-            To view this video please enable JavaScript, and consider upgrading to a web browser that
-            <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
-        </p>
-    </video>
+        <video id="us5" class="video-js  m-auto" controls preload="auto" width="640" height="300"
+               poster="/static/images/us55.jpg" data-setup="{}">
+            <source src="/static/images/us5.mp4" type='video/mp4'>
+            <p class="vjs-no-js">
+                To view this video please enable JavaScript, and consider upgrading to a web browser that
+                <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+            </p>
+        </video>
     </div>
 </div>
 

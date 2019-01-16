@@ -23,7 +23,7 @@ public class IndexController {
 
     @GetMapping("/index")
     public ModelAndView index(HttpServletRequest request) {
-        HttpSession session=request.getSession();
+        HttpSession session = request.getSession();
         skillService.addSkillsToSession(session);
         courseService.addCoursesToSession(session);
 
@@ -32,14 +32,12 @@ public class IndexController {
     }
 
     @GetMapping("/comment")
-    public String s()
-    {
+    public String s() {
         return "comment";
     }
 
     @GetMapping("/videos")
-    public String ss()
-    {
+    public String ss() {
         return "videos";
     }
 

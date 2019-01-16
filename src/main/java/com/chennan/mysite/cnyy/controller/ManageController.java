@@ -15,24 +15,20 @@ import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.USER_TYPE_NOR
 public class ManageController {
 
     @GetMapping("/")
-    public String manage(HttpServletRequest request)
-    {
-        HttpSession session=request.getSession();
-        String  UserType=(String) session.getAttribute(SESSION_USERTYPE_KEY);
-        if(UserType==null||UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
-        {
+    public String manage(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String UserType = (String) session.getAttribute(SESSION_USERTYPE_KEY);
+        if (UserType == null || UserType.equalsIgnoreCase(USER_TYPE_NORMAL)) {
             return "/404";
         }
         return "manage";
     }
 
     @GetMapping("")
-    public String manage1(HttpServletRequest request)
-    {
-        HttpSession session=request.getSession();
-        String  UserType=(String) session.getAttribute(SESSION_USERTYPE_KEY);
-        if(UserType==null||UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
-        {
+    public String manage1(HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String UserType = (String) session.getAttribute(SESSION_USERTYPE_KEY);
+        if (UserType == null || UserType.equalsIgnoreCase(USER_TYPE_NORMAL)) {
             return "/404";
         }
         return "manage";
@@ -40,20 +36,19 @@ public class ManageController {
 
     @GetMapping("/skillmanage")
     public String skillmanage(HttpServletRequest request) {
-        HttpSession session=request.getSession();
-        String  UserType=(String) session.getAttribute(SESSION_USERTYPE_KEY);
-        if(UserType==null||UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
-        {
+        HttpSession session = request.getSession();
+        String UserType = (String) session.getAttribute(SESSION_USERTYPE_KEY);
+        if (UserType == null || UserType.equalsIgnoreCase(USER_TYPE_NORMAL)) {
             return "/404";
         }
         return "skillManage";
     }
+
     @GetMapping("/coursemanage")
     public String coursemanage(HttpServletRequest request) {
-        HttpSession session=request.getSession();
-        String  UserType=(String) session.getAttribute(SESSION_USERTYPE_KEY);
-        if(UserType==null||UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
-        {
+        HttpSession session = request.getSession();
+        String UserType = (String) session.getAttribute(SESSION_USERTYPE_KEY);
+        if (UserType == null || UserType.equalsIgnoreCase(USER_TYPE_NORMAL)) {
             return "/404";
         }
         return "courseManage";
@@ -61,10 +56,9 @@ public class ManageController {
 
     @GetMapping("/commentmanage")
     public String commentemanage(HttpServletRequest request) {
-        HttpSession session=request.getSession();
-        String  UserType=(String) session.getAttribute(SESSION_USERTYPE_KEY);
-        if(UserType==null||UserType.equalsIgnoreCase(USER_TYPE_NORMAL))
-        {
+        HttpSession session = request.getSession();
+        String UserType = (String) session.getAttribute(SESSION_USERTYPE_KEY);
+        if (UserType == null || UserType.equalsIgnoreCase(USER_TYPE_NORMAL)) {
             return "/404";
         }
         return "commentManage";

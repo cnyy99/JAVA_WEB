@@ -25,11 +25,11 @@ public class CommentController {
 
     @Autowired
     private CommentService commentService;
+
     @PostMapping("/comment/save")
-    public String saveComment(HttpServletRequest request, @RequestParam String commentText)
-    {
-        HttpSession session=request.getSession();
-        Comment comment=new Comment();
+    public String saveComment(HttpServletRequest request, @RequestParam String commentText) {
+        HttpSession session = request.getSession();
+        Comment comment = new Comment();
         comment.setCommentPid(0);
         comment.setCommentText(commentText);
         comment.setCommentTime(new Date());
@@ -40,10 +40,9 @@ public class CommentController {
     }
 
     @PostMapping("/comment/psave")
-    public String saveCommentP(HttpServletRequest request, @RequestParam String commentText,@RequestParam(required = false) Integer pid)
-    {
-        HttpSession session=request.getSession();
-        Comment comment=new Comment();
+    public String saveCommentP(HttpServletRequest request, @RequestParam String commentText, @RequestParam(required = false) Integer pid) {
+        HttpSession session = request.getSession();
+        Comment comment = new Comment();
         comment.setCommentPid(pid);
         comment.setCommentText(commentText);
         comment.setCommentTime(new Date());

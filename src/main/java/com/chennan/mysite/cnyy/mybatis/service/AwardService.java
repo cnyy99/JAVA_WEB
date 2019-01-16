@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Service
 public class AwardService {
     private Logger log = LoggerFactory.getLogger(MainController.class);
@@ -68,15 +69,14 @@ public class AwardService {
         }
     }
 
-    public List<Award> getAllAward()
-    {
-        AwardExample awardExample=new AwardExample();
+    public List<Award> getAllAward() {
+        AwardExample awardExample = new AwardExample();
         awardExample.or().andAwardIdIsNotNull();
-        return  awardMapper.selectByExample(awardExample);
+        return awardMapper.selectByExample(awardExample);
     }
 
     public PageInfo<Award> getAllAwardPage(int pageNo, int pageSize) {
-        PageHelper.startPage(pageNo,pageSize);
+        PageHelper.startPage(pageNo, pageSize);
         PageInfo<Award> pageInfo = new PageInfo<>(getAllAward());
 
         return pageInfo;

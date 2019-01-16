@@ -139,7 +139,6 @@ public class DataController {
     }
 
 
-
     @GetMapping("/comments")
     public List<Comment> comments() {
         return commentService.getAllComment();
@@ -152,20 +151,20 @@ public class DataController {
     }
 
     @PostMapping("/commentshowinsert")
-    public Comment commentshowinsert(HttpServletRequest request, @RequestParam String commentText,@RequestParam Integer commentPid)
-    {
-        HttpSession session=request.getSession();
-        Comment comment=new Comment();
+    public Comment commentshowinsert(HttpServletRequest request, @RequestParam String commentText, @RequestParam Integer commentPid) {
+        HttpSession session = request.getSession();
+        Comment comment = new Comment();
         comment.setCommentPid(commentPid);
         comment.setCommentText(commentText);
-        Date date=new Date();
+        Date date = new Date();
         comment.setCommentTime(date);
-        String userName=(String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY);
+        String userName = (String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY);
         comment.setUserId(userService.getUserId(userName));
         comment.setUserName((String) session.getAttribute(WebSecurityConfig.SESSION_USER_KEY));
         commentService.insert(comment);
-        return commentService.selectByTextAndUserNameAndPid(commentText,userName,commentPid);
+        return commentService.selectByTextAndUserNameAndPid(commentText, userName, commentPid);
     }
+
     @GetMapping("/deleteComment")
     public Integer deleteComment(@RequestParam Integer commentId) {
         return commentService.deletePrimaryKey(commentId);

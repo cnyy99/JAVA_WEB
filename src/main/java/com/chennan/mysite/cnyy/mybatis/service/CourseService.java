@@ -43,7 +43,7 @@ public class CourseService {
     public Integer delete(String name) {
         CourseExample courseExample = new CourseExample();
         courseExample.or().andCourseNameEqualTo(name);
-        return  courseMapper.deleteByExample(courseExample);
+        return courseMapper.deleteByExample(courseExample);
     }
 
     /**
@@ -72,22 +72,20 @@ public class CourseService {
         }
     }
 
-    public List<Course> getAllCourse()
-    {
-        CourseExample courseExample=new CourseExample();
+    public List<Course> getAllCourse() {
+        CourseExample courseExample = new CourseExample();
         courseExample.or().andCourseIdIsNotNull();
-        return  courseMapper.selectByExample(courseExample);
+        return courseMapper.selectByExample(courseExample);
     }
 
-    public List<Course> getAllShowCourse()
-    {
-        CourseExample courseExample=new CourseExample();
+    public List<Course> getAllShowCourse() {
+        CourseExample courseExample = new CourseExample();
         courseExample.or().andCourseShowEqualTo(true);
         return courseMapper.selectByExample(courseExample);
     }
 
     public PageInfo<Course> getAllCoursePage(int pageNo, int pageSize) {
-        PageHelper.startPage(pageNo,pageSize);
+        PageHelper.startPage(pageNo, pageSize);
         PageInfo<Course> pageInfo = new PageInfo<>(getAllCourse());
 
         return pageInfo;

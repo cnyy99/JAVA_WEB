@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
 @Service
 public class CommentService {
     private Logger log = LoggerFactory.getLogger(MainController.class);
@@ -57,18 +58,19 @@ public class CommentService {
         return commentMapper.selectByPrimaryKey(id);
     }
 
-    public Comment selectByTextAndUserNameAndPid(String text, String userName,Integer pid) {
-        CommentExample commentExample=new CommentExample();
+    public Comment selectByTextAndUserNameAndPid(String text, String userName, Integer pid) {
+        CommentExample commentExample = new CommentExample();
         commentExample.or().andCommentTextLike(text).andUserNameEqualTo(userName).andCommentPidEqualTo(pid);
-        List<Comment> commentList=commentMapper.selectByExample(commentExample);
-        return commentList.get(commentList.size()-1);
+        List<Comment> commentList = commentMapper.selectByExample(commentExample);
+        return commentList.get(commentList.size() - 1);
     }
+
     public List<Comment> getCommentsById(Integer id) {
-        List<Comment> commentList=new ArrayList<>();
-        CommentExample commentExample=new CommentExample();
+        List<Comment> commentList = new ArrayList<>();
+        CommentExample commentExample = new CommentExample();
         commentExample.or().andCommentPidEqualTo(id);
-        commentList=commentMapper.selectByExample(commentExample);
-        commentList.add(0,commentMapper.selectByPrimaryKey(id));
+        commentList = commentMapper.selectByExample(commentExample);
+        commentList.add(0, commentMapper.selectByPrimaryKey(id));
         return commentList;
     }
 
@@ -83,15 +85,14 @@ public class CommentService {
 //        }
 //    }
 
-    public List<Comment> getAllComment()
-    {
-        CommentExample commentExample=new CommentExample();
+    public List<Comment> getAllComment() {
+        CommentExample commentExample = new CommentExample();
         commentExample.or().andCommentIdIsNotNull();
-        return  commentMapper.selectByExample(commentExample);
+        return commentMapper.selectByExample(commentExample);
     }
 
     public PageInfo<Comment> getAllCommentPage(int pageNo, int pageSize) {
-        PageHelper.startPage(pageNo,pageSize);
+        PageHelper.startPage(pageNo, pageSize);
         PageInfo<Comment> pageInfo = new PageInfo<>(getAllComment());
 
         return pageInfo;

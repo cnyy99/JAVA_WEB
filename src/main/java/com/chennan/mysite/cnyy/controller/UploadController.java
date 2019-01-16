@@ -1,4 +1,5 @@
 package com.chennan.mysite.cnyy.controller;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -36,7 +37,7 @@ public class UploadController {
         }
 
         String fileName = file.getOriginalFilename();
-        LOGGER.info("文件名为:"+fileName);
+        LOGGER.info("文件名为:" + fileName);
         String filePath = "D:\\我的文雅\\大三上\\temp\\";
         File dest = new File(filePath + fileName);
         try {
@@ -48,6 +49,7 @@ public class UploadController {
         }
         return "上传失败！";
     }
+
     @GetMapping("/multiUpload")
     public String multiUpload() {
         return "multiUpload";
