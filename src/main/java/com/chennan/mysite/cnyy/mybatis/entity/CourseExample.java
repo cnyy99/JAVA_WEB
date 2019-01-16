@@ -334,62 +334,52 @@ public class CourseExample {
             return (Criteria) this;
         }
 
-        public Criteria andCourseScoreEqualTo(String value) {
+        public Criteria andCourseScoreEqualTo(Integer value) {
             addCriterion("course_score =", value, "courseScore");
             return (Criteria) this;
         }
 
-        public Criteria andCourseScoreNotEqualTo(String value) {
+        public Criteria andCourseScoreNotEqualTo(Integer value) {
             addCriterion("course_score <>", value, "courseScore");
             return (Criteria) this;
         }
 
-        public Criteria andCourseScoreGreaterThan(String value) {
+        public Criteria andCourseScoreGreaterThan(Integer value) {
             addCriterion("course_score >", value, "courseScore");
             return (Criteria) this;
         }
 
-        public Criteria andCourseScoreGreaterThanOrEqualTo(String value) {
+        public Criteria andCourseScoreGreaterThanOrEqualTo(Integer value) {
             addCriterion("course_score >=", value, "courseScore");
             return (Criteria) this;
         }
 
-        public Criteria andCourseScoreLessThan(String value) {
+        public Criteria andCourseScoreLessThan(Integer value) {
             addCriterion("course_score <", value, "courseScore");
             return (Criteria) this;
         }
 
-        public Criteria andCourseScoreLessThanOrEqualTo(String value) {
+        public Criteria andCourseScoreLessThanOrEqualTo(Integer value) {
             addCriterion("course_score <=", value, "courseScore");
             return (Criteria) this;
         }
 
-        public Criteria andCourseScoreLike(String value) {
-            addCriterion("course_score like", value, "courseScore");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseScoreNotLike(String value) {
-            addCriterion("course_score not like", value, "courseScore");
-            return (Criteria) this;
-        }
-
-        public Criteria andCourseScoreIn(List<String> values) {
+        public Criteria andCourseScoreIn(List<Integer> values) {
             addCriterion("course_score in", values, "courseScore");
             return (Criteria) this;
         }
 
-        public Criteria andCourseScoreNotIn(List<String> values) {
+        public Criteria andCourseScoreNotIn(List<Integer> values) {
             addCriterion("course_score not in", values, "courseScore");
             return (Criteria) this;
         }
 
-        public Criteria andCourseScoreBetween(String value1, String value2) {
+        public Criteria andCourseScoreBetween(Integer value1, Integer value2) {
             addCriterion("course_score between", value1, value2, "courseScore");
             return (Criteria) this;
         }
 
-        public Criteria andCourseScoreNotBetween(String value1, String value2) {
+        public Criteria andCourseScoreNotBetween(Integer value1, Integer value2) {
             addCriterion("course_score not between", value1, value2, "courseScore");
             return (Criteria) this;
         }
@@ -531,6 +521,66 @@ public class CourseExample {
 
         public Criteria andCourseTermNotBetween(String value1, String value2) {
             addCriterion("course_term not between", value1, value2, "courseTerm");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowIsNull() {
+            addCriterion("course_show is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowIsNotNull() {
+            addCriterion("course_show is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowEqualTo(Boolean value) {
+            addCriterion("course_show =", value, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowNotEqualTo(Boolean value) {
+            addCriterion("course_show <>", value, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowGreaterThan(Boolean value) {
+            addCriterion("course_show >", value, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("course_show >=", value, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowLessThan(Boolean value) {
+            addCriterion("course_show <", value, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowLessThanOrEqualTo(Boolean value) {
+            addCriterion("course_show <=", value, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowIn(List<Boolean> values) {
+            addCriterion("course_show in", values, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowNotIn(List<Boolean> values) {
+            addCriterion("course_show not in", values, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowBetween(Boolean value1, Boolean value2) {
+            addCriterion("course_show between", value1, value2, "courseShow");
+            return (Criteria) this;
+        }
+
+        public Criteria andCourseShowNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("course_show not between", value1, value2, "courseShow");
             return (Criteria) this;
         }
     }

@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8">
     <link rel='stylesheet' href="/static/css/style_register.css" type="text/css"/>
+    <title>Chennan's website &mdash; Register</title>
     <script src="https://cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js" type="text/javascript"></script>
     <script type="text/javascript"
@@ -27,7 +28,11 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72"
           href="/static/assets/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="/static/assets/ico/apple-touch-icon-57-precomposed.png">
-
+    <style>
+        .help-block{
+            color: red;
+        }
+    </style>
 </head>
 
 <body>
@@ -39,6 +44,10 @@
         <div class="lable-2 form-group">
             <p style="color: red">${SESSION_MSG_KEY}</p>
             <input type="text" class="text form-control" name="username" placeholder="请输入用户名">
+        </div>
+        <div class="lable-2 form-group">
+            <p style="color: red">${SESSION_MSG_EMAIL_KEY}</p>
+            <input type="text" class="text form-control" name="email" placeholder="请输入邮箱">
         </div>
         <div class="clear"></div>
         <div class="lable-2 form-group">
@@ -99,6 +108,16 @@
                         identical: {
                             field: 'password',
                             message: '两次输入的密码不同'
+                        }
+                    }
+                },
+                email:{
+                    validators: {
+                        notEmpty: {
+                            message: '邮箱不能为空'
+                        },
+                        emailAddress: {
+                            message: '邮箱地址无效'
                         }
                     }
                 }

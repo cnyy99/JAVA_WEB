@@ -18,9 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SESSION_MSG_KEY;
-import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SESSION_USERTYPE_KEY;
-import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.SUCCESS;
+import static com.chennan.mysite.cnyy.controller.WebSecurityConfig.*;
 
 
 @Service
@@ -50,68 +48,96 @@ public class UserService {
         UserExample userExample = new UserExample();
         userExample.or().andUserNameEqualTo(name);
         List<User> userList = userMapper.selectByExample(userExample);
-        if (userList.size()==0) {
+        if (userList.size() == 0) {
             return null;
         } else {
             return userList.get(0);
         }
     }
 
-    public Map<String,String> register(String username, String password,String type) {
-        Map<String,String> stringMap=new HashMap<>();
-        stringMap.put(SESSION_USERTYPE_KEY,type);
+    public User selectByEmail(String email) {
+        UserExample userExample = new UserExample();
+        userExample.or().andUserEmailEqualTo(email);
+        List<User> userList = userMapper.selectByExample(userExample);
+        if (userList.size() == 0) {
+            return null;
+        } else {
+            return userList.get(0);
+        }
+    }
+
+    public Map<String, String> register(String username, String password, String email, String type) {
+        Map<String, String> stringMap = new HashMap<>();
+        stringMap.put(SESSION_USERTYPE_KEY, type);
         if (StringUtils.isBlank(username)) {
-            stringMap.put(SESSION_MSG_KEY,"用户名不能为空");
+            stringMap.put(SESSION_MSG_KEY, "用户名不能为空");
             return stringMap;
         }
 
         if (StringUtils.isBlank(password)) {
-            stringMap.put(SESSION_MSG_KEY,"密码不能为空");
+            stringMap.put(SESSION_MSG_KEY, "密码不能为空");
             return stringMap;
         }
 
         User u = selectByName(username);
         if (u != null) {
-            stringMap.put(SESSION_MSG_KEY,"用户名已经被占用");
+            stringMap.put(SESSION_MSG_KEY, "用户名已经被占用");
+            stringMap.put(SESSION_MSG_EMAIL_KEY, "");
+            return stringMap;
+        }
+        User u1 = selectByEmail(email);
+        if (u1 != null) {
+            stringMap.put(SESSION_MSG_EMAIL_KEY, "邮箱已经被占用");
+            stringMap.put(SESSION_MSG_KEY, "");
             return stringMap;
         }
 
         User user = new User();
         user.setUserName(username);
-        user.setUserPassword(DataHelper.getSHA256Str(password));
+        user.setUserPassword(DataHelper.getSHA256Str(password + PASSWORD_SALT));
         user.setUserType(type);
         insert(user);
-        stringMap.put(SESSION_MSG_KEY,SUCCESS);
+        stringMap.put(SESSION_MSG_KEY, SUCCESS);
         return stringMap;
 
 
     }
 
-    public Map<String,String> login(String username, String password) {
-        Map<String,String> stringMap=new HashMap<>();
+    public Map<String, String> login(String username, String password) {
+        Map<String, String> stringMap = new HashMap<>();
 
         User u = selectByName(username);
         if (u == null) {
-            stringMap.put(SESSION_MSG_KEY,"用户名不存在");
+            stringMap.put(SESSION_MSG_KEY, "用户名不存在");
             return stringMap;
         }
 
-        if (!DataHelper.getSHA256Str(password).equals(u.getUserPassword())) {
+        if (!DataHelper.getSHA256Str(password + PASSWORD_SALT).equals(u.getUserPassword())) {
 //        if (!password.equals(u.getUserPassword())) {
-            stringMap.put(SESSION_MSG_KEY,"密码错误");
+            stringMap.put(SESSION_MSG_KEY, "密码错误");
             return stringMap;
         }
-        stringMap.put(SESSION_MSG_KEY,SUCCESS);
-        stringMap.put(SESSION_USERTYPE_KEY,u.getUserType());
+        stringMap.put(SESSION_MSG_KEY, SUCCESS);
+        stringMap.put(SESSION_USERTYPE_KEY, u.getUserType());
         return stringMap;
     }
 
 
-
     public PageInfo<User> getAllUsersPage(int pageNo, int pageSize) {
-        PageHelper.startPage(pageNo,pageSize);
+        PageHelper.startPage(pageNo, pageSize);
         PageInfo<User> pageInfo = new PageInfo<>(getAllUsers());
 
         return pageInfo;
+    }
+
+    public Integer getUserId(String userName) {
+        UserExample userExample = new UserExample();
+        userExample.or().andUserNameEqualTo(userName);
+        List<User> userList = userMapper.selectByExample(userExample);
+        if (userList.size() == 0) {
+            return -1;
+        } else {
+            return userList.get(0).getUserId();
+        }
     }
 }

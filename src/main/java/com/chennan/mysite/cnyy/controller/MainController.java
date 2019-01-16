@@ -40,9 +40,9 @@ public class MainController {
 
     @GetMapping("/")
     public String index(HttpServletRequest request) {
-        HttpSession session=request.getSession();
-        skillService.addSkills(session);
-        courseService.addCourses(session);
+        HttpSession session = request.getSession();
+        skillService.addSkillsToSession(session);
+        courseService.addCoursesToSession(session);
         return "index";
     }
 
@@ -50,10 +50,9 @@ public class MainController {
     public String toregister(HttpServletRequest request) {
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute(SESSION_USER_KEY);
-        if (username != null)
-        {
-            skillService.addSkills(session);
-            courseService.addCourses(session);
+        if (username != null) {
+            skillService.addSkillsToSession(session);
+            courseService.addCoursesToSession(session);
             return "redirect:/index";
         }
         return "register";
@@ -61,13 +60,14 @@ public class MainController {
 
     @PostMapping("/register")
     public String register(Model model,
-                           @RequestParam String username, @RequestParam String password, @RequestParam(defaultValue = USER_TYPE_NORMAL) String type) {
+                           @RequestParam String username, @RequestParam String password, @RequestParam String email, @RequestParam(defaultValue = USER_TYPE_NORMAL) String type) {
 
-        Map<String, String> msg = userService.register(username, password, type);
+        Map<String, String> msg = userService.register(username, password, email, type);
         if (msg.get(SESSION_MSG_KEY).equalsIgnoreCase(SUCCESS)) {
             return "login";
         } else {
             model.addAttribute(SESSION_MSG_KEY, msg.get(SESSION_MSG_KEY));
+            model.addAttribute(SESSION_MSG_EMAIL_KEY, msg.get(SESSION_MSG_EMAIL_KEY));
             return "register";
         }
     }
@@ -76,10 +76,9 @@ public class MainController {
     public String tologin(HttpServletRequest request) {
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute(SESSION_USER_KEY);
-        if (username != null)
-        {
-            skillService.addSkills(session);
-            courseService.addCourses(session);
+        if (username != null) {
+            skillService.addSkillsToSession(session);
+            courseService.addCoursesToSession(session);
             return "redirect:/index";
         }
         return "login";
@@ -109,8 +108,8 @@ public class MainController {
             response.addCookie(url);
             response.addCookie(type);
             session.setAttribute(SESSION_USER_KEY, username);
-            skillService.addSkills(session);
-            courseService.addCourses(session);
+            skillService.addSkillsToSession(session);
+            courseService.addCoursesToSession(session);
             session.setAttribute(SESSION_USERTYPE_KEY, msg.get(SESSION_USERTYPE_KEY));
             //            view.addObject("username", username);
             return new ModelAndView("index");
@@ -137,8 +136,8 @@ public class MainController {
         // 移除session
         session.removeAttribute(SESSION_USER_KEY);
         session.removeAttribute(SESSION_USERTYPE_KEY);
-        skillService.addSkills(session);
-        courseService.addCourses(session);
+        skillService.addSkillsToSession(session);
+        courseService.addCoursesToSession(session);
         return "redirect:/index";
     }
 

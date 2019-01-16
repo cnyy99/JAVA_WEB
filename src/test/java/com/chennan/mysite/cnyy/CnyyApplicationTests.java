@@ -31,8 +31,6 @@ public class CnyyApplicationTests {
         user.setUserPassword("fas");
         user.setUserName("123");
         user.setUserType(USER_TYPE_NORMAL);
-        Map<String, String> stringMap=userService.register(user.getUserName(),DataHelper.getSHA256Str(user.getUserPassword()),user.getUserType());
-        System.out.println(stringMap.get(SESSION_MSG_KEY));
     }
 
 }

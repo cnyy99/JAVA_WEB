@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -45,10 +46,16 @@ public class SkillService {
         return skillMapper.deleteByExample(skillExample);
     }
 
+    public Integer deletePrimaryKey(Integer id) {
+
+        return skillMapper.deleteByPrimaryKey(id);
+    }
+
     /**
      * 更新
      */
     public Integer update(Skill skill) {
+
         return skillMapper.updateByPrimaryKeySelective(skill);
     }
 
@@ -58,6 +65,7 @@ public class SkillService {
     public Skill selectById(Integer id) {
         return skillMapper.selectByPrimaryKey(id);
     }
+
 
     public Skill selectByName(String name) {
         SkillExample userExample = new SkillExample();
@@ -78,6 +86,29 @@ public class SkillService {
         return skillMapper.selectByExample(skillExample);
     }
 
+    public List<Skill> findSkill(Integer skillId, String skillName, Integer skillScore, Boolean skillShow) {
+        SkillExample skillExample = new SkillExample();
+        if (skillId != null) {
+            skillExample.or().andSkillIdEqualTo(skillId);
+        }
+        if (skillName != null && !skillName.equalsIgnoreCase("")) {
+            skillExample.or().andSkillNameLike(skillName);
+        }
+        if (skillScore != null) {
+            skillExample.or().andSkillScoreEqualTo(skillScore);
+        }
+        if (skillShow != null) {
+            skillExample.or().andSkillShowEqualTo(skillShow);
+        }
+        return skillMapper.selectByExample(skillExample);
+    }
+
+    public List<Skill> getAllShowSkill() {
+        SkillExample skillExample = new SkillExample();
+        skillExample.or().andSkillShowEqualTo(true);
+        return skillMapper.selectByExample(skillExample);
+    }
+
     public PageInfo<Skill> getAllSkillPage(int pageNo, int pageSize) {
         PageHelper.startPage(pageNo, pageSize);
         PageInfo<Skill> pageInfo = new PageInfo<>(getAllSkill());
@@ -85,8 +116,8 @@ public class SkillService {
         return pageInfo;
     }
 
-    public void addSkills(HttpSession session) {
-        List<Skill> skillList = getAllSkill();
+    public void addSkillsToSession(HttpSession session) {
+        List<Skill> skillList = getAllShowSkill();
         List<Skill> newSkillList = (List<Skill>) DataHelper.getRandomList(skillList, SKILL_NUM_KEY);
         session.setAttribute(SKILL_KEY, newSkillList);
     }
