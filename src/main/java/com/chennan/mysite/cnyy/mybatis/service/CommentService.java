@@ -99,6 +99,9 @@ public class CommentService {
     }
 
     public Integer deletePrimaryKey(Integer commentId) {
+        CommentExample commentExample=new CommentExample();
+        commentExample.or().andCommentPidEqualTo(commentId);
+        commentMapper.deleteByExample(commentExample);
         return commentMapper.deleteByPrimaryKey(commentId);
     }
 }
